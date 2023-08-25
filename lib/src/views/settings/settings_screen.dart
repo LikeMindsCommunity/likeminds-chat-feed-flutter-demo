@@ -278,47 +278,48 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 height: 48,
                 onTap: () async {
                   userSelectedColor = selectedColor;
-                  if (nameController.text.isNotEmpty &&
-                      userIdController.text.isNotEmpty) {
+                  String enteredUserName = nameController.text.trim();
+                  String enteredUserId = userIdController.text.trim();
+                  String enteredApiKey = apiKeyController.text.trim();
+                  if ((enteredUserName.isNotEmpty && enteredUserId.isEmpty) ||
+                      (enteredUserId.isNotEmpty && enteredUserName.isEmpty)) {
+                    toast("Please enter both user name and id");
+                    return;
+                  }
+                  if (enteredUserName.isNotEmpty && enteredUserId.isNotEmpty) {
                     bool isApiKeyChanged = false;
 
                     await locator<LikeMindsService>()
                         .logout(LogoutRequestBuilder().build());
                     await UserLocalPreference.instance.clearLocalPrefs();
-                    if (apiKeyController.text.isNotEmpty) {
-                      existingApiKey = apiKeyController.text;
-                      LMFeed.setupFeed(apiKey: apiKeyController.text);
+                    if (enteredApiKey.isNotEmpty) {
+                      existingApiKey = enteredApiKey;
+                      LMFeed.setupFeed(apiKey: enteredApiKey);
                       await UserLocalPreference.instance.storeApiKey(
-                          apiKeyController.text.isEmpty
-                              ? ''
-                              : apiKeyController.text);
+                          enteredApiKey.isEmpty ? '' : enteredApiKey.trim());
                       isApiKeyChanged = true;
                     }
-                    if (nameController.text.isNotEmpty &&
-                        userIdController.text.isNotEmpty) {
+
+                    await UserLocalPreference.instance
+                        .storeUserName(enteredUserName);
+                    await UserLocalPreference.instance
+                        .storeUserId(enteredUserId);
+                    InitiateUserResponse response =
+                        await locator<LikeMindsService>()
+                            .initiateUser((InitiateUserRequestBuilder()
+                                  ..apiKey(existingApiKey)
+                                  ..userId(enteredUserId)
+                                  ..userName(enteredUserName)
+                                  ..isGuest(false))
+                                .build());
+                    if (response.success) {
                       await UserLocalPreference.instance
-                          .storeUserName(nameController.text);
-                      await UserLocalPreference.instance
-                          .storeUserId(userIdController.text);
-                      InitiateUserResponse response =
-                          await locator<LikeMindsService>()
-                              .initiateUser((InitiateUserRequestBuilder()
-                                    ..apiKey(existingApiKey)
-                                    ..userId(userIdController.text)
-                                    ..userName(nameController.text)
-                                    ..isGuest(false))
-                                  .build());
-                      if (response.success) {
-                        await UserLocalPreference.instance
-                            .storeUserDataFromInitiateUserResponse(response);
-                      } else {
-                        toast(response.errorMessage ?? 'An error occurred');
-                        return;
-                      }
+                          .storeUserDataFromInitiateUserResponse(response);
                     } else {
-                      toast("Please enter name and user id");
+                      toast(response.errorMessage ?? 'An error occurred');
                       return;
                     }
+
                     if (isApiKeyChanged) {
                       widget.universalFeedRefreshCallback();
                     }
