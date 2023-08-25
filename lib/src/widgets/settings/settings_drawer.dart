@@ -1,0 +1,103 @@
+import 'package:flutter/material.dart';
+import 'package:likeminds_feed/likeminds_feed.dart';
+import 'package:likeminds_feed_ui_fl/likeminds_feed_ui_fl.dart';
+import 'package:likeminds_flutter_feed_sample/likeminds_flutter_feed_sample.dart';
+import 'package:likeminds_flutter_feed_sample/src/utils/constants/ui_constants.dart';
+import 'package:likeminds_flutter_feed_sample/src/views/settings/settings_screen.dart';
+import 'package:likeminds_flutter_feed_sample/src/widgets/user_tile_widget.dart';
+
+class SettingsDrawer extends StatefulWidget {
+  Function universalFeedRefreshCallback;
+  SettingsDrawer({
+    Key? key,
+    required this.universalFeedRefreshCallback,
+  }) : super(key: key);
+
+  @override
+  State<SettingsDrawer> createState() => _SettingsDrawerState();
+}
+
+class _SettingsDrawerState extends State<SettingsDrawer> {
+  @override
+  Widget build(BuildContext context) {
+    User user = UserLocalPreference.instance.fetchUserData();
+    Size screenSize = MediaQuery.of(context).size;
+    return Drawer(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            height: screenSize.height * 0.25,
+            color: Colors.black87,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.only(left: 20),
+                  child: LMUserTile(
+                    user: user,
+                    titleText: LMTextView(
+                      text: user.name,
+                      textStyle: const TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
+                kVerticalPaddingLarge,
+              ],
+            ),
+          ),
+          kVerticalPaddingLarge,
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: LMTextView(
+                text: "Settings", textStyle: TextStyle(color: kGrey2Color)),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return SettingsScreen(
+                      universalFeedRefreshCallback:
+                          widget.universalFeedRefreshCallback,
+                    );
+                  },
+                ),
+              );
+            },
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              decoration: const BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    color: kGrey2Color,
+                    width: 0.2,
+                  ),
+                ),
+              ),
+              child: const Row(children: <Widget>[
+                Icon(Icons.settings_outlined, color: kGray1Color),
+                kHorizontalPaddingLarge,
+                LMTextView(
+                  text: "Settings",
+                  textStyle: TextStyle(
+                    color: kGray1Color,
+                    fontSize: 16,
+                  ),
+                ),
+              ]),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
