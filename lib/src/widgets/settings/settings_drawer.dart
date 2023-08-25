@@ -23,12 +23,13 @@ class _SettingsDrawerState extends State<SettingsDrawer> {
     User user = UserLocalPreference.instance.fetchUserData();
     Size screenSize = MediaQuery.of(context).size;
     return Drawer(
+      width: 300,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            height: screenSize.height * 0.25,
+            height: 142,
             color: Colors.black87,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -53,7 +54,7 @@ class _SettingsDrawerState extends State<SettingsDrawer> {
               ],
             ),
           ),
-          kVerticalPaddingLarge,
+          kVerticalPaddingXLarge,
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: LMTextView(
@@ -61,6 +62,7 @@ class _SettingsDrawerState extends State<SettingsDrawer> {
           ),
           GestureDetector(
             onTap: () {
+              Navigator.pop(context);
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -90,12 +92,25 @@ class _SettingsDrawerState extends State<SettingsDrawer> {
                   text: "Settings",
                   textStyle: TextStyle(
                     color: kGray1Color,
-                    fontSize: 16,
+                    fontSize: 15,
                   ),
                 ),
               ]),
             ),
-          )
+          ),
+          const Spacer(),
+          kVerticalPaddingLarge,
+          const SafeArea(
+            top: false,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: LMTextView(
+                text: "Powered by LikeMinds",
+                textStyle: TextStyle(color: kGrey3Color),
+              ),
+            ),
+          ),
+          kVerticalPaddingLarge,
         ],
       ),
     );
