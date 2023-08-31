@@ -152,44 +152,6 @@ class _HomePageState extends State<HomePage> {
         ),
         body: Column(
           children: [
-            // Container(
-            //   width: 100.w,
-            //   color: LMBranding.instance.headerColor,
-            //   child: Padding(
-            //     padding: EdgeInsets.symmetric(
-            //       horizontal: 4.w,
-            //       vertical: 2.h,
-            //     ),
-            //     child: SafeArea(
-            //       bottom: false,
-            //       child: Row(
-            //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //         children: [
-            //           Container(
-            //             padding: const EdgeInsets.only(bottom: 8),
-            //             alignment: Alignment.center,
-            //             child: Text(
-            //               communityName ?? "Chatrooms",
-            //               style: LMBranding.instance.fonts.medium
-            //                   .copyWith(fontSize: 14.sp, color: kWhiteColor),
-            //             ),
-            //           ),
-            //           //   communityName ??
-            //           // ),
-            //           PictureOrInitial(
-            //             fallbackText: userName ?? "..",
-            //             size: 30.sp,
-            //             imageUrl: user?.imageUrl,
-            //             backgroundColor:
-            //                 LMTheme.buttonColor == LMTheme.headerColor
-            //                     ? kSecondaryColor
-            //                     : LMTheme.buttonColor,
-            //           ),
-            //         ],
-            //       ),
-            //     ),
-            //   ),
-            // ),
             ExploreSpacesBar(backgroundColor: LMTheme.buttonColor),
             Expanded(
               child: BlocConsumer<HomeBloc, HomeState>(

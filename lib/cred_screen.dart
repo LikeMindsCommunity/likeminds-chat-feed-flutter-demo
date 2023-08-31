@@ -1,9 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:likeminds_flutter_sample/chat/likeminds_chat_mm_fl.dart';
-import 'package:likeminds_flutter_sample/chat/utils/branding/lm_branding.dart';
-import 'package:likeminds_flutter_sample/chat/utils/branding/theme.dart';
 import 'package:likeminds_flutter_sample/chat/utils/imports.dart';
 import 'package:likeminds_flutter_sample/feed/likeminds_flutter_feed_sample.dart';
 import 'package:likeminds_flutter_sample/feed/utils/constants/ui_constants.dart';
