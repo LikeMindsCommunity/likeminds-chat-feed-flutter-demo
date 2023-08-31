@@ -8,8 +8,10 @@ import 'package:likeminds_flutter_sample/chat/utils/constants/asset_constants.da
 import 'package:likeminds_flutter_sample/chat/utils/imports.dart';
 
 class ExploreSpacesBar extends StatelessWidget {
+  final Color backgroundColor;
   const ExploreSpacesBar({
     Key? key,
+    required this.backgroundColor,
   }) : super(key: key);
 
   @override
@@ -38,7 +40,7 @@ class ExploreSpacesBar extends StatelessWidget {
                 children: [
                   SvgPicture.asset(
                     kAssetExploreIcon,
-                    color: LMTheme.buttonColor,
+                    color: backgroundColor,
                     width: 8.w,
                   ),
                 ],
@@ -72,7 +74,7 @@ class ExploreSpacesBar extends StatelessWidget {
                           vertical: 1.w,
                         ),
                         decoration: BoxDecoration(
-                            color: LMTheme.buttonColor,
+                            color: backgroundColor,
                             borderRadius: BorderRadius.circular(4.w),
                             shape: BoxShape.rectangle),
                         child: Text(

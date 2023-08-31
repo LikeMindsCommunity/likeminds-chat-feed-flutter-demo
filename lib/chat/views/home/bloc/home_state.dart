@@ -7,11 +7,14 @@ class HomeInitial extends HomeState {}
 
 class HomeLoading extends HomeState {}
 
+class RefreshHomeState extends HomeState {}
+
 class HomeLoaded extends HomeState {
+  int page;
   // final List<ChatItem> chats;
   final GetHomeFeedResponse response;
 
-  HomeLoaded({required this.response});
+  HomeLoaded({required this.response, required this.page});
 }
 
 class UpdateHomeFeed extends HomeState {

@@ -16,20 +16,20 @@ class UserLocalPreference {
     _sharedPreferences = await SharedPreferences.getInstance();
   }
 
-  void storeUserData(User user) {
+  Future storeUserData(User user) async {
     UserEntity userEntity = user.toEntity();
     Map<String, dynamic> userData = userEntity.toJson();
     String userString = jsonEncode(userData);
-    _sharedPreferences!.setString('user', userString);
+    await _sharedPreferences!.setString("user", userString);
   }
 
-  void storeCommunityData(Community community) {
+  Future storeCommunityData(Community community) async {
     Map<String, dynamic> communityData = {
       "community_id": community.id,
       "community_name": community.name
     };
     String communityString = jsonEncode(communityData);
-    _sharedPreferences!.setString('community', communityString);
+    await _sharedPreferences!.setString('community', communityString);
   }
 
   Map<String, dynamic> fetchCommunityData() {
@@ -40,18 +40,18 @@ class UserLocalPreference {
 
   User fetchUserData() {
     Map<String, dynamic> userData =
-        jsonDecode(_sharedPreferences!.getString('user')!);
+        jsonDecode(_sharedPreferences!.getString("user")!);
     return User.fromEntity(UserEntity.fromJson(userData));
   }
 
-  void storeMemberRights(MemberStateResponse? response) {
+  Future storeMemberRights(MemberStateResponse? response) async {
     if (response == null) {
       return;
     }
     final entity = response.toEntity();
     Map<String, dynamic> memberRights = entity.toJson();
     String memberRightsString = jsonEncode(memberRights);
-    _sharedPreferences!.setString('memberRights', memberRightsString);
+    await _sharedPreferences!.setString('memberRights', memberRightsString);
   }
 
   MemberStateResponse fetchMemberRights() {

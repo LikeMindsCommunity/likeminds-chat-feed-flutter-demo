@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:likeminds_flutter_sample/chat/views/home/home_page.dart';
+import 'package:likeminds_flutter_sample/feed/views/universal_feed_page.dart';
 
 class HotRestartController extends StatefulWidget {
   final Widget child;
@@ -19,14 +21,14 @@ class _HotRestartControllerState extends State<HotRestartController> {
   Key key = UniqueKey();
 
   void performHotRestart() {
-    setState(() {
-      key = new UniqueKey();
-    });
+    setState(() {});
+    HomePage.refreshHomePage(context);
+    UniversalFeedScreen.clearAndUpdateUniversalFeed(context);
   }
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
+    return Container(
       key: key,
       child: widget.child,
     );

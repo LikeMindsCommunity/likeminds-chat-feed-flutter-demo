@@ -1,17 +1,31 @@
 import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:likeminds_feed/likeminds_feed.dart';
+import 'package:likeminds_chat_fl/likeminds_chat_fl.dart' as chatSDK;
 import 'package:likeminds_feed_ui_fl/likeminds_feed_ui_fl.dart';
+import 'package:likeminds_flutter_sample/chat/likeminds_chat_mm_fl.dart';
+import 'package:likeminds_flutter_sample/chat/utils/branding/lm_branding.dart';
+import 'package:likeminds_flutter_sample/chat/views/home/bloc/home_bloc.dart';
+import 'package:likeminds_flutter_sample/chat/views/home/home_page.dart';
 import 'package:likeminds_flutter_sample/feed/likeminds_flutter_feed_sample.dart';
 
-import 'package:likeminds_flutter_sample/feed/services/likeminds_service.dart';
-import 'package:likeminds_flutter_sample/feed/services/service_locator.dart';
+import 'package:likeminds_flutter_sample/feed/services/likeminds_service.dart'
+    as feed;
+import 'package:likeminds_flutter_sample/chat/service/likeminds_service.dart'
+    as chat;
+import 'package:likeminds_flutter_sample/feed/services/service_locator.dart'
+    as feedService;
+import 'package:likeminds_flutter_sample/chat/service/service_locator.dart'
+    as chatService;
 import 'package:likeminds_flutter_sample/feed/utils/color_utils.dart';
 import 'package:likeminds_flutter_sample/feed/utils/constants/ui_constants.dart';
 import 'package:likeminds_flutter_sample/feed/utils/hot_restart_controller.dart';
 import 'package:likeminds_flutter_sample/feed/utils/utils.dart';
 import 'package:likeminds_flutter_sample/feed/views/universal_feed_page.dart';
 import 'package:overlay_support/overlay_support.dart';
+import 'package:likeminds_flutter_sample/chat/utils/local_preference/local_prefs.dart'
+    as chatPrefs;
 import 'package:restart_app/restart_app.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -279,7 +293,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 borderRadius: 8,
                 height: 48,
                 onTap: () async {
+                  bool isApiKeyChanged = false;
                   userSelectedColor = selectedColor;
+                  LMBranding.instance.initialize(
+                    headerColor: userSelectedColor,
+                    buttonColor: userSelectedColor,
+                    textLinkColor: Colors.black,
+                  );
                   String enteredUserName = nameController.text.trim();
                   String enteredUserId = userIdController.text.trim();
                   String enteredApiKey = apiKeyController.text.trim();
@@ -289,14 +309,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     return;
                   }
                   if (enteredUserName.isNotEmpty && enteredUserId.isNotEmpty) {
-                    bool isApiKeyChanged = false;
+                    chatSDK.LMResponse logoutResponse = await chatService
+                        .locator<chat.LikeMindsService>()
+                        .logout((chatSDK.LogoutRequestBuilder()).build());
 
-                    await locator<LikeMindsService>()
-                        .logout(LogoutRequestBuilder().build());
                     await UserLocalPreference.instance.clearLocalPrefs();
                     if (enteredApiKey.isNotEmpty) {
                       existingApiKey = enteredApiKey;
                       LMFeed.setupFeed(apiKey: enteredApiKey);
+                      LMChat.setupLMChat(apiKey: enteredApiKey);
                       await UserLocalPreference.instance.storeApiKey(
                           enteredApiKey.isEmpty ? '' : enteredApiKey.trim());
                       isApiKeyChanged = true;
@@ -306,28 +327,30 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         .storeUserName(enteredUserName);
                     await UserLocalPreference.instance
                         .storeUserId(enteredUserId);
-                    InitiateUserResponse response =
-                        await locator<LikeMindsService>()
-                            .initiateUser((InitiateUserRequestBuilder()
-                                  ..apiKey(existingApiKey)
-                                  ..userId(enteredUserId)
-                                  ..userName(enteredUserName)
-                                  ..isGuest(false))
-                                .build());
-                    if (response.success) {
-                      await UserLocalPreference.instance
-                          .storeUserDataFromInitiateUserResponse(response);
-                    } else {
-                      toast(response.errorMessage ?? 'An error occurred');
-                      return;
-                    }
-
-                    if (isApiKeyChanged) {
-                      widget.universalFeedRefreshCallback();
-                    }
+                    InitiateUserResponse response = await feedService
+                        .locator<feed.LikeMindsService>()
+                        .initiateUser((InitiateUserRequestBuilder()
+                              ..apiKey(existingApiKey)
+                              ..userId(enteredUserId)
+                              ..userName(enteredUserName)
+                              ..isGuest(false))
+                            .build());
+                    await LMChat.initiateUser(
+                      userId: existingApiKey,
+                      userName: enteredUserName,
+                    );
+                    // chatSDK.LMResponse chatResponse = await chatService
+                    //     .locator<chat.LikeMindsService>()
+                    //     .initiateUser((chatSDK.InitiateUserRequestBuilder()
+                    //           ..apiKey(existingApiKey)
+                    //           ..userId(enteredUserId)
+                    //           ..userName(enteredUserName)
+                    //           ..isGuest(false))
+                    //         .build());
                   }
                   Navigator.pop(context);
                   HotRestartController.performHotRestart(context);
+                  widget.universalFeedRefreshCallback();
                 },
                 text: LMTextView(
                   text: "Submit",

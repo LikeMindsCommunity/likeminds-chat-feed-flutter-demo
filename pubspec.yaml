@@ -80,9 +80,9 @@ dependencies:
   flutter_portal: ^1.1.4
   flutter_no_internet_widget: ^1.0.0+18-dev.1
   share_plus:
-  connectivity_plus: 
+  connectivity_plus:
 
-  multi_image_crop: 
+  multi_image_crop:
     path: lib/packages/multi_image_crop/
 
   # The following adds the Cupertino Icons font to your application.
@@ -96,15 +96,15 @@ dependencies:
     path: ../GitHub/LikeMinds-Flutter-Chat-UI
 
   likeminds_feed: 1.3.3
-  likeminds_chat_fl: 1.5.0
+  likeminds_chat_fl: #1.5.0
+    path: ../LikeMinds-Flutter-GroupChat-SDK
   restart_app: ^1.2.1
   flex_color_picker: ^3.3.0
   flutter_colorpicker: ^1.0.3
 
-dependency_overrides: 
+dependency_overrides:
   flutter_typeahead_mm:
     path: lib/packages/flutter_typeahead-4.3.7
-
 
 dev_dependencies:
   flutter_test:
@@ -140,6 +140,12 @@ flutter:
     - packages/likeminds_flutter_sample/assets/icons/like_filled.svg
     - packages/likeminds_flutter_sample/assets/icons/pdf.svg
     - packages/likeminds_flutter_sample/assets/icons/chat_lines.svg
+    - packages/likeminds_flutter_sample/assets/icons/doc_pdf.svg
+    - packages/likeminds_flutter_sample/assets/icons/poll_submit.svg
+    - packages/likeminds_flutter_sample/assets/icons/poll_edit.svg
+    - packages/likeminds_flutter_sample/assets/icons/empty_screen.png
+    - packages/likeminds_flutter_sample/assets/icons/explore.svg
+    - packages/likeminds_flutter_sample/assets/icons/notification_check.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

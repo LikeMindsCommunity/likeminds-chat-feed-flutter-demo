@@ -111,7 +111,6 @@ class _LMFeedState extends State<LMFeed> {
     // TODO: implement didUpdateWidget
     super.didUpdateWidget(oldWidget);
     updateUserDetails();
-    updateUserDetails();
     InitiateUserRequest request = (InitiateUserRequestBuilder()
           ..userId(userId ?? "")
           ..userName(userName!)

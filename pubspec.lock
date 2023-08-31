@@ -849,10 +849,9 @@ packages:
   likeminds_chat_fl:
     dependency: "direct main"
     description:
-      name: likeminds_chat_fl
-      sha256: "914a788dbbbd514506c245f1412e8ef5d9f0f81d803200e42a3d1232d91b2c8f"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../LikeMinds-Flutter-GroupChat-SDK"
+      relative: true
+    source: path
     version: "1.5.0"
   likeminds_chat_ui_fl:
     dependency: "direct main"

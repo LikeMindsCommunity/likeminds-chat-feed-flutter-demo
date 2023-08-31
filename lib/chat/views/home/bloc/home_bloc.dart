@@ -17,6 +17,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       debugPrint(event.toString());
       add(UpdateHomeEvent());
     });
+    on<RefreshHomePage>((event, emit) => emit(RefreshHomeState()));
     on<HomeEvent>(
       (event, emit) async {
         if (event is InitHomeEvent) {
@@ -36,7 +37,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
               value.member = user;
             });
 
-            emit(HomeLoaded(response: response.data!));
+            emit(HomeLoaded(response: response.data!, page: event.page));
           } else {
             HomeError(response.errorMessage!);
           }

@@ -8,6 +8,8 @@ import 'package:likeminds_flutter_sample/chat/navigation/router.dart';
 import 'package:likeminds_flutter_sample/chat/service/likeminds_service.dart';
 import 'package:likeminds_flutter_sample/chat/service/service_locator.dart';
 import 'package:likeminds_flutter_sample/chat/utils/branding/lm_branding.dart';
+import 'package:likeminds_flutter_sample/feed/utils/local_preference/user_local_preference.dart'
+    as feed;
 
 import 'package:likeminds_flutter_sample/chat/utils/constants/ui_constants.dart';
 import 'package:likeminds_flutter_sample/chat/utils/credentials/firebase_credentials.dart';
@@ -24,7 +26,7 @@ import 'package:sizer/sizer.dart';
 
 const bool isDebug = bool.fromEnvironment('DEBUG');
 
-class LMChat extends StatelessWidget {
+class LMChat extends StatefulWidget {
   final String _userId;
   final String _userName;
   // ignore: unused_field
@@ -42,18 +44,12 @@ class LMChat extends StatelessWidget {
 
   static LMChat? _instance;
   static LMChat instance({required LMChatBuilder builder}) {
-    if (builder.getUserId == null && builder.getUserName == null) {
-      throw Exception(
-        'LMChat builder needs to be initialized with User ID, or User Name',
-      );
-    } else {
-      return _instance ??= LMChat._internal(
-        builder.getUserId!,
-        builder.getUserName!,
-        builder.getDomain,
-        builder.getDefaultChatroom,
-      );
-    }
+    return LMChat._internal(
+      builder.getUserId!,
+      builder.getUserName!,
+      builder.getDomain,
+      builder.getDefaultChatroom,
+    );
   }
 
   static void setupLMChat({
@@ -78,11 +74,52 @@ class LMChat extends StatelessWidget {
     final initiateUser = response.data!.initiateUser!;
 
     final isCm = await locator<LikeMindsService>().getMemberState();
-    UserLocalPreference.instance.storeMemberRights(isCm.data);
-    UserLocalPreference.instance.storeUserData(initiateUser.user);
-    UserLocalPreference.instance.storeCommunityData(initiateUser.community);
-    await _instance?.firebase();
+    await UserLocalPreference.instance.storeMemberRights(isCm.data);
+    await UserLocalPreference.instance.storeUserData(initiateUser.user);
+    await UserLocalPreference.instance
+        .storeCommunityData(initiateUser.community);
+
     return initiateUser;
+  }
+
+  @override
+  State<LMChat> createState() => _LMChatState();
+}
+
+class _LMChatState extends State<LMChat> {
+  User? user;
+  String? userId;
+  String? userName;
+  String? apiKey;
+  Future<InitiateUser>? intiateUserFuture;
+  @override
+  void initState() {
+    super.initState();
+    firebase();
+    updateUserDetails();
+    intiateUserFuture = LMChat.initiateUser(userId: userId, userName: userName);
+  }
+
+  @override
+  void didUpdateWidget(LMChat oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    updateUserDetails();
+    intiateUserFuture =
+        LMChat.initiateUser(userId: userId ?? "", userName: userName);
+  }
+
+  void updateUserDetails() {
+    String? localUserId = feed.UserLocalPreference.instance.fetchUserId();
+    // userId = isProd ? CredsProd.botId : CredsDev.botId;
+    String? localUserName = feed.UserLocalPreference.instance.fetchUserName();
+    userName = widget._userName ?? "Test username";
+    if (localUserId != null && localUserId.isNotEmpty) {
+      userId = localUserId;
+    }
+    if (localUserName != null && localUserName.isNotEmpty) {
+      userName = localUserName;
+    }
+    apiKey = feed.UserLocalPreference.instance.fetchApiKey();
   }
 
   firebase() async {
@@ -134,6 +171,7 @@ class LMChat extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    router.go("/");
     return OverlaySupport.global(
       toastTheme: ToastThemeData(
         textColor: kWhiteColor,
@@ -155,17 +193,18 @@ class LMChat extends StatelessWidget {
               )
             ],
             child: FutureBuilder(
-              future: initiateUser(),
+              future: intiateUserFuture,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   final user = snapshot.data!.user;
                   LMNotificationHandler.instance.registerDevice(user.id);
-                  if (_defaultChatroom != null) {
-                    LMRealtime.instance.chatroomId = _defaultChatroom!;
+                  if (widget._defaultChatroom != null) {
+                    LMRealtime.instance.chatroomId = widget._defaultChatroom!;
                     // router.
                     return MaterialApp.router(
                       routerConfig: router
-                        ..go('/chatroom/$_defaultChatroom?isRoot=true'),
+                        ..go(
+                            '/chatroom/${widget._defaultChatroom}?isRoot=true'),
                       debugShowCheckedModeBanner: false,
                     );
                   }

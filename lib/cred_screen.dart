@@ -146,15 +146,14 @@ class _CredScreenState extends State<CredScreen> {
         callback: LikeMindsCallback(),
         apiKey: apiKey ?? "",
       );
+      LMChatBuilder builder = LMChatBuilder()
+        ..domain("")
+        ..userId(userId ?? "")
+        ..userName(
+          userName == null || userName.isEmpty ? 'Test User' : userName,
+        );
 
-      lmChat = LMChat.instance(
-        builder: LMChatBuilder()
-          ..domain("")
-          ..userId(userId!)
-          ..userName(
-            userName == null || userName.isEmpty ? 'Test User' : userName,
-          ),
-      );
+      lmChat = LMChat.instance(builder: builder);
 
       return HomeView(chat: lmChat!, feed: lmFeed!);
     } else {
@@ -223,14 +222,33 @@ class _CredScreenState extends State<CredScreen> {
                           if (textEditingController.text.isEmpty) {
                             toast("Please enter your name");
                           } else {
+                            userName = textEditingController.text;
+                            LMBranding.instance.initialize(
+                              headerColor: userSelectedColor,
+                              buttonColor: userSelectedColor,
+                              textLinkColor: kBlackColor,
+                            );
                             lmFeed = LMFeed.instance(
-                              userName: textEditingController.text,
+                              userId: userId,
+                              userName: userName ?? "Test User",
                               callback: LikeMindsCallback(),
                               apiKey: apiKey ?? "",
                             );
+                            LMChatBuilder builder = LMChatBuilder()
+                              ..domain("")
+                              ..userId(userId ?? "")
+                              ..userName(
+                                userName ?? "Test User",
+                              );
+
+                            lmChat = LMChat.instance(
+                              builder: builder,
+                            );
+
                             Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
-                                builder: (context) => lmFeed!,
+                                builder: (context) =>
+                                    HomeView(chat: lmChat!, feed: lmFeed!),
                               ),
                             );
                           }

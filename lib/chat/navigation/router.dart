@@ -38,7 +38,7 @@ final router = GoRouter(
     GoRoute(
         path: startRoute,
         builder: (context, state) {
-          return HomePage();
+          return const HomePage();
         }),
     GoRoute(
         path: chatRoute,

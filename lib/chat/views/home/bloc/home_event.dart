@@ -17,6 +17,11 @@ class GetHomeFeedPage extends HomeEvent {
   List<Object?> get props => [];
 }
 
+class RefreshHomePage extends HomeEvent {
+  @override
+  List<Object?> get props => [];
+}
+
 class ReloadHomeEvent extends HomeEvent {
   final GetHomeFeedResponse response;
 
