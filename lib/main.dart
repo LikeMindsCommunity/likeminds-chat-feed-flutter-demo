@@ -52,7 +52,7 @@ void main() async {
             : CredsProd.apiKey,
   );
   await UserLocalPreference.instance.initialize();
-  runApp(HotRestartController(child: new MyApp()));
+  runApp(MyApp());
 }
 
 /// Setup notifications

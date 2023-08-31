@@ -293,9 +293,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 borderRadius: 8,
                 height: 48,
                 onTap: () async {
-                  bool isApiKeyChanged = false;
                   userSelectedColor = selectedColor;
-
                   LMBranding.instance.initialize(
                     headerColor: userSelectedColor,
                     buttonColor: userSelectedColor,
@@ -312,42 +310,34 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   await UserLocalPreference.instance.clearLocalPrefs();
                   if (enteredApiKey.isNotEmpty) {
                     existingApiKey = enteredApiKey;
-                    LMFeed.setupFeed(apiKey: enteredApiKey);
-                    LMChat.setupLMChat(apiKey: enteredApiKey);
+                    // LMFeed.setupFeed(apiKey: enteredApiKey);
+                    // LMChat.setupLMChat(apiKey: enteredApiKey);
                     await UserLocalPreference.instance.storeApiKey(
                         enteredApiKey.isEmpty ? '' : enteredApiKey.trim());
-                    isApiKeyChanged = true;
+                  } else {
+                    await UserLocalPreference.instance
+                        .storeApiKey(existingApiKey);
                   }
 
                   await UserLocalPreference.instance
                       .storeUserName(enteredUserName);
                   await UserLocalPreference.instance.storeUserId(enteredUserId);
-                  InitiateUserResponse response = await feedService
-                      .locator<feed.LikeMindsService>()
-                      .initiateUser((InitiateUserRequestBuilder()
-                            ..apiKey(existingApiKey)
-                            ..userId(enteredUserId)
-                            ..userName(enteredUserName)
-                            ..isGuest(false))
-                          .build());
-                  await LMChat.initiateUser(
-                    userId: existingApiKey,
-                    userName: enteredUserName,
-                  );
-                  // chatSDK.LMResponse chatResponse = await chatService
-                  //     .locator<chat.LikeMindsService>()
-                  //     .initiateUser((chatSDK.InitiateUserRequestBuilder()
+                  // InitiateUserResponse response = await feedService
+                  //     .locator<feed.LikeMindsService>()
+                  //     .initiateUser((InitiateUserRequestBuilder()
                   //           ..apiKey(existingApiKey)
                   //           ..userId(enteredUserId)
                   //           ..userName(enteredUserName)
                   //           ..isGuest(false))
                   //         .build());
+                  // await LMChat.initiateUser(
+                  //   userId: existingApiKey,
+                  //   userName: enteredUserName,
+                  // );
 
                   await UserLocalPreference.instance
                       .storeAppColor(userSelectedColor!.value);
-                  // Navigator.pop(context);
-                  // HotRestartController.performHotRestart(context);
-                  // widget.universalFeedRefreshCallback();
+
                   Restart.restartApp();
                 },
                 text: LMTextView(
