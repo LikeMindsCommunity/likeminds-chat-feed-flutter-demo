@@ -127,11 +127,13 @@ class _CredScreenState extends State<CredScreen> {
     userId = UserLocalPreference.instance.fetchUserId();
     String? userName = UserLocalPreference.instance.fetchUserName();
     String? apiKey = UserLocalPreference.instance.fetchApiKey();
+
     // If the local prefs have user id stored
     // Login using that user Id
     // otherwise show the cred screen for login
     if ((userId != null && userId!.isNotEmpty) ||
         (userName != null && userName.isNotEmpty)) {
+      userSelectedColor = UserLocalPreference.instance.fetchAppColor();
       LMBranding.instance.initialize(
         headerColor: userSelectedColor,
         buttonColor: userSelectedColor,
@@ -220,6 +222,8 @@ class _CredScreenState extends State<CredScreen> {
                             toast("Please enter your name");
                           } else {
                             userName = textEditingController.text;
+                            userSelectedColor =
+                                UserLocalPreference.instance.fetchAppColor();
                             LMBranding.instance.initialize(
                               headerColor: userSelectedColor,
                               buttonColor: userSelectedColor,

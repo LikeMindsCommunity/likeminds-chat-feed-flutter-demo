@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:likeminds_feed/likeminds_feed.dart';
+import 'package:likeminds_flutter_sample/chat/utils/imports.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserLocalPreference {
@@ -22,6 +23,19 @@ class UserLocalPreference {
   Future<void> initialize() async {
     if (_sharedPreferences != null) return;
     _sharedPreferences = await SharedPreferences.getInstance();
+  }
+
+  Future storeAppColor(int hex) async {
+    await _sharedPreferences!.setInt('appColor', hex);
+  }
+
+  Color fetchAppColor() {
+    int? appColor = _sharedPreferences!.getInt('appColor');
+    if (appColor == null) {
+      return kPrimaryColor;
+    } else {
+      return Color(appColor);
+    }
   }
 
   // This functions stores the user data on local storage

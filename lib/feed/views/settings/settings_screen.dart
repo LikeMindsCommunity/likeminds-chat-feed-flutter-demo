@@ -295,6 +295,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 onTap: () async {
                   bool isApiKeyChanged = false;
                   userSelectedColor = selectedColor;
+
                   LMBranding.instance.initialize(
                     headerColor: userSelectedColor,
                     buttonColor: userSelectedColor,
@@ -303,54 +304,51 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   String enteredUserName = nameController.text.trim();
                   String enteredUserId = userIdController.text.trim();
                   String enteredApiKey = apiKeyController.text.trim();
-                  if ((enteredUserName.isNotEmpty && enteredUserId.isEmpty) ||
-                      (enteredUserId.isNotEmpty && enteredUserName.isEmpty)) {
+                  if ((enteredUserName.isEmpty || enteredUserId.isEmpty)) {
                     toast("Please enter both user name and id");
                     return;
                   }
-                  if (enteredUserName.isNotEmpty && enteredUserId.isNotEmpty) {
-                    chatSDK.LMResponse logoutResponse = await chatService
-                        .locator<chat.LikeMindsService>()
-                        .logout((chatSDK.LogoutRequestBuilder()).build());
 
-                    await UserLocalPreference.instance.clearLocalPrefs();
-                    if (enteredApiKey.isNotEmpty) {
-                      existingApiKey = enteredApiKey;
-                      LMFeed.setupFeed(apiKey: enteredApiKey);
-                      LMChat.setupLMChat(apiKey: enteredApiKey);
-                      await UserLocalPreference.instance.storeApiKey(
-                          enteredApiKey.isEmpty ? '' : enteredApiKey.trim());
-                      isApiKeyChanged = true;
-                    }
-
-                    await UserLocalPreference.instance
-                        .storeUserName(enteredUserName);
-                    await UserLocalPreference.instance
-                        .storeUserId(enteredUserId);
-                    InitiateUserResponse response = await feedService
-                        .locator<feed.LikeMindsService>()
-                        .initiateUser((InitiateUserRequestBuilder()
-                              ..apiKey(existingApiKey)
-                              ..userId(enteredUserId)
-                              ..userName(enteredUserName)
-                              ..isGuest(false))
-                            .build());
-                    await LMChat.initiateUser(
-                      userId: existingApiKey,
-                      userName: enteredUserName,
-                    );
-                    // chatSDK.LMResponse chatResponse = await chatService
-                    //     .locator<chat.LikeMindsService>()
-                    //     .initiateUser((chatSDK.InitiateUserRequestBuilder()
-                    //           ..apiKey(existingApiKey)
-                    //           ..userId(enteredUserId)
-                    //           ..userName(enteredUserName)
-                    //           ..isGuest(false))
-                    //         .build());
+                  await UserLocalPreference.instance.clearLocalPrefs();
+                  if (enteredApiKey.isNotEmpty) {
+                    existingApiKey = enteredApiKey;
+                    LMFeed.setupFeed(apiKey: enteredApiKey);
+                    LMChat.setupLMChat(apiKey: enteredApiKey);
+                    await UserLocalPreference.instance.storeApiKey(
+                        enteredApiKey.isEmpty ? '' : enteredApiKey.trim());
+                    isApiKeyChanged = true;
                   }
-                  Navigator.pop(context);
-                  HotRestartController.performHotRestart(context);
-                  widget.universalFeedRefreshCallback();
+
+                  await UserLocalPreference.instance
+                      .storeUserName(enteredUserName);
+                  await UserLocalPreference.instance.storeUserId(enteredUserId);
+                  InitiateUserResponse response = await feedService
+                      .locator<feed.LikeMindsService>()
+                      .initiateUser((InitiateUserRequestBuilder()
+                            ..apiKey(existingApiKey)
+                            ..userId(enteredUserId)
+                            ..userName(enteredUserName)
+                            ..isGuest(false))
+                          .build());
+                  await LMChat.initiateUser(
+                    userId: existingApiKey,
+                    userName: enteredUserName,
+                  );
+                  // chatSDK.LMResponse chatResponse = await chatService
+                  //     .locator<chat.LikeMindsService>()
+                  //     .initiateUser((chatSDK.InitiateUserRequestBuilder()
+                  //           ..apiKey(existingApiKey)
+                  //           ..userId(enteredUserId)
+                  //           ..userName(enteredUserName)
+                  //           ..isGuest(false))
+                  //         .build());
+
+                  await UserLocalPreference.instance
+                      .storeAppColor(userSelectedColor!.value);
+                  // Navigator.pop(context);
+                  // HotRestartController.performHotRestart(context);
+                  // widget.universalFeedRefreshCallback();
+                  Restart.restartApp();
                 },
                 text: LMTextView(
                   text: "Submit",
