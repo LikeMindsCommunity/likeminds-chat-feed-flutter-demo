@@ -64,10 +64,11 @@ void main() async {
 /// 6. Handle notifications - [_handleNotification]
 Future<void> setupNotifications() async {
   await Firebase.initializeApp(
+    name: "Flutter-Sample-App",
     options: DefaultFirebaseOptions.currentPlatform,
   );
   final devId = await deviceId();
-  final fcmToken = null; // await setupMessaging();
+  final fcmToken = await setupMessaging();
   if (fcmToken == null) {
     debugPrint("FCM token is null or permission declined");
     return;

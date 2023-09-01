@@ -1,31 +1,14 @@
 import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:likeminds_feed/likeminds_feed.dart';
-import 'package:likeminds_chat_fl/likeminds_chat_fl.dart' as chatSDK;
 import 'package:likeminds_feed_ui_fl/likeminds_feed_ui_fl.dart';
-import 'package:likeminds_flutter_sample/chat/likeminds_chat_mm_fl.dart';
 import 'package:likeminds_flutter_sample/chat/utils/branding/lm_branding.dart';
-import 'package:likeminds_flutter_sample/chat/views/home/bloc/home_bloc.dart';
-import 'package:likeminds_flutter_sample/chat/views/home/home_page.dart';
-import 'package:likeminds_flutter_sample/feed/likeminds_flutter_feed_sample.dart';
+import 'package:likeminds_flutter_sample/feed/services/likeminds_service.dart';
+import 'package:likeminds_flutter_sample/feed/services/service_locator.dart';
 
-import 'package:likeminds_flutter_sample/feed/services/likeminds_service.dart'
-    as feed;
-import 'package:likeminds_flutter_sample/chat/service/likeminds_service.dart'
-    as chat;
-import 'package:likeminds_flutter_sample/feed/services/service_locator.dart'
-    as feedService;
-import 'package:likeminds_flutter_sample/chat/service/service_locator.dart'
-    as chatService;
 import 'package:likeminds_flutter_sample/feed/utils/color_utils.dart';
 import 'package:likeminds_flutter_sample/feed/utils/constants/ui_constants.dart';
-import 'package:likeminds_flutter_sample/feed/utils/hot_restart_controller.dart';
 import 'package:likeminds_flutter_sample/feed/utils/utils.dart';
-import 'package:likeminds_flutter_sample/feed/views/universal_feed_page.dart';
-import 'package:overlay_support/overlay_support.dart';
-import 'package:likeminds_flutter_sample/chat/utils/local_preference/local_prefs.dart'
-    as chatPrefs;
 import 'package:restart_app/restart_app.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -65,7 +48,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
   void didUpdateWidget(covariant SettingsScreen oldWidget) {
     // TODO: implement didUpdateWidget
     super.didUpdateWidget(oldWidget);
-    updateTextControllers();
   }
 
   void updateTextControllers() {
@@ -73,6 +55,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
     existingApiKey = UserLocalPreference.instance.fetchApiKey() ?? '';
     existingUserName = user.name;
     existingUserId = user.sdkClientInfo!.userUniqueId;
+    if (existingUserName.isNotEmpty) {
+      nameController.text = existingUserName;
+    }
+    if (existingUserId.isNotEmpty) {
+      userIdController.text = existingUserId;
+    }
   }
 
   @override
@@ -85,7 +73,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    updateTextControllers();
     return Scaffold(
       backgroundColor: userSelectedColor ?? kPrimaryColor,
       appBar: AppBar(
@@ -219,25 +206,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 color: selectedColor!,
                                 onColorChanged: changeColor,
                               ),
-                              // Use Material color picker:
-                              //
-                              // child: MaterialPicker(
-                              //   pickerColor: pickerColor,
-                              //   onColorChanged: changeColor,
-                              //   showLabel: true, // only on portrait mode
-                              // ),
-                              //
-                              // Use Block color picker:
-                              //
-                              // child: BlockPicker(
-                              //   pickerColor: currentColor,
-                              //   onColorChanged: changeColor,
-                              // ),
-                              //
-                              // child: MultipleChoiceBlockPicker(
-                              //   pickerColors: currentColors,
-                              //   onColorsChanged: changeColors,
-                              // ),
                             ),
                             actions: <Widget>[
                               ElevatedButton(
@@ -302,16 +270,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   String enteredUserName = nameController.text.trim();
                   String enteredUserId = userIdController.text.trim();
                   String enteredApiKey = apiKeyController.text.trim();
-                  if ((enteredUserName.isEmpty || enteredUserId.isEmpty)) {
-                    toast("Please enter both user name and id");
-                    return;
-                  }
 
                   await UserLocalPreference.instance.clearLocalPrefs();
                   if (enteredApiKey.isNotEmpty) {
                     existingApiKey = enteredApiKey;
-                    // LMFeed.setupFeed(apiKey: enteredApiKey);
-                    // LMChat.setupLMChat(apiKey: enteredApiKey);
+
                     await UserLocalPreference.instance.storeApiKey(
                         enteredApiKey.isEmpty ? '' : enteredApiKey.trim());
                   } else {
@@ -319,21 +282,30 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         .storeApiKey(existingApiKey);
                   }
 
+                  if (enteredUserName.isEmpty && enteredUserId.isEmpty) {
+                    enteredUserName = existingUserName;
+                    enteredUserId = existingUserId;
+                  } else if (enteredUserName.isEmpty &&
+                      enteredUserId.isNotEmpty) {
+                    enteredUserName = 'Test User';
+                  } else if (enteredUserId.isEmpty &&
+                      enteredUserName.isNotEmpty) {
+                    InitiateUserResponse response =
+                        await locator<LikeMindsService>().initiateUser(
+                            (InitiateUserRequestBuilder()
+                                  ..userName(enteredUserName))
+                                .build());
+                    if (response.success) {
+                      enteredUserId = response
+                              .initiateUser!.user.sdkClientInfo?.userUniqueId ??
+                          response.initiateUser!.user.userUniqueId;
+                    }
+                  }
+
                   await UserLocalPreference.instance
                       .storeUserName(enteredUserName);
+
                   await UserLocalPreference.instance.storeUserId(enteredUserId);
-                  // InitiateUserResponse response = await feedService
-                  //     .locator<feed.LikeMindsService>()
-                  //     .initiateUser((InitiateUserRequestBuilder()
-                  //           ..apiKey(existingApiKey)
-                  //           ..userId(enteredUserId)
-                  //           ..userName(enteredUserName)
-                  //           ..isGuest(false))
-                  //         .build());
-                  // await LMChat.initiateUser(
-                  //   userId: existingApiKey,
-                  //   userName: enteredUserName,
-                  // );
 
                   await UserLocalPreference.instance
                       .storeAppColor(userSelectedColor!.value);
