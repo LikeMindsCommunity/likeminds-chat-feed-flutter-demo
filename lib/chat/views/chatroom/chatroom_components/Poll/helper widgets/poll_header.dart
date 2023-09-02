@@ -15,23 +15,23 @@ class PollHeader extends StatelessWidget {
         Text(
           poll.pollTypeText ?? '',
           style: LMTheme.medium.copyWith(
-            color: kGreyColor,
+            color: greyColor,
             fontSize: 8.sp,
           ),
         ),
-        kHorizontalPaddingMedium,
+        horizontalPaddingMedium,
         Text(
           "⬤",
           style: LMTheme.medium.copyWith(
-            color: kGreyColor,
+            color: greyColor,
             fontSize: 8.sp,
           ),
         ),
-        kHorizontalPaddingMedium,
+        horizontalPaddingMedium,
         Text(
           poll.submitTypeText ?? '',
           style: LMTheme.medium.copyWith(
-            color: kGreyColor,
+            color: greyColor,
             fontSize: 8.sp,
           ),
         )

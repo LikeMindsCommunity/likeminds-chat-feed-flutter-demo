@@ -134,9 +134,9 @@ class _PollBubbleState extends State<PollBubble> {
             PollHeader(
               poll: pollConversation!.poll!,
             ),
-            kVerticalPaddingLarge,
+            verticalPaddingLarge,
             PollEndTile(pollConversation: pollConversation!),
-            kVerticalPaddingLarge,
+            verticalPaddingLarge,
             Align(
               alignment: Alignment.topLeft,
               child: ExpandableText(
@@ -150,15 +150,15 @@ class _PollBubbleState extends State<PollBubble> {
                     pollConversation!.multipleSelectState != null
                 ? Container(
                     alignment: Alignment.topLeft,
-                    margin: const EdgeInsets.only(top: kPaddingSmall),
+                    margin: const EdgeInsets.only(top: paddingSmall),
                     child: Text(
                       "*Select ${toStringMultiSelectState(pollConversation!.multipleSelectState!)} ${toStringNoOfVotes(pollConversation!.poll!.multipleSelectNum!)}",
                       style: LMTheme.regular
-                          .copyWith(fontSize: 9.sp, color: kGreyColor),
+                          .copyWith(fontSize: 9.sp, color: greyColor),
                     ),
                   )
                 : const SizedBox(),
-            kVerticalPaddingLarge,
+            verticalPaddingLarge,
             ValueListenableBuilder(
                 valueListenable: pollEnableNotifier,
                 builder: (context, _, __) {
@@ -349,11 +349,11 @@ class _PollBubbleState extends State<PollBubble> {
                             iconWidget: SvgPicture.asset(
                               isSubmitted &&
                                       pollBloc!.state is! EditingPollSubmission
-                                  ? kAssetPollEditIcon
-                                  : kAssetPollSubmitIcon,
+                                  ? assetPollEditIcon
+                                  : assetPollSubmitIcon,
                               color: isEnabled
                                   ? LMTheme.buttonColor
-                                  : kGreyBackgroundColor,
+                                  : greyBackgroundColor,
                               height: 12.sp,
                             ),
                             text: isSubmitted &&
@@ -363,17 +363,17 @@ class _PollBubbleState extends State<PollBubble> {
                             textStyle: LMTheme.medium.copyWith(
                                 color: isEnabled
                                     ? LMTheme.buttonColor
-                                    : kGreyBackgroundColor,
+                                    : greyBackgroundColor,
                                 fontWeight: FontWeight.w600,
                                 fontSize: 9.sp),
                             borderRadius: 24.0,
                             enabledColor: isEnabled
                                 ? LMTheme.buttonColor
-                                : kGreyBackgroundColor,
+                                : greyBackgroundColor,
                             border: Border.all(
                               color: isEnabled
                                   ? LMTheme.buttonColor
-                                  : kGreyBackgroundColor,
+                                  : greyBackgroundColor,
                               width: 2.0,
                             ),
                             onTap: () async {

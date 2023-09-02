@@ -32,7 +32,7 @@ class PollEndTile extends StatelessWidget {
             ),
             child: Icon(
               Icons.bar_chart_rounded,
-              color: kWhiteColor,
+              color: whiteColor,
               size: 8.sp,
             ),
           ),
@@ -41,7 +41,7 @@ class PollEndTile extends StatelessWidget {
                 ? PollBubbleStringConstants.pollEnded
                 : "Ends in ${getExpiryTimeString(endTime)}",
             textStyle: LMTheme.medium.copyWith(
-              color: kWhiteColor,
+              color: whiteColor,
               fontSize: 8.sp,
             ),
             backgroundColor:

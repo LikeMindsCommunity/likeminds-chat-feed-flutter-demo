@@ -137,7 +137,7 @@ class _CredScreenState extends State<CredScreen> {
       LMBranding.instance.initialize(
         headerColor: userSelectedColor,
         buttonColor: userSelectedColor,
-        textLinkColor: kBlackColor,
+        textLinkColor: blackColor,
       );
       lmFeed = LMFeed.instance(
         userId: userId,
@@ -227,7 +227,7 @@ class _CredScreenState extends State<CredScreen> {
                             LMBranding.instance.initialize(
                               headerColor: userSelectedColor,
                               buttonColor: userSelectedColor,
-                              textLinkColor: kBlackColor,
+                              textLinkColor: blackColor,
                             );
                             lmFeed = LMFeed.instance(
                               userId: userId,

@@ -77,7 +77,7 @@ class _ExploreItemState extends State<ExploreItem> {
                               child: Text(
                                 'NEW',
                                 style: LMTheme.medium.copyWith(
-                                  color: kWhiteColor,
+                                  color: whiteColor,
                                   fontSize: 8.sp,
                                 ),
                               ),
@@ -93,7 +93,7 @@ class _ExploreItemState extends State<ExploreItem> {
                             padding: const EdgeInsets.all(2.0),
                             decoration: const BoxDecoration(
                               shape: BoxShape.circle,
-                              color: kWhiteColor,
+                              color: whiteColor,
                             ),
                             child: Container(
                               padding: const EdgeInsets.all(3.0),
@@ -103,7 +103,7 @@ class _ExploreItemState extends State<ExploreItem> {
                               ),
                               child: Icon(
                                 Icons.push_pin,
-                                color: kWhiteColor,
+                                color: whiteColor,
                                 size: 10.sp,
                               ),
                             ),
@@ -140,21 +140,21 @@ class _ExploreItemState extends State<ExploreItem> {
                                   const Icon(
                                     CupertinoIcons.person_2,
                                     //Icons.people_outline,
-                                    color: kGrey3Color,
+                                    color: grey3Color,
                                     size: 18,
                                   ),
                                   const SizedBox(width: 4),
                                   Text(
                                     chatroom!.participantCount.toString(),
                                     style: LMTheme.medium.copyWith(
-                                      color: kGrey3Color,
+                                      color: grey3Color,
                                     ),
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                   const SizedBox(width: 12),
                                   const Icon(
                                     CupertinoIcons.chat_bubble,
-                                    color: kGrey3Color,
+                                    color: grey3Color,
                                     size: 18,
                                   ),
                                   const SizedBox(width: 4),
@@ -162,7 +162,7 @@ class _ExploreItemState extends State<ExploreItem> {
                                     chatroom!.totalResponseCount?.toString() ??
                                         '0',
                                     style: LMTheme.medium.copyWith(
-                                      color: kGrey3Color,
+                                      color: grey3Color,
                                     ),
                                     overflow: TextOverflow.ellipsis,
                                   ),
@@ -246,7 +246,7 @@ class _ExploreItemState extends State<ExploreItem> {
                     const SizedBox(height: 12),
                     Text(
                       chatroom!.title,
-                      style: LMTheme.regular.copyWith(color: kGrey3Color),
+                      style: LMTheme.regular.copyWith(color: grey3Color),
                       textAlign: TextAlign.left,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,

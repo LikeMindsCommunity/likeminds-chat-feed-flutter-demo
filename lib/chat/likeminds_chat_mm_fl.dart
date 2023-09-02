@@ -108,6 +108,12 @@ class _LMChatState extends State<LMChat> {
         LMChat.initiateUser(userId: userId ?? "", userName: userName);
   }
 
+  //
+  /*
+ * Fetches the user details from local storage
+ * updates the userid, userName and apiKey
+ * if the user details are present in local storage
+ */
   void updateUserDetails() {
     String? localUserId = feed.UserLocalPreference.instance.fetchUserId();
     // userId = isProd ? CredsProd.botId : CredsDev.botId;
@@ -122,6 +128,7 @@ class _LMChatState extends State<LMChat> {
     apiKey = feed.UserLocalPreference.instance.fetchApiKey();
   }
 
+  // Initialises firebase for push notifications
   firebase() async {
     try {
       final clientFirebase = Firebase.app();
@@ -174,8 +181,8 @@ class _LMChatState extends State<LMChat> {
     router.go("/");
     return OverlaySupport.global(
       toastTheme: ToastThemeData(
-        textColor: kWhiteColor,
-        background: kBlackColor,
+        textColor: whiteColor,
+        background: blackColor,
         alignment: Alignment.bottomCenter,
       ),
       child: Sizer(
@@ -215,7 +222,7 @@ class _LMChatState extends State<LMChat> {
                   );
                 }
                 return Container(
-                  color: kWhiteColor,
+                  color: whiteColor,
                   child: Spinner(
                     color: LMBranding.instance.headerColor,
                   ),

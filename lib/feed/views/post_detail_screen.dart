@@ -350,7 +350,7 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                           },
                           builder: (context, state) => Container(
                             decoration: BoxDecoration(
-                              color: kWhiteColor,
+                              color: whiteColor,
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black.withOpacity(0.1),
@@ -362,7 +362,7 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                kVerticalPaddingMedium,
+                                verticalPaddingMedium,
                                 ValueListenableBuilder(
                                     valueListenable: rebuildReplyWidget,
                                     builder: (context, _, __) {
@@ -421,7 +421,7 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                                                     icon: const LMIcon(
                                                       type: LMIconType.icon,
                                                       icon: Icons.close,
-                                                      color: kGreyColor,
+                                                      color: greyColor,
                                                       size: 24,
                                                     ),
                                                   ),
@@ -699,7 +699,7 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                                     ),
                                   ),
                                 ),
-                                kVerticalPaddingLarge,
+                                verticalPaddingLarge,
                               ],
                             ),
                           ),
@@ -721,7 +721,7 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                 },
                 containerSize: 48,
               ),
-              backgroundColor: kWhiteColor,
+              backgroundColor: whiteColor,
               title: const LMTextView(
                 text: "Comments",
                 textStyle: TextStyle(
@@ -843,7 +843,7 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                                             bool replyShown = false;
                                             return Container(
                                               decoration: const BoxDecoration(
-                                                color: kWhiteColor,
+                                                color: whiteColor,
                                                 border: Border(
                                                   bottom: BorderSide(
                                                     width: 0.2,
@@ -1087,7 +1087,7 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                                                                 size: 20,
                                                               ),
                                                             ),
-                                                            kHorizontalPaddingMedium,
+                                                            horizontalPaddingMedium,
                                                             item.repliesCount >
                                                                     0
                                                                 ? LMTextButton(

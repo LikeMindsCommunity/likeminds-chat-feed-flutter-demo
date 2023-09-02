@@ -37,7 +37,7 @@ class LMCustomDialog extends StatelessWidget {
                 },
                 child: Text(
                   "Cancel",
-                  style: LMTheme.bold.copyWith(color: kGrey3Color),
+                  style: LMTheme.bold.copyWith(color: grey3Color),
                 ),
               )
             : const SizedBox(),

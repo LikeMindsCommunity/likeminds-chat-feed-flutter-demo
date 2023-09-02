@@ -6,9 +6,9 @@ Widget getDocumentTileShimmer() {
     width: 60.w,
     margin: const EdgeInsets.only(bottom: 10),
     decoration: BoxDecoration(
-        border: Border.all(color: kGreyWebBGColor, width: 1),
-        borderRadius: BorderRadius.circular(kBorderRadiusMedium)),
-    padding: const EdgeInsets.all(kPaddingLarge),
+        border: Border.all(color: greyWebBGColor, width: 1),
+        borderRadius: BorderRadius.circular(borderRadiusMedium)),
+    padding: const EdgeInsets.all(paddingLarge),
     child: Shimmer.fromColors(
       baseColor: Colors.black26,
       highlightColor: Colors.black12,
@@ -17,9 +17,9 @@ Widget getDocumentTileShimmer() {
         Container(
           height: 10.w,
           width: 10.w,
-          color: kWhiteColor,
+          color: whiteColor,
         ),
-        kHorizontalPaddingLarge,
+        horizontalPaddingLarge,
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,27 +27,27 @@ Widget getDocumentTileShimmer() {
             Container(
               height: 8,
               width: 30.w,
-              color: kWhiteColor,
+              color: whiteColor,
             ),
-            kVerticalPaddingMedium,
+            verticalPaddingMedium,
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Container(
                   height: 6,
                   width: 10.w,
-                  color: kWhiteColor,
+                  color: whiteColor,
                 ),
-                kHorizontalPaddingXSmall,
+                horizontalPaddingXSmall,
                 const Text(
                   '·',
-                  style: TextStyle(fontSize: kFontSmall, color: kGrey3Color),
+                  style: TextStyle(fontSize: fontSmall, color: grey3Color),
                 ),
-                kHorizontalPaddingXSmall,
+                horizontalPaddingXSmall,
                 Container(
                   height: 6,
                   width: 10.w,
-                  color: kWhiteColor,
+                  color: whiteColor,
                 ),
               ],
             )

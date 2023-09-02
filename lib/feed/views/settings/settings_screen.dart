@@ -74,9 +74,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: userSelectedColor ?? kPrimaryColor,
+      backgroundColor: userSelectedColor ?? primaryColor,
       appBar: AppBar(
-        backgroundColor: userSelectedColor ?? kPrimaryColor,
+        backgroundColor: userSelectedColor ?? primaryColor,
         elevation: 0,
         title: const LMTextView(
             text: "Sample App Settings",
@@ -91,21 +91,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            kVerticalPaddingXLarge,
+            verticalPaddingXLarge,
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.0),
               child: LMTextView(
                   text: "Name*",
-                  textStyle: TextStyle(color: kWhiteColor, fontSize: 14)),
+                  textStyle: TextStyle(color: whiteColor, fontSize: 14)),
             ),
-            kVerticalPaddingMedium,
+            verticalPaddingMedium,
             Container(
               clipBehavior: Clip.hardEdge,
               margin: const EdgeInsets.symmetric(horizontal: 16.0),
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(8.0)),
               child: LMTextInput(
-                backgroundColor: kWhiteColor,
+                backgroundColor: whiteColor,
                 controller: nameController,
                 hintText: "Sachin Gakkhar",
                 hintStyle: const TextStyle(
@@ -114,21 +114,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     fontWeight: FontWeight.w400),
               ),
             ),
-            kVerticalPaddingXLarge,
+            verticalPaddingXLarge,
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.0),
               child: LMTextView(
                   text: "User ID*",
-                  textStyle: TextStyle(color: kWhiteColor, fontSize: 14)),
+                  textStyle: TextStyle(color: whiteColor, fontSize: 14)),
             ),
-            kVerticalPaddingMedium,
+            verticalPaddingMedium,
             Container(
               clipBehavior: Clip.hardEdge,
               margin: const EdgeInsets.symmetric(horizontal: 16.0),
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(8.0)),
               child: LMTextInput(
-                backgroundColor: kWhiteColor,
+                backgroundColor: whiteColor,
                 controller: userIdController,
                 hintText: "123456",
                 hintStyle: const TextStyle(
@@ -137,21 +137,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     fontWeight: FontWeight.w400),
               ),
             ),
-            kVerticalPaddingXLarge,
+            verticalPaddingXLarge,
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.0),
               child: LMTextView(
                   text: "New API Key (optional)",
-                  textStyle: TextStyle(color: kWhiteColor, fontSize: 14)),
+                  textStyle: TextStyle(color: whiteColor, fontSize: 14)),
             ),
-            kVerticalPaddingMedium,
+            verticalPaddingMedium,
             Container(
               clipBehavior: Clip.hardEdge,
               margin: const EdgeInsets.symmetric(horizontal: 16.0),
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(8.0)),
               child: LMTextInput(
-                backgroundColor: kWhiteColor,
+                backgroundColor: whiteColor,
                 controller: apiKeyController,
                 hintText: "Enter new API key",
                 hintStyle: const TextStyle(
@@ -160,18 +160,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     fontWeight: FontWeight.w400),
               ),
             ),
-            kVerticalPaddingLarge,
-            kVerticalPaddingLarge,
+            verticalPaddingLarge,
+            verticalPaddingLarge,
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0),
               child: LMTextView(
                   text:
                       "If no credentials are provided, the app will run with the default credentials of Bot user in your community",
                   textAlign: TextAlign.center,
-                  textStyle: TextStyle(color: kWhiteColor, fontSize: 12)),
+                  textStyle: TextStyle(color: whiteColor, fontSize: 12)),
             ),
-            kVerticalPaddingLarge,
-            kVerticalPaddingLarge,
+            verticalPaddingLarge,
+            verticalPaddingLarge,
             const Align(
               alignment: Alignment.center,
               child: LMTextView(
@@ -180,11 +180,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 textStyle: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w500,
-                  color: kWhiteColor,
+                  color: whiteColor,
                 ),
               ),
             ),
-            kVerticalPaddingXLarge,
+            verticalPaddingXLarge,
             Align(
               alignment: Alignment.center,
               child: Container(
@@ -227,7 +227,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     child: Container(
                       margin: const EdgeInsets.only(right: 20),
                       decoration: BoxDecoration(
-                          border: Border.all(color: kWhiteColor, width: 1),
+                          border: Border.all(color: whiteColor, width: 1),
                           borderRadius: BorderRadius.circular(1),
                           color: brandingColorOptions.length == index
                               ? Colors.white
@@ -251,13 +251,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
               ),
             ),
-            kVerticalPaddingLarge,
-            kVerticalPaddingLarge,
+            verticalPaddingLarge,
+            verticalPaddingLarge,
             const Spacer(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: LMTextButton(
-                backgroundColor: kWhiteColor,
+                backgroundColor: whiteColor,
                 borderRadius: 8,
                 height: 48,
                 onTap: () async {
@@ -315,14 +315,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 text: LMTextView(
                   text: "Submit",
                   textStyle: TextStyle(
-                    color: userSelectedColor ?? kPrimaryColor,
+                    color: userSelectedColor ?? primaryColor,
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
             ),
-            kVerticalPaddingMedium,
+            verticalPaddingMedium,
           ],
         ),
       ),

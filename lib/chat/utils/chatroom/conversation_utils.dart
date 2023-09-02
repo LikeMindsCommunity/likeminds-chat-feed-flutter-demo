@@ -3,6 +3,11 @@ import 'dart:collection';
 import 'package:likeminds_chat_fl/likeminds_chat_fl.dart';
 import 'package:likeminds_flutter_sample/chat/utils/imports.dart';
 
+/*
+* This function is used to get the position of a widget using
+* the key associated with it 
+* return Offset ( x and y coordinates of the widget )
+*/
 Offset getPositionOfChatBubble(GlobalKey widgetKey) {
   RenderBox? renderBox =
       widgetKey.currentContext?.findRenderObject() as RenderBox?;
@@ -14,6 +19,10 @@ Offset getPositionOfChatBubble(GlobalKey widgetKey) {
   return offset;
 }
 
+/*
+* Calculates the height of a widget using 
+* the key associated with it 
+*/
 double? getHeightOfWidget(GlobalKey widgetKey) {
   RenderBox? renderBox =
       widgetKey.currentContext?.findRenderObject() as RenderBox?;
@@ -23,6 +32,10 @@ double? getHeightOfWidget(GlobalKey widgetKey) {
   return renderBox.size.height;
 }
 
+/*
+* Calculates the width of a widget using 
+* the key associated with it 
+*/
 double? getWidthOfWidget(GlobalKey widgetKey) {
   RenderBox? renderBox =
       widgetKey.currentContext?.findRenderObject() as RenderBox?;
@@ -32,6 +45,7 @@ double? getWidthOfWidget(GlobalKey widgetKey) {
   return renderBox.size.width;
 }
 
+// Adds a timestamp to the conversation list
 List<Conversation>? addTimeStampInConversationList(
     List<Conversation>? conversationList, int communityId) {
   if (conversationList == null) {

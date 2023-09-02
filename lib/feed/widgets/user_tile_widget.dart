@@ -34,7 +34,7 @@ class LMUserTile extends StatelessWidget {
           },
           imageUrl: user.imageUrl,
         ),
-        kHorizontalPaddingLarge,
+        horizontalPaddingLarge,
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,7 +48,7 @@ class LMUserTile extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-              kVerticalPaddingMedium,
+              verticalPaddingMedium,
               subText ?? const SizedBox(),
             ],
           ),

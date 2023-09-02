@@ -1,16 +1,16 @@
-const String kAssetDocPDFIcon =
+const String assetDocPDFIcon =
     'packages/likeminds_flutter_sample/assets/icons/doc_pdf.svg';
-const String kAssetExploreIcon =
+const String assetExploreIcon =
     'packages/likeminds_flutter_sample/assets/icons/explore.svg';
 
-const String kAssetEmptyScreenIcon =
+const String assetEmptyScreenIcon =
     'packages/likeminds_flutter_sample/assets/icons/empty_screen.png';
 
-const String kAssetNotificationCheckIcon =
+const String assetNotificationCheckIcon =
     'packages/likeminds_flutter_sample/assets/icons/notification_check.svg';
 
-const String kAssetPollSubmitIcon =
+const String assetPollSubmitIcon =
     'packages/likeminds_flutter_sample/assets/icons/poll_submit.svg';
 
-const String kAssetPollEditIcon =
+const String assetPollEditIcon =
     'packages/likeminds_flutter_sample/assets/icons/poll_edit.svg';

@@ -106,7 +106,7 @@ class _CommentReplyWidgetState extends State<CommentReplyWidget> {
               textStyle: const TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w400,
-                color: kGreyColor,
+                color: greyColor,
               ),
             ),
             onMenuTap: (value) async {
@@ -321,7 +321,7 @@ class _CommentReplyWidgetState extends State<CommentReplyWidget> {
                                       ' ${replies.length} of ${reply!.repliesCount}',
                                   textStyle: const TextStyle(
                                     fontSize: 11,
-                                    color: kGrey3Color,
+                                    color: grey3Color,
                                   ),
                                 ),
                               ),
@@ -373,7 +373,7 @@ class _CommentReplyWidgetState extends State<CommentReplyWidget> {
                               ' ${replies.length} of ${reply!.repliesCount}',
                               style: const TextStyle(
                                 fontSize: 11,
-                                color: kGrey3Color,
+                                color: grey3Color,
                               ),
                             )
                           ],
@@ -422,7 +422,7 @@ class _CommentReplyWidgetState extends State<CommentReplyWidget> {
                                 ' ${replies.length} of ${reply!.repliesCount}',
                                 style: const TextStyle(
                                   fontSize: 11,
-                                  color: kGrey3Color,
+                                  color: grey3Color,
                                 ),
                               )
                             ],
@@ -475,7 +475,7 @@ class _CommentReplyWidgetState extends State<CommentReplyWidget> {
                                 ' ${replies.length} of ${reply!.repliesCount}',
                                 style: const TextStyle(
                                   fontSize: 11,
-                                  color: kGrey3Color,
+                                  color: grey3Color,
                                 ),
                               )
                             ],

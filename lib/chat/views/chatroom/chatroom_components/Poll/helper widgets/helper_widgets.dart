@@ -13,7 +13,7 @@ Widget getDropDownText(String text, MainAxisAlignment mainAxisAlignment) {
     children: [
       Container(
         decoration: const BoxDecoration(
-            border: Border(bottom: BorderSide(color: kGrey3Color, width: 1.5))),
+            border: Border(bottom: BorderSide(color: grey3Color, width: 1.5))),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -21,10 +21,10 @@ Widget getDropDownText(String text, MainAxisAlignment mainAxisAlignment) {
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: LMTheme.medium),
-            kHorizontalPaddingLarge,
+            horizontalPaddingLarge,
             const Icon(
               Icons.arrow_drop_down,
-              color: kBlackColor,
+              color: blackColor,
             ),
           ],
         ),
@@ -44,7 +44,7 @@ Widget getOptionsTile(TextEditingController textEditingController,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.only(top: 10),
         hintStyle: subHeaderStyle?.copyWith(
-          color: kGreyColor,
+          color: greyColor,
         ),
         hintText: hintText,
         border: InputBorder.none,
@@ -68,7 +68,7 @@ Widget getToggleButtonWithText({
         Expanded(
           child: text,
         ),
-        kHorizontalPaddingMedium,
+        horizontalPaddingMedium,
         Switch(
           value: status,
           onChanged: onChanged,
@@ -143,7 +143,7 @@ Widget getSubmitButton({
         mainAxisSize: MainAxisSize.min,
         children: [
           iconWidget,
-          kHorizontalPaddingMedium,
+          horizontalPaddingMedium,
           Text(
             text,
             style: textStyle,
@@ -168,8 +168,8 @@ Widget getVotingType(int optionsCount, Function onTypeSelect,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(PollCreationStringConstants.votingTypeText,
-            style: LMTheme.medium.copyWith(color: kGrey3Color)),
-        kVerticalPaddingMedium,
+            style: LMTheme.medium.copyWith(color: grey3Color)),
+        verticalPaddingMedium,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -277,13 +277,13 @@ Widget getPollResultTile(User user) {
           backgroundColor: LMTheme.buttonColor,
           size: 15.w,
         ),
-        kHorizontalPaddingLarge,
+        horizontalPaddingLarge,
         Expanded(
           child: Container(
             height: 15.w,
             decoration: const BoxDecoration(
                 border:
-                    Border(bottom: BorderSide(color: kGreyColor, width: 0.5))),
+                    Border(bottom: BorderSide(color: greyColor, width: 0.5))),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -292,10 +292,10 @@ Widget getPollResultTile(User user) {
                   user.name,
                   style: LMTheme.medium,
                 ),
-                kVerticalPaddingMedium,
+                verticalPaddingMedium,
                 Text(
                   user.memberSince ?? '',
-                  style: LMTheme.medium.copyWith(color: kGreyColor),
+                  style: LMTheme.medium.copyWith(color: greyColor),
                 ),
               ],
             ),

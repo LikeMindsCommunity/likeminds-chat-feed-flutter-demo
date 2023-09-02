@@ -14,7 +14,7 @@ class PollSubmissionBottomSheet extends StatelessWidget {
       width: 100.w,
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       decoration: const BoxDecoration(
-        color: kWhiteColor,
+        color: whiteColor,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(10.0),
           topRight: Radius.circular(10.0),
@@ -24,28 +24,28 @@ class PollSubmissionBottomSheet extends StatelessWidget {
         physics: const ClampingScrollPhysics(),
         child: Column(
           children: <Widget>[
-            kVerticalPaddingLarge,
-            kVerticalPaddingLarge,
+            verticalPaddingLarge,
+            verticalPaddingLarge,
             Icon(
               Icons.check_circle,
               color: LMTheme.buttonColor,
               size: 45.sp,
             ),
-            kVerticalPaddingLarge,
+            verticalPaddingLarge,
             Text(
               PollBubbleStringConstants.voteSubmissionSuccess,
               style: LMTheme.medium.copyWith(fontSize: 10.sp),
             ),
-            kVerticalPaddingLarge,
+            verticalPaddingLarge,
             Text(
               PollBubbleStringConstants.voteSubmissionSuccessDescription,
               textAlign: TextAlign.center,
               style: LMTheme.regular.copyWith(
-                color: kGrey3Color,
+                color: grey3Color,
                 fontSize: 10.sp,
               ),
             ),
-            kVerticalPaddingLarge,
+            verticalPaddingLarge,
             Text(
               PollBubbleStringConstants.resultWillBeAnnounced,
               textAlign: TextAlign.center,
@@ -62,8 +62,8 @@ class PollSubmissionBottomSheet extends StatelessWidget {
                 fontSize: 10.sp,
               ),
             ),
-            kVerticalPaddingLarge,
-            kVerticalPaddingLarge,
+            verticalPaddingLarge,
+            verticalPaddingLarge,
             getTextButton(
               text: "Continue",
               borderRadius: 15.0,
@@ -76,12 +76,12 @@ class PollSubmissionBottomSheet extends StatelessWidget {
               textAlign: TextAlign.center,
               textStyle: LMTheme.medium.copyWith(
                 fontSize: 10.sp,
-                color: kWhiteColor,
+                color: whiteColor,
               ),
             ),
-            kVerticalPaddingLarge,
-            kVerticalPaddingLarge,
-            kVerticalPaddingLarge,
+            verticalPaddingLarge,
+            verticalPaddingLarge,
+            verticalPaddingLarge,
           ],
         ),
       ),

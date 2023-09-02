@@ -152,13 +152,13 @@ class _LMFeedState extends State<LMFeed> {
                 Icon(
                   Icons.signal_wifi_off,
                   size: 40,
-                  color: userSelectedColor ?? kPrimaryColor,
+                  color: userSelectedColor ?? primaryColor,
                 ),
-                kVerticalPaddingLarge,
+                verticalPaddingLarge,
                 Text("No internet\nCheck your connection and try again",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: userSelectedColor ?? kPrimaryColor,
+                      color: userSelectedColor ?? primaryColor,
                       fontSize: 14,
                     )),
               ],
@@ -198,8 +198,8 @@ class _LMFeedState extends State<LMFeed> {
                           debugShowCheckedModeBanner: !isProd,
                           theme: ThemeData.from(
                             colorScheme: ColorScheme.fromSeed(
-                              seedColor: userSelectedColor ?? kPrimaryColor,
-                              primary: userSelectedColor ?? kPrimaryColor,
+                              seedColor: userSelectedColor ?? primaryColor,
+                              primary: userSelectedColor ?? primaryColor,
                               secondary:
                                   const Color.fromARGB(255, 70, 102, 246),
                               onSecondary: kSecondaryColor700,

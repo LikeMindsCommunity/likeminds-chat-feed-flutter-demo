@@ -19,9 +19,9 @@ Widget getChatBarAttachmentButton(
           ),
           child: icon == null
               ? const SizedBox()
-              : Icon(icon, color: kWhiteColor, size: 25.sp),
+              : Icon(icon, color: whiteColor, size: 25.sp),
         ),
-        kVerticalPaddingMedium,
+        verticalPaddingMedium,
         Text(
           title,
           overflow: TextOverflow.ellipsis,

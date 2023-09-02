@@ -87,7 +87,7 @@ class _PollOptionState extends State<PollOption> {
                   color: widget.pollConversation!.poll!.toShowResult!
                       ? isSelected
                           ? LMTheme.buttonColor.withOpacity(0.3)
-                          : kGrey3Color.withOpacity(0.3)
+                          : grey3Color.withOpacity(0.3)
                       : null,
                 ),
               ),
@@ -99,7 +99,7 @@ class _PollOptionState extends State<PollOption> {
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(6),
                   border: Border.all(
-                    color: isSelected ? LMTheme.buttonColor : kGreyColor,
+                    color: isSelected ? LMTheme.buttonColor : greyColor,
                     width: isSelected ? 2 : 1,
                   ),
                 ),
@@ -110,7 +110,7 @@ class _PollOptionState extends State<PollOption> {
                       child: Text(
                         widget.pollViewData.text,
                         style: LMTheme.regular.copyWith(
-                          color: kGreyColor,
+                          color: greyColor,
                           fontSize: 9.sp,
                         ),
                       ),
@@ -122,13 +122,13 @@ class _PollOptionState extends State<PollOption> {
                             color: LMTheme.buttonColor,
                           )
                         : const SizedBox(),
-                    kHorizontalPaddingSmall,
+                    horizontalPaddingSmall,
                   ],
                 ),
               ),
             ],
           ),
-          kVerticalPaddingXSmall,
+          verticalPaddingXSmall,
           widget.pollConversation!.poll!.toShowResult!
               ? GestureDetector(
                   onTap: () {
@@ -151,13 +151,13 @@ class _PollOptionState extends State<PollOption> {
                   child: Text(
                     "${widget.pollViewData.noVotes!} ${widget.pollViewData.noVotes! > 1 ? "votes" : "vote"}",
                     style: LMTheme.medium.copyWith(
-                      color: isSelected ? LMTheme.buttonColor : kGreyColor,
+                      color: isSelected ? LMTheme.buttonColor : greyColor,
                       fontSize: 8.sp,
                     ),
                   ),
                 )
               : const SizedBox(),
-          kVerticalPaddingMedium,
+          verticalPaddingMedium,
         ],
       ),
     );

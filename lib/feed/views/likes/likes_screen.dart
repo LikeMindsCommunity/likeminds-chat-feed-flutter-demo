@@ -146,7 +146,7 @@ class _LikesScreenState extends State<LikesScreen> {
         return Future(() => false);
       },
       child: Scaffold(
-        backgroundColor: kWhiteColor,
+        backgroundColor: whiteColor,
         body: BlocConsumer(
             bloc: _likesBloc,
             buildWhen: (previous, current) {
@@ -182,14 +182,14 @@ class _LikesScreenState extends State<LikesScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 18.0),
       child: Row(
         children: [
-          kHorizontalPaddingSmall,
+          horizontalPaddingSmall,
           IconButton(
             onPressed: () {
               Navigator.of(context).pop();
             },
             icon: const Icon(Icons.arrow_back_ios),
           ),
-          kHorizontalPaddingSmall,
+          horizontalPaddingSmall,
           Text(
             text,
             style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
@@ -206,7 +206,7 @@ class _LikesScreenState extends State<LikesScreen> {
         getAppBar(
           "${commentState!.response.totalCount} Likes",
         ),
-        kVerticalPaddingLarge,
+        verticalPaddingLarge,
         Expanded(
           child: PagedListView(
             padding: EdgeInsets.zero,
@@ -216,7 +216,7 @@ class _LikesScreenState extends State<LikesScreen> {
                 height: 20,
               ),
               noItemsFoundIndicatorBuilder: (context) => const Scaffold(
-                backgroundColor: kWhiteColor,
+                backgroundColor: whiteColor,
                 body: Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -232,7 +232,7 @@ class _LikesScreenState extends State<LikesScreen> {
                           style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w300,
-                              color: kGrey2Color)),
+                              color: grey2Color)),
                       SizedBox(height: 28),
                     ],
                   ),
@@ -256,7 +256,7 @@ class _LikesScreenState extends State<LikesScreen> {
           getAppBar(
             "${state!.response.totalCount} Likes",
           ),
-          kVerticalPaddingLarge,
+          verticalPaddingLarge,
           Expanded(
             child: PagedListView<int, Like>(
               padding: EdgeInsets.zero,
@@ -266,7 +266,7 @@ class _LikesScreenState extends State<LikesScreen> {
                   height: 20,
                 ),
                 noItemsFoundIndicatorBuilder: (context) => const Scaffold(
-                  backgroundColor: kWhiteColor,
+                  backgroundColor: whiteColor,
                   body: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -282,7 +282,7 @@ class _LikesScreenState extends State<LikesScreen> {
                             style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w300,
-                                color: kGrey2Color)),
+                                color: grey2Color)),
                         SizedBox(height: 28),
                       ],
                     ),
@@ -342,7 +342,7 @@ class LikesTile extends StatelessWidget {
                   textStyle: const TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
-                    color: kGreyColor,
+                    color: greyColor,
                   ),
                 ),
               ),
@@ -370,8 +370,8 @@ class DeletedLikesTile extends StatelessWidget {
           height: 54,
           width: 54,
         ),
-        kHorizontalPaddingSmall,
-        kHorizontalPaddingMedium,
+        horizontalPaddingSmall,
+        horizontalPaddingMedium,
         LMTextView(
           text: 'Deleted User',
           textStyle: TextStyle(

@@ -405,7 +405,7 @@ class _ChatroomPageState extends State<ChatroomPage> {
                           BoxShadow(
                             offset: const Offset(0, 4),
                             blurRadius: 25,
-                            color: kBlackColor.withOpacity(0.3),
+                            color: blackColor.withOpacity(0.3),
                           )
                         ],
                       ),
@@ -519,7 +519,7 @@ class _ChatroomPageState extends State<ChatroomPage> {
                                             vertical: 5,
                                           ),
                                           decoration: BoxDecoration(
-                                            color: kWhiteColor.withOpacity(0.5),
+                                            color: whiteColor.withOpacity(0.5),
                                             borderRadius:
                                                 BorderRadius.circular(12),
                                           ),
@@ -612,7 +612,7 @@ class _ChatroomPageState extends State<ChatroomPage> {
                       children: [
                         Container(
                           decoration:
-                              BoxDecoration(color: kWhiteColor, boxShadow: [
+                              BoxDecoration(color: whiteColor, boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.15),
                               blurRadius: 10,
@@ -621,7 +621,7 @@ class _ChatroomPageState extends State<ChatroomPage> {
                           ]),
                           child: Column(
                             children: <Widget>[
-                              kVerticalPaddingMedium,
+                              verticalPaddingMedium,
                               BlocBuilder(
                                 bloc: chatActionBloc,
                                 builder: (context, childState) {
@@ -869,7 +869,7 @@ class _ChatroomPageState extends State<ChatroomPage> {
                                                     fontSize: 11.sp,
                                                   ),
                                                 ),
-                                                kVerticalPaddingSmall,
+                                                verticalPaddingSmall,
                                                 Text(
                                                   '${chatroom!.participantCount} participants',
                                                   maxLines: 1,
@@ -883,7 +883,7 @@ class _ChatroomPageState extends State<ChatroomPage> {
                                               ],
                                             ),
                                           ),
-                                          kHorizontalPaddingMedium,
+                                          horizontalPaddingMedium,
                                           ChatroomMenu(
                                             chatroom: chatroom!,
                                             chatroomActions: state
@@ -896,14 +896,14 @@ class _ChatroomPageState extends State<ChatroomPage> {
                                   }
                                 },
                               ),
-                              kVerticalPaddingMedium,
+                              verticalPaddingMedium,
                             ],
                           ),
                         ),
                         Expanded(
                           child: Portal(
                             child: Container(
-                              color: kGreyColor.withOpacity(0.2),
+                              color: greyColor.withOpacity(0.2),
                               child: pagedListView,
                             ),
                           ),
@@ -972,7 +972,7 @@ class _ChatroomPageState extends State<ChatroomPage> {
                               builder: (context, _, __) {
                                 if (state is EditConversationState) {
                                   return Container(
-                                    color: kGreyColor.withOpacity(0.2),
+                                    color: greyColor.withOpacity(0.2),
                                     child: SafeArea(
                                       top: false,
                                       bottom: true,
@@ -989,7 +989,7 @@ class _ChatroomPageState extends State<ChatroomPage> {
                                 }
                                 if (state is ReplyConversationState) {
                                   return Container(
-                                    color: kGreyColor.withOpacity(0.2),
+                                    color: greyColor.withOpacity(0.2),
                                     child: SafeArea(
                                       top: false,
                                       bottom: true,
@@ -1012,7 +1012,7 @@ class _ChatroomPageState extends State<ChatroomPage> {
                                   );
                                 }
                                 return Container(
-                                  color: kGreyColor.withOpacity(0.2),
+                                  color: greyColor.withOpacity(0.2),
                                   child: SafeArea(
                                     top: false,
                                     bottom: state is ConversationToolBarState &&
@@ -1056,7 +1056,7 @@ class _ChatroomPageState extends State<ChatroomPage> {
                     );
                   }
                   return Container(
-                    color: kGreyColor.withOpacity(0.2),
+                    color: greyColor.withOpacity(0.2),
                   );
                 },
               ),

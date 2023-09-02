@@ -43,9 +43,9 @@ class LMBranding {
   }
 
   void _setDefaults() {
-    _headerColor = kPrimaryColor;
-    _buttonColor = kPrimaryColor;
-    _textLinkColor = kPrimaryColor;
+    _headerColor = primaryColor;
+    _buttonColor = primaryColor;
+    _textLinkColor = primaryColor;
   }
 
   // Getters

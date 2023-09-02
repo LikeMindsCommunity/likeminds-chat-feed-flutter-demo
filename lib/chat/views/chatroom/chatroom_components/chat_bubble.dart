@@ -462,7 +462,7 @@ class _ChatBubbleState extends State<ChatBubble> {
                                               '${keys[2]} ${mappedReactions[keys[2]]!.length}'),
                                         )
                                       : const SizedBox(),
-                                  kHorizontalPaddingSmall,
+                                  horizontalPaddingSmall,
                                   keys.length > 3
                                       ? Container(
                                           padding: const EdgeInsets.symmetric(
@@ -492,7 +492,7 @@ class _ChatBubbleState extends State<ChatBubble> {
                 controller: reactionBarController,
                 enablePassEvent: true,
                 verticalMargin: -5,
-                arrowColor: kWhiteColor,
+                arrowColor: whiteColor,
                 barrierColor: Colors.transparent,
                 menuBuilder: () => ReactionBar(
                   chatroom: widget.chatroom,
@@ -514,7 +514,7 @@ class _ChatBubbleState extends State<ChatBubble> {
       return Container();
     }
     return Container(
-      color: kGreyColor.withOpacity(0.1),
+      color: greyColor.withOpacity(0.1),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -524,7 +524,7 @@ class _ChatBubbleState extends State<ChatBubble> {
             width: 1.w,
             color: LMTheme.buttonColor,
           ),
-          kHorizontalPaddingMedium,
+          horizontalPaddingMedium,
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -538,11 +538,11 @@ class _ChatBubbleState extends State<ChatBubble> {
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                   style: LMTheme.medium.copyWith(
-                    color: kPrimaryColor,
+                    color: primaryColor,
                     fontSize: 9.sp,
                   ),
                 ),
-                kVerticalPaddingXSmall,
+                verticalPaddingXSmall,
                 SizedBox(
                   width: 35.w,
                   child: getChatItemAttachmentTile(
@@ -552,7 +552,7 @@ class _ChatBubbleState extends State<ChatBubble> {
               ],
             ),
           ),
-          kHorizontalPaddingMedium,
+          horizontalPaddingMedium,
         ],
       ),
     );
@@ -610,7 +610,7 @@ class _ChatBubbleState extends State<ChatBubble> {
                       "${isEdited ? 'Edited  ' : ''}${widget.conversation.createdAt}",
                       style: LMFonts.instance.regular.copyWith(
                         fontSize: 8.sp,
-                        color: kGreyColor,
+                        color: greyColor,
                       ),
                     )
                   : Icon(
@@ -686,7 +686,7 @@ class _ChatBubbleState extends State<ChatBubble> {
                     "${isEdited ? 'Edited  ' : ''}${widget.conversation.createdAt}",
                     style: LMFonts.instance.regular.copyWith(
                       fontSize: 8.sp,
-                      color: kGreyColor,
+                      color: greyColor,
                     ),
                   )
                 : Icon(
@@ -757,7 +757,7 @@ class _ChatBubbleState extends State<ChatBubble> {
           ),
           widget.conversation.answer.isEmpty
               ? const SizedBox.shrink()
-              : kVerticalPaddingXSmall,
+              : verticalPaddingXSmall,
           widget.conversation.answer.isEmpty
               ? const SizedBox.shrink()
               : expandableText,
@@ -794,7 +794,7 @@ class _ChatBubbleState extends State<ChatBubble> {
           mediaWidget,
           conversation!.answer.isEmpty
               ? const SizedBox.shrink()
-              : kVerticalPaddingXSmall,
+              : verticalPaddingXSmall,
           conversation!.answer.isEmpty
               ? const SizedBox.shrink()
               : expandableText,

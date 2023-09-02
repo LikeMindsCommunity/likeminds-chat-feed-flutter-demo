@@ -46,7 +46,7 @@ class _AddPollOptionBottomSheetState extends State<AddPollOptionBottomSheet> {
           left: 25.0,
           right: 25.0),
       decoration: const BoxDecoration(
-        color: kWhiteColor,
+        color: whiteColor,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(10.0),
           topRight: Radius.circular(10.0),
@@ -57,7 +57,7 @@ class _AddPollOptionBottomSheetState extends State<AddPollOptionBottomSheet> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              kVerticalPaddingLarge,
+              verticalPaddingLarge,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -74,16 +74,16 @@ class _AddPollOptionBottomSheetState extends State<AddPollOptionBottomSheet> {
                   ),
                 ],
               ),
-              kVerticalPaddingMedium,
+              verticalPaddingMedium,
               Text(
                 PollBubbleStringConstants.addNewPollOptionDescription,
                 style: LMTheme.medium.copyWith(
-                  color: kGreyColor,
+                  color: greyColor,
                   fontSize: 10.sp,
                 ),
               ),
-              kVerticalPaddingLarge,
-              kVerticalPaddingLarge,
+              verticalPaddingLarge,
+              verticalPaddingLarge,
               Container(
                 alignment: Alignment.center,
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -99,8 +99,8 @@ class _AddPollOptionBottomSheetState extends State<AddPollOptionBottomSheet> {
                   PollBubbleStringConstants.typeNewOption,
                 ),
               ),
-              kVerticalPaddingLarge,
-              kVerticalPaddingLarge,
+              verticalPaddingLarge,
+              verticalPaddingLarge,
               Align(
                 alignment: Alignment.center,
                 child: getTextButton(
@@ -108,7 +108,7 @@ class _AddPollOptionBottomSheetState extends State<AddPollOptionBottomSheet> {
                   backgroundColor: PollCreateValidator.validateAddPollOption(
                           optionEditingController.text)
                       ? LMTheme.buttonColor
-                      : kLightGreyColor,
+                      : lightGreyColor,
                   onTap: () {
                     if (PollCreateValidator.validateAddPollOption(
                         optionEditingController.text)) {
@@ -124,12 +124,12 @@ class _AddPollOptionBottomSheetState extends State<AddPollOptionBottomSheet> {
                     vertical: 2.w,
                   ),
                   textStyle: LMTheme.medium.copyWith(
-                    color: kWhiteColor,
+                    color: whiteColor,
                     fontSize: 13.sp,
                   ),
                 ),
               ),
-              kVerticalPaddingLarge,
+              verticalPaddingLarge,
             ],
           ),
         ),

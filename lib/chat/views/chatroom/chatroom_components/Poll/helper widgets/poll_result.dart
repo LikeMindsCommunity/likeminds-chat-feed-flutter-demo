@@ -60,20 +60,20 @@ class _PollResultState extends State<PollResult> {
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
               style: LMTheme.medium.copyWith(
-                color: kGreyColor,
+                color: greyColor,
                 fontSize: 8.sp,
               ),
             ),
           ),
-          kVerticalPaddingMedium,
+          verticalPaddingMedium,
           Text(
             "${pollViewData.noVotes ?? 0}",
             style: LMTheme.medium.copyWith(
-              color: kGreyColor,
+              color: greyColor,
               fontSize: 10.sp,
             ),
           ),
-          kVerticalPaddingSmall,
+          verticalPaddingSmall,
         ],
       ),
     );
@@ -124,26 +124,26 @@ class _PollResultState extends State<PollResult> {
             },
             child: Icon(
               Icons.arrow_back,
-              color: kGrey2Color,
+              color: grey2Color,
               size: 14.sp,
             ),
           ),
-          backgroundColor: kWhiteColor,
+          backgroundColor: whiteColor,
           title: Text(
             PollBubbleStringConstants.pollResults,
             style: LMTheme.medium,
           ),
         ),
         body: Container(
-          color: kWhiteColor,
+          color: whiteColor,
           child: Column(
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: kWhiteColor,
+                  color: whiteColor,
                   boxShadow: [
                     BoxShadow(
-                      color: kGreyColor.withOpacity(0.2),
+                      color: greyColor.withOpacity(0.2),
                       spreadRadius: 1,
                       blurRadius: 1,
                       offset: const Offset(0, 1),
@@ -219,12 +219,12 @@ class _PollResultState extends State<PollResult> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Image.asset(
-                                  kAssetEmptyScreenIcon,
+                                  assetEmptyScreenIcon,
                                   width: 100,
                                   height: 100,
                                   fit: BoxFit.cover,
                                 ),
-                                kVerticalPaddingLarge,
+                                verticalPaddingLarge,
                                 Text(
                                   "No Response",
                                   style: LMTheme.medium,

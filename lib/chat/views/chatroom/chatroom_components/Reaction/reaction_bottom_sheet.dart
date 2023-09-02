@@ -49,7 +49,7 @@ class _ReactionBottomSheetState extends State<ReactionBottomSheet> {
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       height: 60.h,
       decoration: const BoxDecoration(
-        color: kWhiteColor,
+        color: whiteColor,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(12.0),
           topRight: Radius.circular(12.0),
@@ -59,13 +59,13 @@ class _ReactionBottomSheetState extends State<ReactionBottomSheet> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          kVerticalPaddingXLarge,
-          kVerticalPaddingLarge,
+          verticalPaddingXLarge,
+          verticalPaddingLarge,
           Text(
             'Reactions',
             style: LMTheme.bold,
           ),
-          kVerticalPaddingXLarge,
+          verticalPaddingXLarge,
           SizedBox(
             height: 40,
             child: Row(
@@ -75,7 +75,7 @@ class _ReactionBottomSheetState extends State<ReactionBottomSheet> {
                   decoration: BoxDecoration(
                     border: Border(
                       bottom: BorderSide(
-                          color: kGrey3Color.withOpacity(0.2), width: 1),
+                          color: grey3Color.withOpacity(0.2), width: 1),
                     ),
                   ),
                   width: 100.w - 40,
@@ -119,7 +119,7 @@ class _ReactionBottomSheetState extends State<ReactionBottomSheet> {
               ],
             ),
           ),
-          kVerticalPaddingLarge,
+          verticalPaddingLarge,
           Expanded(
             child: ListView.builder(
               itemCount: mappedReactions![selectedKey]!.length,
@@ -143,7 +143,7 @@ class _ReactionBottomSheetState extends State<ReactionBottomSheet> {
                                         .userId]
                                     ?.name ??
                                 ''),
-                        kHorizontalPaddingLarge,
+                        horizontalPaddingLarge,
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -175,7 +175,7 @@ class _ReactionBottomSheetState extends State<ReactionBottomSheet> {
                                     },
                                     child: Text('Tap to remove',
                                         style: LMTheme.regular
-                                            .copyWith(color: kGrey3Color)),
+                                            .copyWith(color: grey3Color)),
                                   )
                                 : const SizedBox()
                           ],

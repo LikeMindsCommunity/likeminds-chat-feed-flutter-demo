@@ -69,10 +69,10 @@ class _ChatVideoState extends State<ChatVideo> {
                           showIfVideoNotInitialized: false,
                           child: FlickPlayToggle(
                             size: 30,
-                            color: kBlackColor,
+                            color: blackColor,
                             padding: const EdgeInsets.all(12),
                             decoration: BoxDecoration(
-                              color: kWhiteColor.withOpacity(0.7),
+                              color: whiteColor.withOpacity(0.7),
                               borderRadius: BorderRadius.circular(40.0),
                             ),
                           ),

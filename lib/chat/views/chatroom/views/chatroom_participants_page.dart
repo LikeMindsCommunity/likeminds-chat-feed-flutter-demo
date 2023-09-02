@@ -105,7 +105,7 @@ class _ChatroomParticipantsPageState extends State<ChatroomParticipantsPage> {
                           ? const bb.BackButton()
                           : const SizedBox(),
                       rebuildSearchBar.value
-                          ? kHorizontalPaddingXLarge
+                          ? horizontalPaddingXLarge
                           : const SizedBox(),
                       rebuildSearchBar.value
                           ? Expanded(
@@ -147,7 +147,7 @@ class _ChatroomParticipantsPageState extends State<ChatroomParticipantsPage> {
                                   border: InputBorder.none,
                                   hintText: "Search...",
                                   hintStyle: LMFonts.instance.regular.copyWith(
-                                    color: kDarkGreyColor,
+                                    color: dargreyColor,
                                     fontSize: 12.sp,
                                   ),
                                 ),
@@ -158,7 +158,7 @@ class _ChatroomParticipantsPageState extends State<ChatroomParticipantsPage> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 const bb.BackButton(),
-                                kHorizontalPaddingXLarge,
+                                horizontalPaddingXLarge,
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -168,7 +168,7 @@ class _ChatroomParticipantsPageState extends State<ChatroomParticipantsPage> {
                                         fontSize: 12.sp,
                                       ),
                                     ),
-                                    kVerticalPaddingSmall,
+                                    verticalPaddingSmall,
                                     Text(
                                       "${widget.chatroom.participantCount ?? '--'} participants",
                                       style: LMFonts.instance.regular,

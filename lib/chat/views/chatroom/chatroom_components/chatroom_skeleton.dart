@@ -7,7 +7,7 @@ class SkeletonChatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        kVerticalPaddingLarge,
+        verticalPaddingLarge,
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Row(
@@ -21,7 +21,7 @@ class SkeletonChatPage extends StatelessWidget {
                   height: 30.sp,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: kGreyColor,
+                    color: greyColor,
                   ),
                 ),
               ),
@@ -35,20 +35,20 @@ class SkeletonChatPage extends StatelessWidget {
                         width: 40.w,
                         height: 11.sp,
                         decoration: const BoxDecoration(
-                          color: kGreyColor,
+                          color: greyColor,
                           borderRadius: BorderRadius.all(
                             Radius.circular(4),
                           ),
                         ),
                       ),
                     ),
-                    kVerticalPaddingSmall,
+                    verticalPaddingSmall,
                     SkeletonAnimation(
                       child: Container(
                         width: 40.w,
                         height: 9.sp,
                         decoration: const BoxDecoration(
-                          color: kGreyColor,
+                          color: greyColor,
                           borderRadius: BorderRadius.all(
                             Radius.circular(4),
                           ),
@@ -58,20 +58,20 @@ class SkeletonChatPage extends StatelessWidget {
                   ],
                 ),
               ),
-              kHorizontalPaddingMedium,
+              horizontalPaddingMedium,
             ],
           ),
         ),
         const SizedBox(height: 18),
         Expanded(
           child: Container(
-            color: kGreyColor.withOpacity(0.2),
+            color: greyColor.withOpacity(0.2),
             child: const SkeletonChatList(),
           ),
         ),
         // const Spacer(),
         Container(
-          color: kGreyColor.withOpacity(0.2),
+          color: greyColor.withOpacity(0.2),
           child: Padding(
             padding: const EdgeInsets.only(
               left: 24,
@@ -89,7 +89,7 @@ class SkeletonChatPage extends StatelessWidget {
                         width: 40.w,
                         height: 7.h,
                         decoration: BoxDecoration(
-                          color: kGreyColor,
+                          color: greyColor,
                           borderRadius: BorderRadius.all(
                             Radius.circular(1.h),
                           ),
@@ -97,13 +97,13 @@ class SkeletonChatPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  kHorizontalPaddingMedium,
+                  horizontalPaddingMedium,
                   SkeletonAnimation(
                     child: Container(
                       width: 32.sp,
                       height: 32.sp,
                       decoration: BoxDecoration(
-                        color: kGreyColor,
+                        color: greyColor,
                         borderRadius: BorderRadius.all(
                           Radius.circular(15.sp),
                         ),
@@ -169,17 +169,17 @@ class SkeletonChatBubble extends StatelessWidget {
                     width: 24.sp,
                     height: 24.sp,
                     decoration: BoxDecoration(
-                      color: kGreyColor,
+                      color: greyColor,
                       borderRadius: BorderRadius.all(
                         Radius.circular(15.sp),
                       ),
                     ),
                   ),
                 ),
-              kHorizontalPaddingMedium,
+              horizontalPaddingMedium,
               Container(
                 decoration: BoxDecoration(
-                  color: kWhiteColor,
+                  color: whiteColor,
                   borderRadius: BorderRadius.circular(12),
                 ),
                 constraints: BoxConstraints(
@@ -192,20 +192,20 @@ class SkeletonChatBubble extends StatelessWidget {
                   child: Container(
                     width: 100.w,
                     decoration: BoxDecoration(
-                      color: kWhiteColor,
+                      color: whiteColor,
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
                 ),
               ),
-              kHorizontalPaddingMedium,
+              horizontalPaddingMedium,
               if (isSent)
                 SkeletonAnimation(
                   child: Container(
                     width: 24.sp,
                     height: 24.sp,
                     decoration: BoxDecoration(
-                      color: kGreyColor,
+                      color: greyColor,
                       borderRadius: BorderRadius.all(
                         Radius.circular(15.sp),
                       ),

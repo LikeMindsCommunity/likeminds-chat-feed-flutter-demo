@@ -176,7 +176,7 @@ class _TaggingAheadTextFieldState extends State<TaggingAheadTextField> {
               color: Colors.white,
               border: Border(
                 bottom: BorderSide(
-                  color: kGreyColor,
+                  color: greyColor,
                   width: 0.5,
                 ),
               ),

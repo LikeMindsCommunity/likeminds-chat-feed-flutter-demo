@@ -50,15 +50,15 @@ class _SettingsDrawerState extends State<SettingsDrawer> {
                     ),
                   ),
                 ),
-                kVerticalPaddingLarge,
+                verticalPaddingLarge,
               ],
             ),
           ),
-          kVerticalPaddingXLarge,
+          verticalPaddingXLarge,
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: LMTextView(
-                text: "Settings", textStyle: TextStyle(color: kGrey2Color)),
+                text: "Settings", textStyle: TextStyle(color: grey2Color)),
           ),
           GestureDetector(
             onTap: () {
@@ -80,14 +80,14 @@ class _SettingsDrawerState extends State<SettingsDrawer> {
               decoration: const BoxDecoration(
                 border: Border(
                   bottom: BorderSide(
-                    color: kGrey2Color,
+                    color: grey2Color,
                     width: 0.2,
                   ),
                 ),
               ),
               child: const Row(children: <Widget>[
                 Icon(Icons.settings_outlined, color: kGray1Color),
-                kHorizontalPaddingLarge,
+                horizontalPaddingLarge,
                 LMTextView(
                   text: "Settings",
                   textStyle: TextStyle(
@@ -99,18 +99,18 @@ class _SettingsDrawerState extends State<SettingsDrawer> {
             ),
           ),
           const Spacer(),
-          kVerticalPaddingLarge,
+          verticalPaddingLarge,
           const SafeArea(
             top: false,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: LMTextView(
                 text: "Powered by LikeMinds",
-                textStyle: TextStyle(color: kGrey3Color),
+                textStyle: TextStyle(color: grey3Color),
               ),
             ),
           ),
-          kVerticalPaddingLarge,
+          verticalPaddingLarge,
         ],
       ),
     );

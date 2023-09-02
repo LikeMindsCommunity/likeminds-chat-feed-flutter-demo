@@ -5,43 +5,43 @@ import 'package:likeminds_flutter_sample/chat/utils/imports.dart';
 
 import 'package:simple_s3/simple_s3.dart';
 
-enum MediaType { photo, video, document, audio, gif, voiceNote }
+enum MediaType { photo, video, document, audio, gif, voiceNote, none }
 
 String mapMediaTypeToString(MediaType mediaType) {
   switch (mediaType) {
     case MediaType.photo:
-      return kAttachmentTypeImage;
+      return attachmentTypeImage;
     case MediaType.video:
-      return kAttachmentTypeVideo;
+      return attachmentTypeVideo;
     case MediaType.document:
-      return kAttachmentTypePDF;
+      return attachmentTypePDF;
     case MediaType.audio:
-      return kAttachmentTypeAudio;
+      return attachmentTypeAudio;
     case MediaType.gif:
-      return kAttachmentTypeGIF;
+      return attachmentTypeGIF;
     case MediaType.voiceNote:
-      return kAttachmentTypeVoiceNote;
+      return attachmentTypeVoiceNote;
     default:
-      return kAttachmentTypeImage;
+      return attachmentTypeNone;
   }
 }
 
 MediaType mapStringToMediaType(String mediaType) {
   switch (mediaType) {
-    case kAttachmentTypeImage:
+    case attachmentTypeImage:
       return MediaType.photo;
-    case kAttachmentTypeVideo:
+    case attachmentTypeVideo:
       return MediaType.video;
-    case kAttachmentTypePDF:
+    case attachmentTypePDF:
       return MediaType.document;
-    case kAttachmentTypeAudio:
+    case attachmentTypeAudio:
       return MediaType.audio;
-    case kAttachmentTypeGIF:
+    case attachmentTypeGIF:
       return MediaType.gif;
-    case kAttachmentTypeVoiceNote:
+    case attachmentTypeVoiceNote:
       return MediaType.voiceNote;
     default:
-      return MediaType.photo;
+      return MediaType.none;
   }
 }
 

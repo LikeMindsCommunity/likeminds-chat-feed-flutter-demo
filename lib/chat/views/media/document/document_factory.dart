@@ -69,7 +69,7 @@ class _DocumentFactoryState extends State<DocumentFactory> {
                           children: <Widget>[
                             getDocumentThumbnail(
                                 mediaList![currPosition].mediaFile!),
-                            kVerticalPaddingXLarge,
+                            verticalPaddingXLarge,
                             Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               mainAxisSize: MainAxisSize.min,
@@ -85,11 +85,11 @@ class _DocumentFactoryState extends State<DocumentFactory> {
                                     textAlign: TextAlign.center,
                                     overflow: TextOverflow.ellipsis,
                                     style: LMTheme.medium.copyWith(
-                                      color: kWhiteColor,
+                                      color: whiteColor,
                                     ),
                                   ),
                                 ),
-                                kVerticalPaddingSmall,
+                                verticalPaddingSmall,
                                 getDocumentDetails(mediaList![currPosition]),
                               ],
                             ),
@@ -103,10 +103,10 @@ class _DocumentFactoryState extends State<DocumentFactory> {
               Container(
                 clipBehavior: Clip.none,
                 decoration: const BoxDecoration(
-                  color: kBlackColor,
+                  color: blackColor,
                   border: Border(
                     top: BorderSide(
-                      color: kGreyColor,
+                      color: greyColor,
                       width: 0.1,
                     ),
                   ),
@@ -131,7 +131,7 @@ class _DocumentFactoryState extends State<DocumentFactory> {
                             height: 10.w,
                             child: Icon(
                               Icons.insert_drive_file,
-                              color: kWhiteColor,
+                              color: whiteColor,
                               size: 24.sp,
                             ),
                           ),
@@ -140,7 +140,7 @@ class _DocumentFactoryState extends State<DocumentFactory> {
                           child: TaggingAheadTextField(
                             isDown: false,
                             chatroomId: widget.chatroomId,
-                            style: LMTheme.regular.copyWith(color: kWhiteColor),
+                            style: LMTheme.regular.copyWith(color: whiteColor),
                             onTagSelected: (tag) {
                               // print(tag);
                               userTags.add(tag);
@@ -182,7 +182,7 @@ class _DocumentFactoryState extends State<DocumentFactory> {
                             decoration: BoxDecoration(
                               boxShadow: [
                                 BoxShadow(
-                                  color: kWhiteColor.withOpacity(0.2),
+                                  color: whiteColor.withOpacity(0.2),
                                   blurRadius: 10,
                                   offset: const Offset(0, 4),
                                 )
@@ -194,7 +194,7 @@ class _DocumentFactoryState extends State<DocumentFactory> {
                             ),
                             child: Icon(
                               Icons.send,
-                              color: kWhiteColor,
+                              color: whiteColor,
                               size: 24.sp,
                             ),
                           ),

@@ -262,7 +262,7 @@ class _NewPostScreenState extends State<NewPostScreen> {
       child: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.dark,
         child: Scaffold(
-          backgroundColor: kWhiteColor,
+          backgroundColor: whiteColor,
           body: SafeArea(
             child: Column(
               children: [
@@ -318,7 +318,7 @@ class _NewPostScreenState extends State<NewPostScreen> {
                     }
                   },
                 ),
-                kVerticalPaddingMedium,
+                verticalPaddingMedium,
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 16.0,
@@ -342,13 +342,13 @@ class _NewPostScreenState extends State<NewPostScreen> {
                           size: 36,
                         ),
                       ),
-                      kHorizontalPaddingMedium,
+                      horizontalPaddingMedium,
                       Expanded(
                         child: Column(
                           children: [
                             Container(
                               decoration: const BoxDecoration(
-                                color: kWhiteColor,
+                                color: whiteColor,
                               ),
                               child: TaggingAheadTextField(
                                 isDown: true,
@@ -360,12 +360,12 @@ class _NewPostScreenState extends State<NewPostScreen> {
                                 onChange: _onTextChanged,
                               ),
                             ),
-                            kVerticalPaddingXLarge,
+                            verticalPaddingXLarge,
                             if (isUploading)
                               const Padding(
                                 padding: EdgeInsets.only(
-                                  top: kPaddingMedium,
-                                  bottom: kPaddingLarge,
+                                  top: paddingMedium,
+                                  bottom: paddingLarge,
                                 ),
                                 child: LMLoader(),
                               ),
@@ -398,7 +398,7 @@ class _NewPostScreenState extends State<NewPostScreen> {
                                   ? getPostDocument(screenSize.width)
                                   : Container(
                                       padding: const EdgeInsets.only(
-                                        top: kPaddingSmall,
+                                        top: paddingSmall,
                                       ),
                                       height: 180,
                                       alignment: Alignment.center,
@@ -466,7 +466,7 @@ class _NewPostScreenState extends State<NewPostScreen> {
                                                       icon: Icon(
                                                         CupertinoIcons
                                                             .xmark_circle_fill,
-                                                        color: kWhiteColor
+                                                        color: whiteColor
                                                             .withOpacity(0.5),
                                                       )),
                                                 )
@@ -476,7 +476,7 @@ class _NewPostScreenState extends State<NewPostScreen> {
                                         },
                                       ),
                                     ),
-                            kVerticalPaddingMedium,
+                            verticalPaddingMedium,
                           ],
                         ),
                       ),
@@ -486,10 +486,10 @@ class _NewPostScreenState extends State<NewPostScreen> {
                 const Spacer(),
                 Container(
                   decoration: BoxDecoration(
-                    color: kWhiteColor,
+                    color: whiteColor,
                     boxShadow: [
                       BoxShadow(
-                        color: kGrey3Color.withOpacity(0.4),
+                        color: grey3Color.withOpacity(0.4),
                         offset: const Offset(0.0, -1.0),
                         blurRadius: 1.0,
                       ), //BoxShadow
@@ -706,7 +706,7 @@ class _NewPostScreenState extends State<NewPostScreen> {
         }
         MultiImageCrop.startCropping(
           context: context,
-          activeColor: kWhiteColor,
+          activeColor: whiteColor,
           aspectRatio: 1,
           files: list.files.map((e) => File(e.path!)).toList(),
           callBack: (List<File> images) {

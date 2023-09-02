@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> {
         drawer: SettingsDrawer(
             universalFeedRefreshCallback: clearAndUpdateHomePage),
         appBar: AppBar(
-          backgroundColor: kWhiteColor,
+          backgroundColor: whiteColor,
           centerTitle: false,
           leading: GestureDetector(
             onTap: () {
@@ -249,7 +249,7 @@ Widget getShimmer() => Shimmer.fromColors(
         child: Container(
           height: 16,
           width: 32.w,
-          color: kWhiteColor,
+          color: whiteColor,
         ),
       ),
     );

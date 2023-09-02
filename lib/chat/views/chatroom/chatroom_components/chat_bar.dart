@@ -190,7 +190,7 @@ class _ChatBarState extends State<ChatBar> {
                   ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                      horizontal: kPaddingSmall,
+                      horizontal: paddingSmall,
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -233,7 +233,7 @@ class _ChatBarState extends State<ChatBar> {
                                       checkIfSecretAndJoined(),
                                   hintMaxLines: 2,
                                   hintStyle: LMTheme.medium.copyWith(
-                                    color: kGreyColor,
+                                    color: greyColor,
                                     fontSize: 9.sp,
                                   ),
                                   hintText: getChatBarHintText(),
@@ -444,7 +444,7 @@ class _ChatBarState extends State<ChatBar> {
                                                       onTap: null,
                                                       child:
                                                           getChatBarAttachmentButton(
-                                                        kWhiteColor,
+                                                        whiteColor,
                                                         "",
                                                         null,
                                                       ),
@@ -453,7 +453,7 @@ class _ChatBarState extends State<ChatBar> {
                                                       onTap: null,
                                                       child:
                                                           getChatBarAttachmentButton(
-                                                        kWhiteColor,
+                                                        whiteColor,
                                                         "",
                                                         null,
                                                       ),
@@ -546,13 +546,13 @@ class _ChatBarState extends State<ChatBar> {
                           decoration: BoxDecoration(
                               color: checkIfAnnouncementChannel()
                                   ? LMBranding.instance.buttonColor
-                                  : kGreyColor,
+                                  : greyColor,
                               borderRadius: BorderRadius.circular(6.w),
                               boxShadow: [
                                 BoxShadow(
                                   offset: const Offset(0, 4),
                                   blurRadius: 25,
-                                  color: kBlackColor.withOpacity(0.3),
+                                  color: blackColor.withOpacity(0.3),
                                 )
                               ]),
                           child: Center(
@@ -585,7 +585,7 @@ class _ChatBarState extends State<ChatBar> {
         child: Container(
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(
-            color: kGreyColor.withOpacity(0.2),
+            color: greyColor.withOpacity(0.2),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Row(
@@ -594,7 +594,7 @@ class _ChatBarState extends State<ChatBar> {
                 width: 1.w,
                 color: LMTheme.buttonColor,
               ),
-              kHorizontalPaddingMedium,
+              horizontalPaddingMedium,
               SizedBox(
                 width: 50.w,
                 child: Column(
@@ -611,7 +611,7 @@ class _ChatBarState extends State<ChatBar> {
                         color: LMTheme.headerColor,
                       ),
                     ),
-                    kVerticalPaddingSmall,
+                    verticalPaddingSmall,
                     SizedBox(
                       width: 50.w,
                       child: getChatItemAttachmentTile(
@@ -628,7 +628,7 @@ class _ChatBarState extends State<ChatBar> {
                 },
                 icon: const Icon(
                   Icons.close,
-                  color: kGreyColor,
+                  color: greyColor,
                 ),
               ),
             ],
@@ -647,7 +647,7 @@ class _ChatBarState extends State<ChatBar> {
         child: Container(
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(
-            color: kGreyColor.withOpacity(0.2),
+            color: greyColor.withOpacity(0.2),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Row(
@@ -656,7 +656,7 @@ class _ChatBarState extends State<ChatBar> {
                 width: 1.w,
                 color: LMTheme.buttonColor,
               ),
-              kHorizontalPaddingMedium,
+              horizontalPaddingMedium,
               SizedBox(
                 width: 50.w,
                 child: Column(
@@ -671,7 +671,7 @@ class _ChatBarState extends State<ChatBar> {
                         color: LMTheme.headerColor,
                       ),
                     ),
-                    kVerticalPaddingSmall,
+                    verticalPaddingSmall,
                     SizedBox(
                       width: 50.w,
                       child: Text(
@@ -696,7 +696,7 @@ class _ChatBarState extends State<ChatBar> {
                 },
                 icon: const Icon(
                   Icons.close,
-                  color: kGreyColor,
+                  color: greyColor,
                 ),
               ),
             ],

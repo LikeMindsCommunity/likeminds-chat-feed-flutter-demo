@@ -32,7 +32,7 @@ class UserLocalPreference {
   Color fetchAppColor() {
     int? appColor = _sharedPreferences!.getInt('appColor');
     if (appColor == null) {
-      return kPrimaryColor;
+      return primaryColor;
     } else {
       return Color(appColor);
     }

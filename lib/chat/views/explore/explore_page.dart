@@ -184,7 +184,7 @@ class _ExplorePageState extends State<ExplorePage> {
         const Spacer(),
       ],
       bodyChildren: [
-        kVerticalPaddingSmall,
+        verticalPaddingSmall,
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -318,13 +318,13 @@ class _ExplorePageState extends State<ExplorePage> {
                                           color: LMTheme.buttonColor,
                                         ),
                                       ),
-                                      kHorizontalPaddingSmall,
+                                      horizontalPaddingSmall,
                                       Text(
                                         'Pinned',
                                         style: LMTheme.medium.copyWith(
                                             color: LMTheme.buttonColor),
                                       ),
-                                      kHorizontalPaddingSmall,
+                                      horizontalPaddingSmall,
                                       SizedBox(
                                         height: 18.sp,
                                         width: 18.sp,
@@ -343,13 +343,13 @@ class _ExplorePageState extends State<ExplorePage> {
                                   color: Colors.white,
                                   shape: BoxShape.circle,
                                   border: Border.all(
-                                    color: kDarkGreyColor,
+                                    color: dargreyColor,
                                   ),
                                 ),
                                 child: Icon(
                                   Icons.push_pin,
                                   size: 10.sp,
-                                  color: kDarkGreyColor,
+                                  color: dargreyColor,
                                 ),
                               ),
                       );
@@ -357,7 +357,7 @@ class _ExplorePageState extends State<ExplorePage> {
             ),
           ],
         ),
-        kVerticalPaddingXLarge,
+        verticalPaddingXLarge,
         Expanded(
           child: BlocConsumer<ExploreBloc, ExploreState>(
             bloc: exploreBloc,

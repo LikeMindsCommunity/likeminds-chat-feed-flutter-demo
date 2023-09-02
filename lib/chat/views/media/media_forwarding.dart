@@ -71,9 +71,9 @@ class _MediaForwardState extends State<MediaForward> {
         return Future.value(true);
       },
       child: Scaffold(
-        backgroundColor: kBlackColor,
+        backgroundColor: blackColor,
         appBar: AppBar(
-          backgroundColor: kBlackColor,
+          backgroundColor: blackColor,
           leading: IconButton(
             onPressed: () {
               router.pop();
@@ -129,10 +129,10 @@ class _MediaForwardState extends State<MediaForward> {
           ),
           Container(
             decoration: const BoxDecoration(
-                color: kBlackColor,
+                color: blackColor,
                 border: Border(
                   top: BorderSide(
-                    color: kGreyColor,
+                    color: greyColor,
                     width: 0.1,
                   ),
                 )),
@@ -171,7 +171,7 @@ class _MediaForwardState extends State<MediaForward> {
                         height: 10.w,
                         child: Icon(
                           Icons.photo_library,
-                          color: kWhiteColor,
+                          color: whiteColor,
                           size: 24.sp,
                         ),
                       ),
@@ -180,7 +180,7 @@ class _MediaForwardState extends State<MediaForward> {
                       child: TaggingAheadTextField(
                         isDown: false,
                         chatroomId: widget.chatroomId,
-                        style: LMTheme.regular.copyWith(color: kWhiteColor),
+                        style: LMTheme.regular.copyWith(color: whiteColor),
                         onTagSelected: (tag) {
                           // print(tag);
                           userTags.add(tag);
@@ -220,7 +220,7 @@ class _MediaForwardState extends State<MediaForward> {
                         decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
-                              color: kWhiteColor.withOpacity(0.2),
+                              color: whiteColor.withOpacity(0.2),
                               blurRadius: 10,
                               offset: const Offset(0, 4),
                             )
@@ -232,7 +232,7 @@ class _MediaForwardState extends State<MediaForward> {
                         ),
                         child: Icon(
                           Icons.send,
-                          color: kWhiteColor,
+                          color: whiteColor,
                           size: 24.sp,
                         ),
                       ),

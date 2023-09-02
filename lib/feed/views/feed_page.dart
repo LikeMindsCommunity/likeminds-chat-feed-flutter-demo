@@ -116,9 +116,9 @@ class _FeedScreenState extends State<FeedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kWhiteColor.withOpacity(0.95),
+      backgroundColor: whiteColor.withOpacity(0.95),
       appBar: AppBar(
-        backgroundColor: kWhiteColor,
+        backgroundColor: whiteColor,
         centerTitle: false,
         title: const LMTextView(
           text: "Feed",
@@ -175,7 +175,7 @@ class _FeedScreenState extends State<FeedScreen> {
                             style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w300,
-                                color: kGrey2Color)),
+                                color: grey2Color)),
                         const SizedBox(height: 28),
                         LMTextButton(
                           height: 48,
@@ -281,7 +281,7 @@ class _FeedScreenState extends State<FeedScreen> {
             width: 25,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: userSelectedColor ?? kPrimaryColor,
+              color: userSelectedColor ?? primaryColor,
               boxShadow: [
                 BoxShadow(
                   offset: const Offset(0, 4),

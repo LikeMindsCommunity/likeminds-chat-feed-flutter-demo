@@ -86,7 +86,7 @@ class ExpandableTextState extends State<ExpandableText>
     with TickerProviderStateMixin {
   // late String _passedText;
   bool _expanded = false;
-  RegExp regExp = RegExp(kRegexLinksAndTags);
+  RegExp regExp = RegExp(regexLinksAndTags);
   late TapGestureRecognizer _linkTapGestureRecognizer;
   late TapGestureRecognizer _prefixTapGestureRecognizer;
 

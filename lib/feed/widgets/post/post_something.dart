@@ -32,7 +32,7 @@ class PostSomething extends StatelessWidget {
           height: 60,
           padding: const EdgeInsets.all(10.0),
           decoration: BoxDecoration(
-              color: kWhiteColor, borderRadius: BorderRadius.circular(50.0)),
+              color: whiteColor, borderRadius: BorderRadius.circular(50.0)),
           child: Row(
             children: <Widget>[
               LMProfilePicture(
@@ -46,7 +46,7 @@ class PostSomething extends StatelessWidget {
                 },
                 size: 42,
               ),
-              kHorizontalPaddingMedium,
+              horizontalPaddingMedium,
               const LMTextView(text: "Post something...")
             ],
           ),

@@ -146,11 +146,11 @@ class LMNotificationHandler {
                   fontSize: 16,
                 ),
               ),
-              kVerticalPaddingSmall,
+              verticalPaddingSmall,
               Text(
                 message.data["sub_title"],
                 style: const TextStyle(
-                  color: kGrey2Color,
+                  color: grey2Color,
                   fontSize: 12,
                 ),
               ),

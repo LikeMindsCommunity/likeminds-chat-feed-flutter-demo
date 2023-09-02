@@ -77,9 +77,9 @@ class _MediaPreviewState extends State<MediaPreview> {
     conversation = widget.conversation;
     setupFlickManager();
     return Scaffold(
-      backgroundColor: kBlackColor,
+      backgroundColor: blackColor,
       appBar: AppBar(
-        backgroundColor: kBlackColor,
+        backgroundColor: blackColor,
         leading: IconButton(
           onPressed: () {
             router.pop();
@@ -95,17 +95,17 @@ class _MediaPreviewState extends State<MediaPreview> {
             Text(
               userMeta?[conversation?.userId]?.name ?? '',
               style: LMTheme.regular.copyWith(
-                color: kWhiteColor,
+                color: whiteColor,
                 fontSize: 13.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),
-            kVerticalPaddingSmall,
+            verticalPaddingSmall,
             Text(
               '${conversation?.date},  ${conversation?.createdAt}',
               style: LMTheme.regular.copyWith(
                 fontSize: 10.sp,
-                color: kWhiteColor,
+                color: whiteColor,
               ),
             ),
           ],
@@ -171,7 +171,7 @@ class _MediaPreviewState extends State<MediaPreview> {
                   return Column(
                     children: [
                       checkIfMultipleAttachments()
-                          ? kVerticalPaddingMedium
+                          ? verticalPaddingMedium
                           : const SizedBox(),
                       checkIfMultipleAttachments()
                           ? Row(

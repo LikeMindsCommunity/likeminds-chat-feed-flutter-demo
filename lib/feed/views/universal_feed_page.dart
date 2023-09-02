@@ -150,7 +150,7 @@ class _UniversalFeedScreenState extends State<UniversalFeedScreen> {
         drawer: SettingsDrawer(
             universalFeedRefreshCallback: clearAndUpdateUniversalFeed),
         appBar: AppBar(
-          backgroundColor: kWhiteColor,
+          backgroundColor: whiteColor,
           centerTitle: false,
           leading: GestureDetector(
             onTap: () {
@@ -426,7 +426,7 @@ class _FeedRoomViewState extends State<FeedRoomView> {
               if (state is EditPostUploading) {
                 return Container(
                   height: 60,
-                  color: kWhiteColor,
+                  color: whiteColor,
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Row(
@@ -441,14 +441,14 @@ class _FeedRoomViewState extends State<FeedRoomView> {
                             width: 50,
                             height: 50,
                           ),
-                          kHorizontalPaddingMedium,
+                          horizontalPaddingMedium,
                           Text('Saving')
                         ],
                       ),
                       CircularProgressIndicator(
-                        backgroundColor: kGrey3Color,
+                        backgroundColor: grey3Color,
                         valueColor: AlwaysStoppedAnimation(
-                            userSelectedColor ?? kPrimaryColor),
+                            userSelectedColor ?? primaryColor),
                         strokeWidth: 3,
                       ),
                     ],
@@ -458,7 +458,7 @@ class _FeedRoomViewState extends State<FeedRoomView> {
               if (state is NewPostUploading) {
                 return Container(
                   height: 60,
-                  color: kWhiteColor,
+                  color: whiteColor,
                   alignment: Alignment.center,
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Row(
@@ -470,7 +470,7 @@ class _FeedRoomViewState extends State<FeedRoomView> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           getLoaderThumbnail(state.thumbnailMedia),
-                          kHorizontalPaddingMedium,
+                          horizontalPaddingMedium,
                           const Text('Posting')
                         ],
                       ),
@@ -486,9 +486,9 @@ class _FeedRoomViewState extends State<FeedRoomView> {
                                           snapshot.data == 0.0
                                       ? null
                                       : snapshot.data!.toDouble()),
-                                  backgroundColor: kGrey3Color,
+                                  backgroundColor: grey3Color,
                                   valueColor: AlwaysStoppedAnimation(
-                                      userSelectedColor ?? kPrimaryColor),
+                                      userSelectedColor ?? primaryColor),
                                   strokeWidth: 3,
                                 ));
                           }),
@@ -543,7 +543,7 @@ class _FeedRoomViewState extends State<FeedRoomView> {
                                     style: TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.w300,
-                                        color: kGrey2Color)),
+                                        color: grey2Color)),
                                 const SizedBox(height: 28),
                                 LMTextButton(
                                   borderRadius: 28,
@@ -652,7 +652,7 @@ class _FeedRoomViewState extends State<FeedRoomView> {
                   borderRadius: 28,
                   backgroundColor: right
                       ? Theme.of(context).colorScheme.primary
-                      : kGrey3Color,
+                      : grey3Color,
                   placement: LMIconPlacement.end,
                   text: LMTextView(
                     text: "Create Post",

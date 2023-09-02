@@ -44,12 +44,12 @@ Dialog deleteConfirmationDialog(
               fontWeight: FontWeight.bold,
             ),
           ),
-          kVerticalPaddingLarge,
+          verticalPaddingLarge,
           Text(content),
           user.userUniqueId == userId
               ? const SizedBox.shrink()
               : isCm
-                  ? kVerticalPaddingLarge
+                  ? verticalPaddingLarge
                   : const SizedBox.shrink(),
           user.userUniqueId == userId
               ? const SizedBox.shrink()
@@ -80,7 +80,7 @@ Dialog deleteConfirmationDialog(
                                             elevation: 5,
                                             enableDrag: true,
                                             clipBehavior: Clip.hardEdge,
-                                            backgroundColor: kWhiteColor,
+                                            backgroundColor: whiteColor,
                                             useSafeArea: true,
                                             shape: const RoundedRectangleBorder(
                                               borderRadius: BorderRadius.only(
@@ -113,7 +113,7 @@ Dialog deleteConfirmationDialog(
                                                         ),
                                                       ),
                                                     ),
-                                                    kVerticalPaddingXLarge,
+                                                    verticalPaddingXLarge,
                                                     Expanded(
                                                       child: ListView.separated(
                                                           separatorBuilder:
@@ -129,7 +129,7 @@ Dialog deleteConfirmationDialog(
                                                                       thickness:
                                                                           0.5,
                                                                       color:
-                                                                          kGrey3Color,
+                                                                          grey3Color,
                                                                     ),
                                                                   ),
                                                           itemBuilder:
@@ -159,7 +159,7 @@ Dialog deleteConfirmationDialog(
                                                                           onChanged:
                                                                               (value) {}),
                                                                     ),
-                                                                    kHorizontalPaddingLarge,
+                                                                    horizontalPaddingLarge,
                                                                     Text(
                                                                       reportTags[
                                                                               index]
@@ -190,7 +190,7 @@ Dialog deleteConfirmationDialog(
                               child: Container(
                                   padding: const EdgeInsets.all(14.0),
                                   decoration: BoxDecoration(
-                                      color: kWhiteColor,
+                                      color: whiteColor,
                                       borderRadius: BorderRadius.circular(8.0),
                                       boxShadow: const [
                                         BoxShadow(
@@ -221,7 +221,7 @@ Dialog deleteConfirmationDialog(
                           });
                     })
                   : const SizedBox.shrink(),
-          kVerticalPaddingSmall,
+          verticalPaddingSmall,
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
@@ -237,7 +237,7 @@ Dialog deleteConfirmationDialog(
                 child: const Text(
                   'Cancel',
                   style: TextStyle(
-                    color: kGrey3Color,
+                    color: grey3Color,
                     fontWeight: FontWeight.w600,
                   ),
                 ),

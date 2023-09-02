@@ -62,12 +62,12 @@ class _PollCreationBottomSheetState extends State<PollCreationBottomSheet> {
   @override
   void initState() {
     super.initState();
-    backgroundColor = widget.backgroundColor ?? kGreyBackgroundColor;
-    inputBoxColor = widget.inputBoxColor ?? kWhiteColor;
+    backgroundColor = widget.backgroundColor ?? greyBackgroundColor;
+    inputBoxColor = widget.inputBoxColor ?? whiteColor;
     headerStyle = widget.headerStyle ??
         LMTheme.bold.copyWith(color: LMTheme.buttonColor, fontSize: 10.sp);
     subHeaderStyle =
-        widget.subHeaderStyle ?? LMTheme.medium.copyWith(color: kBlackColor);
+        widget.subHeaderStyle ?? LMTheme.medium.copyWith(color: blackColor);
     pollQuestionController.addListener(() {
       if (_timer?.isActive ?? false) _timer?.cancel();
       _timer = Timer(const Duration(milliseconds: 500), () {
@@ -99,7 +99,7 @@ class _PollCreationBottomSheetState extends State<PollCreationBottomSheet> {
         height: 90.h,
         clipBehavior: Clip.hardEdge,
         decoration: BoxDecoration(
-          color: kWhiteColor,
+          color: whiteColor,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(6.w),
             topRight: Radius.circular(6.w),
@@ -115,7 +115,7 @@ class _PollCreationBottomSheetState extends State<PollCreationBottomSheet> {
                 key: _formKey,
                 child: Column(
                   children: <Widget>[
-                    kVerticalPaddingSmall,
+                    verticalPaddingSmall,
                     SizedBox(
                       width: 100.w,
                       child: ListTile(
@@ -157,7 +157,7 @@ class _PollCreationBottomSheetState extends State<PollCreationBottomSheet> {
                               style: headerStyle,
                             ),
                           ),
-                          kVerticalPaddingSmall,
+                          verticalPaddingSmall,
                           getOptionsTile(
                             pollQuestionController,
                             subHeaderStyle,
@@ -166,7 +166,7 @@ class _PollCreationBottomSheetState extends State<PollCreationBottomSheet> {
                         ],
                       ),
                     ),
-                    kVerticalPaddingLarge,
+                    verticalPaddingLarge,
                     Container(
                       width: 100.w,
                       padding: EdgeInsets.all(5.w),
@@ -180,7 +180,7 @@ class _PollCreationBottomSheetState extends State<PollCreationBottomSheet> {
                               style: headerStyle,
                             ),
                           ),
-                          kVerticalPaddingSmall,
+                          verticalPaddingSmall,
                           Column(
                             children: [
                               ListView.builder(
@@ -192,7 +192,7 @@ class _PollCreationBottomSheetState extends State<PollCreationBottomSheet> {
                                   decoration: const BoxDecoration(
                                       border: Border(
                                           bottom: BorderSide(
-                                              color: kGreyColor, width: 0.3))),
+                                              color: greyColor, width: 0.3))),
                                   child: Row(
                                     children: [
                                       Expanded(
@@ -223,7 +223,7 @@ class _PollCreationBottomSheetState extends State<PollCreationBottomSheet> {
                                   ),
                                 ),
                               ),
-                              kVerticalPaddingLarge,
+                              verticalPaddingLarge,
                               pollOptionsCount < 10
                                   ? GestureDetector(
                                       onTap: () {
@@ -241,7 +241,7 @@ class _PollCreationBottomSheetState extends State<PollCreationBottomSheet> {
                                             Icons.add_circle_outline,
                                             color: LMTheme.buttonColor,
                                           ),
-                                          kHorizontalPaddingLarge,
+                                          horizontalPaddingLarge,
                                           Text(
                                             PollCreationStringConstants
                                                 .addOption,
@@ -257,7 +257,7 @@ class _PollCreationBottomSheetState extends State<PollCreationBottomSheet> {
                         ],
                       ),
                     ),
-                    kVerticalPaddingLarge,
+                    verticalPaddingLarge,
                     GestureDetector(
                       onTap: () async {
                         DateTime currentDate = DateTime.now();
@@ -319,7 +319,7 @@ class _PollCreationBottomSheetState extends State<PollCreationBottomSheet> {
                                 style: headerStyle,
                               ),
                             ),
-                            kVerticalPaddingSmall,
+                            verticalPaddingSmall,
                             getOptionsTile(
                               pollExpiryController,
                               subHeaderStyle,
@@ -351,7 +351,7 @@ class _PollCreationBottomSheetState extends State<PollCreationBottomSheet> {
                                     },
                                   ),
                                 ),
-                                kVerticalPaddingMedium,
+                                verticalPaddingMedium,
                                 getToggleButtonWithText(
                                   status: _isAnonymousPoll,
                                   text: Text(
@@ -366,7 +366,7 @@ class _PollCreationBottomSheetState extends State<PollCreationBottomSheet> {
                                     },
                                   ),
                                 ),
-                                kVerticalPaddingMedium,
+                                verticalPaddingMedium,
                                 getToggleButtonWithText(
                                   status: _dontShowLiveResults,
                                   text: Text(
@@ -383,7 +383,7 @@ class _PollCreationBottomSheetState extends State<PollCreationBottomSheet> {
                                     },
                                   ),
                                 ),
-                                kVerticalPaddingMedium,
+                                verticalPaddingMedium,
                                 getVotingType(
                                   pollOptionsCount,
                                   setPollVotingType,
@@ -395,7 +395,7 @@ class _PollCreationBottomSheetState extends State<PollCreationBottomSheet> {
                             ),
                           )
                         : const SizedBox(),
-                    kVerticalPaddingLarge,
+                    verticalPaddingLarge,
                     GestureDetector(
                       onTap: () => setState(() {
                         _showAdvancedOptions = !_showAdvancedOptions;
@@ -406,28 +406,28 @@ class _PollCreationBottomSheetState extends State<PollCreationBottomSheet> {
                           Text(
                             'ADVANCED',
                             style: LMTheme.medium.copyWith(
-                              color: kGreyColor,
+                              color: greyColor,
                             ),
                           ),
-                          kHorizontalPaddingSmall,
+                          horizontalPaddingSmall,
                           Icon(
                             _showAdvancedOptions
                                 ? CupertinoIcons.chevron_up
                                 : CupertinoIcons.chevron_down,
-                            color: kGreyColor,
+                            color: greyColor,
                           ),
                         ],
                       ),
                     ),
-                    kVerticalPaddingLarge,
-                    kVerticalPaddingLarge,
+                    verticalPaddingLarge,
+                    verticalPaddingLarge,
                     getTextButton(
                       text: "Post",
                       backgroundColor: PollCreateValidator.enableSubmitButton(
                               pollQuestionController.text,
                               pollOptionsControllerList.length)
                           ? LMTheme.buttonColor
-                          : kLightGreyColor,
+                          : lightGreyColor,
                       onTap: () {
                         if (PollCreateValidator.validatePollSheet(
                           pollQuestionController.text,
@@ -470,12 +470,12 @@ class _PollCreationBottomSheetState extends State<PollCreationBottomSheet> {
                         vertical: 2.w,
                       ),
                       textStyle: subHeaderStyle?.copyWith(
-                        color: kWhiteColor,
+                        color: whiteColor,
                         fontSize: 13.sp,
                       ),
                     ),
-                    kVerticalPaddingLarge,
-                    kVerticalPaddingLarge,
+                    verticalPaddingLarge,
+                    verticalPaddingLarge,
                   ],
                 ),
               ),

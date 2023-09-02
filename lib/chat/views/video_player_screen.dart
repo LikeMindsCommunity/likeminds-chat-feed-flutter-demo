@@ -110,7 +110,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
                   ),
                   const SizedBox(width: 24),
                   FloatingActionButton(
-                    backgroundColor: kPrimaryColor,
+                    backgroundColor: primaryColor,
                     onPressed: () {
                       setState(() {
                         _controller.value.isPlaying

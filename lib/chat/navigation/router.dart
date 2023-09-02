@@ -32,14 +32,21 @@ const mediaForwardRoute = '/media_forward/:chatroomId';
 const mediaPreviewRoute = '/media_preview';
 const pollResultRoute = '/poll_result';
 
+// Initialises GoRouter with routes and errorBuilder
 final router = GoRouter(
   initialLocation: "/",
   routes: [
+    // Homne page as starting route
     GoRoute(
         path: startRoute,
         builder: (context, state) {
           return const HomePage();
         }),
+    /* 
+    * ChatroomPage requires chatroomId as a parameter
+    * isRoot is an optional parameter to indicate if the chatroom is the root chatroom
+    * ChatroomBloc and ConversationBloc are required for ChatroomPage
+    */
     GoRoute(
         path: chatRoute,
         builder: (context, state) {
@@ -63,6 +70,7 @@ final router = GoRouter(
             ),
           );
         }),
+    // ExploreBloc must be provided for ExplorePage
     GoRoute(
       path: exploreRoute,
       builder: (context, state) => BlocProvider(
@@ -70,6 +78,7 @@ final router = GoRouter(
         child: const ExplorePage(),
       ),
     ),
+    // ProfileBloc must be provided for ProfilePage
     GoRoute(
       path: profileRoute,
       builder: (context, state) => BlocProvider(
@@ -77,6 +86,7 @@ final router = GoRouter(
         child: const ProfilePage(),
       ),
     ),
+    // ParticipantsBloc must be provided for ChatroomParticipantsPage
     GoRoute(
       path: participantsRoute,
       builder: (context, state) => BlocProvider<ParticipantsBloc>(
@@ -86,6 +96,7 @@ final router = GoRouter(
         ),
       ),
     ),
+    // MediaForward requires a list of Media and chatroomId as parameters
     GoRoute(
       path: mediaForwardRoute,
       name: "media_forward",
@@ -94,6 +105,7 @@ final router = GoRouter(
         chatroomId: int.parse(state.params['chatroomId']!),
       ),
     ),
+    // MediaPreview requires a list of Media, chatroom, conversation and userMeta as parameters
     GoRoute(
       path: mediaPreviewRoute,
       name: "media_preview",
@@ -104,6 +116,7 @@ final router = GoRouter(
         userMeta: (state.extra as List<dynamic>)[3],
       ),
     ),
+    // PollResult requires a Conversation Object as parameter
     GoRoute(
       path: pollResultRoute,
       name: "poll_result",

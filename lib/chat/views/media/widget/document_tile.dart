@@ -56,7 +56,7 @@ class _DocumentThumbnailFileState extends State<DocumentThumbnailFile> {
           clipBehavior: Clip.hardEdge,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(
-              Radius.circular(kBorderRadiusMedium),
+              Radius.circular(borderRadiusMedium),
             ),
           ),
           child: FittedBox(
@@ -107,27 +107,26 @@ class _DocumentThumbnailFileState extends State<DocumentThumbnailFile> {
                     height: 70,
                     width: 55.w,
                     decoration: BoxDecoration(
-                      color: kWhiteColor,
-                      border: Border.all(color: kGreyWebBGColor, width: 1),
+                      color: whiteColor,
+                      border: Border.all(color: greyWebBGColor, width: 1),
                       borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(
-                          kBorderRadiusMedium,
+                          borderRadiusMedium,
                         ),
                         bottomRight: Radius.circular(
-                          kBorderRadiusMedium,
+                          borderRadiusMedium,
                         ),
                       ),
                     ),
-                    padding:
-                        const EdgeInsets.symmetric(vertical: kPaddingLarge),
+                    padding: const EdgeInsets.symmetric(vertical: paddingLarge),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         SvgPicture.asset(
-                          kAssetDocPDFIcon,
+                          assetDocPDFIcon,
                           fit: BoxFit.contain,
                         ),
-                        kHorizontalPaddingSmall,
+                        horizontalPaddingSmall,
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -138,10 +137,10 @@ class _DocumentThumbnailFileState extends State<DocumentThumbnailFile> {
                                   textAlign: TextAlign.left,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                      fontSize: 10.sp, color: kGrey2Color),
+                                      fontSize: 10.sp, color: grey2Color),
                                 ),
                               ),
-                              kVerticalPaddingSmall,
+                              verticalPaddingSmall,
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
@@ -150,57 +149,57 @@ class _DocumentThumbnailFileState extends State<DocumentThumbnailFile> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.start,
                                           children: <Widget>[
-                                            kHorizontalPaddingXSmall,
+                                            horizontalPaddingXSmall,
                                             Text(
                                               "${widget.media.pageCount!} ${widget.media.pageCount! > 1 ? "Pages" : "Page"}",
                                               textAlign: TextAlign.left,
                                               overflow: TextOverflow.ellipsis,
                                               style: TextStyle(
                                                   fontSize: 8.sp,
-                                                  color: kGrey3Color),
+                                                  color: grey3Color),
                                             ),
-                                            kHorizontalPaddingXSmall,
+                                            horizontalPaddingXSmall,
                                             Text(
                                               '·',
                                               textAlign: TextAlign.left,
                                               overflow: TextOverflow.ellipsis,
                                               style: TextStyle(
                                                   fontSize: 8.sp,
-                                                  color: kGrey3Color),
+                                                  color: grey3Color),
                                             ),
                                           ],
                                         )
                                       : const SizedBox(),
-                                  kHorizontalPaddingXSmall,
+                                  horizontalPaddingXSmall,
                                   Text(
                                     _fileSize!.toUpperCase(),
                                     textAlign: TextAlign.left,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
-                                        fontSize: 8.sp, color: kGrey3Color),
+                                        fontSize: 8.sp, color: grey3Color),
                                   ),
-                                  kHorizontalPaddingXSmall,
+                                  horizontalPaddingXSmall,
                                   Text(
                                     '·',
                                     textAlign: TextAlign.left,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
-                                        fontSize: 8.sp, color: kGrey3Color),
+                                        fontSize: 8.sp, color: grey3Color),
                                   ),
-                                  kHorizontalPaddingXSmall,
+                                  horizontalPaddingXSmall,
                                   Text(
                                     _fileExtension.toUpperCase(),
                                     textAlign: TextAlign.left,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
-                                        fontSize: 8.sp, color: kGrey3Color),
+                                        fontSize: 8.sp, color: grey3Color),
                                   ),
                                 ],
                               )
                             ],
                           ),
                         ),
-                        kHorizontalPaddingXSmall,
+                        horizontalPaddingXSmall,
                       ],
                     ),
                   ),
@@ -274,23 +273,23 @@ class _DocumentTileState extends State<DocumentTile> {
                 }
               },
               child: Padding(
-                padding: const EdgeInsets.only(bottom: kPaddingSmall),
+                padding: const EdgeInsets.only(bottom: paddingSmall),
                 child: Container(
                   height: 70,
                   width: 60.w,
                   decoration: BoxDecoration(
-                    border: Border.all(color: kGreyWebBGColor, width: 1),
-                    borderRadius: BorderRadius.circular(kBorderRadiusMedium),
+                    border: Border.all(color: greyWebBGColor, width: 1),
+                    borderRadius: BorderRadius.circular(borderRadiusMedium),
                   ),
-                  padding: const EdgeInsets.symmetric(vertical: kPaddingLarge),
+                  padding: const EdgeInsets.symmetric(vertical: paddingLarge),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       SvgPicture.asset(
-                        kAssetDocPDFIcon,
+                        assetDocPDFIcon,
                         fit: BoxFit.contain,
                       ),
-                      kHorizontalPaddingSmall,
+                      horizontalPaddingSmall,
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -298,10 +297,10 @@ class _DocumentTileState extends State<DocumentTile> {
                             Text(
                               _fileName ?? '',
                               overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                  fontSize: 10.sp, color: kGrey2Color),
+                              style:
+                                  TextStyle(fontSize: 10.sp, color: grey2Color),
                             ),
-                            kVerticalPaddingSmall,
+                            verticalPaddingSmall,
                             Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
@@ -312,42 +311,42 @@ class _DocumentTileState extends State<DocumentTile> {
                                         children: <Widget>[
                                           widget.media.pageCount == null
                                               ? const SizedBox()
-                                              : kHorizontalPaddingXSmall,
+                                              : horizontalPaddingXSmall,
                                           widget.media.pageCount == null
                                               ? const SizedBox()
                                               : Text(
                                                   "${widget.media.pageCount!} ${widget.media.pageCount! > 1 ? "Pages" : "Page"}",
                                                   style: TextStyle(
                                                       fontSize: 8.sp,
-                                                      color: kGrey3Color),
+                                                      color: grey3Color),
                                                 ),
-                                          kHorizontalPaddingXSmall,
+                                          horizontalPaddingXSmall,
                                           Text(
                                             '·',
                                             style: TextStyle(
                                                 fontSize: 8.sp,
-                                                color: kGrey3Color),
+                                                color: grey3Color),
                                           ),
                                         ],
                                       )
                                     : const SizedBox(),
-                                kHorizontalPaddingXSmall,
+                                horizontalPaddingXSmall,
                                 Text(
                                   _fileSize!.toUpperCase(),
                                   style: TextStyle(
-                                      fontSize: 8.sp, color: kGrey3Color),
+                                      fontSize: 8.sp, color: grey3Color),
                                 ),
-                                kHorizontalPaddingXSmall,
+                                horizontalPaddingXSmall,
                                 Text(
                                   '·',
                                   style: TextStyle(
-                                      fontSize: 8.sp, color: kGrey3Color),
+                                      fontSize: 8.sp, color: grey3Color),
                                 ),
-                                kHorizontalPaddingXSmall,
+                                horizontalPaddingXSmall,
                                 Text(
                                   _fileExtension.toUpperCase(),
                                   style: TextStyle(
-                                      fontSize: 8.sp, color: kGrey3Color),
+                                      fontSize: 8.sp, color: grey3Color),
                                 ),
                               ],
                             )

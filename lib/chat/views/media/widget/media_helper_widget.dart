@@ -64,13 +64,13 @@ Widget getChatItemAttachmentTile(
                 fontWeight: FontWeight.normal,
               ),
             ),
-            kHorizontalPaddingSmall,
+            horizontalPaddingSmall,
             Icon(
               Icons.video_camera_back,
-              color: kGreyColor,
+              color: greyColor,
               size: 12.sp,
             ),
-            kHorizontalPaddingMedium,
+            horizontalPaddingMedium,
             Text(
               imageCount.toString(),
               maxLines: 1,
@@ -80,13 +80,13 @@ Widget getChatItemAttachmentTile(
                 fontWeight: FontWeight.normal,
               ),
             ),
-            kHorizontalPaddingSmall,
+            horizontalPaddingSmall,
             Icon(
               Icons.image,
-              color: kGreyColor,
+              color: greyColor,
               size: 12.sp,
             ),
-            kHorizontalPaddingSmall,
+            horizontalPaddingSmall,
             Expanded(
               child: Text(
                 answerText,
@@ -129,13 +129,13 @@ Widget getChatItemAttachmentTile(
                 ),
               )
             : const SizedBox(),
-        mediaFiles.length > 1 ? kHorizontalPaddingSmall : const SizedBox(),
+        mediaFiles.length > 1 ? horizontalPaddingSmall : const SizedBox(),
         Icon(
           iconData,
-          color: kGreyColor,
+          color: greyColor,
           size: 12.sp,
         ),
-        kHorizontalPaddingSmall,
+        horizontalPaddingSmall,
         Expanded(
           child: Text(
             text,
@@ -173,7 +173,7 @@ Widget getDocumentDetails(Media document) {
         Text(
           '${document.pageCount ?? ''} ${document.pageCount == null ? '' : (document.pageCount ?? 0) > 1 ? 'pages' : 'page'} ${document.pageCount == null ? '' : '●'} ${getFileSizeString(bytes: document.size!)} ● PDF',
           style: LMTheme.medium.copyWith(
-            color: kWhiteColor,
+            color: whiteColor,
           ),
         )
       ],

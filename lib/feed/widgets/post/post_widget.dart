@@ -83,7 +83,7 @@ class _SSPostWidgetState extends State<SSPostWidget> {
     return InheritedPostProvider(
       post: widget.post.toPost(),
       child: Container(
-        color: kWhiteColor,
+        color: whiteColor,
         child: BlocListener(
           bloc: newPostBloc,
           listener: (context, state) {
@@ -148,7 +148,7 @@ class _SSPostWidgetState extends State<SSPostWidget> {
                                         Theme.of(context).colorScheme.primary,
                                     size: 20,
                                   ),
-                                  kHorizontalPaddingMedium,
+                                  horizontalPaddingMedium,
                                   LMTextView(
                                     text: "Pinned Post",
                                     textStyle: TextStyle(
@@ -158,7 +158,7 @@ class _SSPostWidgetState extends State<SSPostWidget> {
                                   )
                                 ],
                               ),
-                              kVerticalPaddingMedium,
+                              verticalPaddingMedium,
                             ],
                           )
                         : const SizedBox(),
@@ -188,7 +188,7 @@ class _SSPostWidgetState extends State<SSPostWidget> {
                             textStyle: const TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w400,
-                              color: kGreyColor,
+                              color: greyColor,
                             ),
                           ),
                           createdAt: LMTextView(
@@ -196,7 +196,7 @@ class _SSPostWidgetState extends State<SSPostWidget> {
                             textStyle: const TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w400,
-                              color: kGreyColor,
+                              color: greyColor,
                             ),
                           ),
                           menu: LMPostMenu(
@@ -398,7 +398,7 @@ class _SSPostWidgetState extends State<SSPostWidget> {
                               isActive: isLiked!,
                             );
                           }),
-                      kHorizontalPaddingLarge,
+                      horizontalPaddingLarge,
                       LMTextButton(
                         text: const LMTextView(text: "Comment"),
                         margin: 0,

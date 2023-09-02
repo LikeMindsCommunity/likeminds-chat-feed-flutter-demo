@@ -39,7 +39,7 @@ class ExploreSpacesBar extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SvgPicture.asset(
-                    kAssetExploreIcon,
+                    assetExploreIcon,
                     color: backgroundColor,
                     width: 8.w,
                   ),
@@ -83,7 +83,7 @@ class ExploreSpacesBar extends StatelessWidget {
                               ? '${response.totalChannelCount} Chatrooms'
                               : '${response.unseenChannelCount} New',
                           style: LMTheme.medium.copyWith(
-                            color: kWhiteColor,
+                            color: whiteColor,
                             fontSize: 8.sp,
                           ),
                         ),

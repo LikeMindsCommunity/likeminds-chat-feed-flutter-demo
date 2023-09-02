@@ -26,7 +26,7 @@ class PageSkeleton extends StatelessWidget {
               : const EdgeInsets.symmetric(horizontal: 24),
           child: Column(
             children: [
-              kVerticalPaddingLarge,
+              verticalPaddingLarge,
               Padding(
                 padding: isListView
                     ? const EdgeInsets.symmetric(horizontal: 24)

@@ -151,7 +151,7 @@ class _ChatItemState extends State<ChatItem> {
                                       EdgeInsets.symmetric(horizontal: 3.w),
                                   child: Icon(
                                     Icons.lock_outline,
-                                    color: kGreyColor,
+                                    color: greyColor,
                                     size: 16.sp,
                                   ),
                                 ),
@@ -188,7 +188,7 @@ class _ChatItemState extends State<ChatItem> {
                       padding: EdgeInsets.symmetric(horizontal: 3.w),
                       child: Icon(
                         Icons.volume_off_outlined,
-                        color: kGreyColor,
+                        color: greyColor,
                         size: 16.sp,
                       ),
                     ),
@@ -220,7 +220,7 @@ class _ChatItemState extends State<ChatItem> {
                                   ? '99+'
                                   : _unreadCount.toString(),
                               style: LMTheme.regular.copyWith(
-                                color: kWhiteColor,
+                                color: whiteColor,
                                 fontSize: _unreadCount! > 99 ? 7.5.sp : 10.sp,
                               ),
                             ),
@@ -237,7 +237,7 @@ class _ChatItemState extends State<ChatItem> {
         Divider(
           indent: 68.sp,
           thickness: 0.2,
-          color: kGreyColor,
+          color: greyColor,
         ),
       ],
     );

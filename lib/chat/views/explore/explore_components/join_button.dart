@@ -54,18 +54,18 @@ class JoinButton extends StatelessWidget {
                   children: [
                     isJoined
                         ? SvgPicture.asset(
-                            kAssetNotificationCheckIcon,
+                            assetNotificationCheckIcon,
                             height: 26,
                             color: isJoined
                                 ? LMBranding.instance.headerColor
-                                : kWhiteColor,
+                                : whiteColor,
                           )
                         : Icon(
                             Icons.notification_add,
                             size: 24,
                             color: isJoined
                                 ? LMBranding.instance.headerColor
-                                : kWhiteColor,
+                                : whiteColor,
                           ),
                     const SizedBox(width: 6),
                     Text(
@@ -75,7 +75,7 @@ class JoinButton extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                         color: isJoined
                             ? LMBranding.instance.headerColor
-                            : kWhiteColor,
+                            : whiteColor,
                       ),
                     ),
                   ],

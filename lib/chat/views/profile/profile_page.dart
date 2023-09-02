@@ -51,7 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
           listener: (context, state) {},
           builder: (context, state) {
             if (state is ProfileLoading) {
-              return const Spinner(color: kWhiteColor);
+              return const Spinner(color: whiteColor);
             }
 
             if (state is ProfileLoaded) {
@@ -122,7 +122,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             Container(
                               height: 150,
                               width: 100.w,
-                              color: kWhiteColor,
+                              color: whiteColor,
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 24,
@@ -191,7 +191,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             Text("Interests",
                                 style:
                                     LMBranding.instance.fonts.medium.copyWith(
-                                  color: kGreyColor,
+                                  color: greyColor,
                                 )),
                             const SizedBox(height: 6),
                             Text(
@@ -205,7 +205,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             Text(
                               "Location",
                               style: LMBranding.instance.fonts.medium.copyWith(
-                                color: kGreyColor,
+                                color: greyColor,
                               ),
                             ),
                             const SizedBox(height: 6),

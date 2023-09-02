@@ -9,7 +9,7 @@ import 'package:likeminds_flutter_sample/chat/service/media_service.dart';
 
 Widget mediaErrorWidget({bool isPP = false}) {
   return Container(
-    color: isPP ? LMTheme.buttonColor : kWhiteColor,
+    color: isPP ? LMTheme.buttonColor : whiteColor,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -89,10 +89,10 @@ Widget getChatBubbleImage(Media mediaFile, {double? width, double? height}) {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: kWhiteColor.withOpacity(0.7)),
+                      color: whiteColor.withOpacity(0.7)),
                   child: Icon(
                     Icons.play_arrow,
-                    color: kBlackColor,
+                    color: blackColor,
                     size: 5.w,
                   ),
                 ),
@@ -140,7 +140,7 @@ Widget getImageMessage(
             height: 26.w,
             width: 26.w,
           ),
-          kHorizontalPaddingSmall,
+          horizontalPaddingSmall,
           getChatBubbleImage(
             conversationAttachments[1],
             height: 26.w,
@@ -159,7 +159,7 @@ Widget getImageMessage(
             height: 26.w,
             width: 26.w,
           ),
-          kHorizontalPaddingSmall,
+          horizontalPaddingSmall,
           Container(
             height: 26.w,
             width: 26.w,
@@ -179,11 +179,11 @@ Widget getImageMessage(
                     height: 26.w,
                     width: 26.w,
                     alignment: Alignment.center,
-                    color: kBlackColor.withOpacity(0.5),
+                    color: blackColor.withOpacity(0.5),
                     child: Text(
                       '+2',
                       style: LMTheme.medium
-                          .copyWith(color: kWhiteColor, fontSize: 20.sp),
+                          .copyWith(color: whiteColor, fontSize: 20.sp),
                     ),
                   ),
                 )
@@ -205,7 +205,7 @@ Widget getImageMessage(
                 height: 26.w,
                 width: 26.w,
               ),
-              kHorizontalPaddingSmall,
+              horizontalPaddingSmall,
               getChatBubbleImage(
                 conversationAttachments[1],
                 height: 26.w,
@@ -213,7 +213,7 @@ Widget getImageMessage(
               ),
             ],
           ),
-          kVerticalPaddingSmall,
+          verticalPaddingSmall,
           Row(
             children: <Widget>[
               getChatBubbleImage(
@@ -221,7 +221,7 @@ Widget getImageMessage(
                 height: 26.w,
                 width: 26.w,
               ),
-              kHorizontalPaddingSmall,
+              horizontalPaddingSmall,
               getChatBubbleImage(
                 conversationAttachments[3],
                 height: 26.w,
@@ -244,7 +244,7 @@ Widget getImageMessage(
                 height: 26.w,
                 width: 26.w,
               ),
-              kHorizontalPaddingSmall,
+              horizontalPaddingSmall,
               getChatBubbleImage(
                 conversationAttachments[1],
                 height: 26.w,
@@ -252,7 +252,7 @@ Widget getImageMessage(
               ),
             ],
           ),
-          kVerticalPaddingSmall,
+          verticalPaddingSmall,
           Row(
             children: <Widget>[
               getChatBubbleImage(
@@ -260,7 +260,7 @@ Widget getImageMessage(
                 height: 26.w,
                 width: 26.w,
               ),
-              kHorizontalPaddingSmall,
+              horizontalPaddingSmall,
               Container(
                 height: 26.w,
                 width: 26.w,
@@ -279,11 +279,11 @@ Widget getImageMessage(
                         height: 26.w,
                         width: 26.w,
                         alignment: Alignment.center,
-                        color: kBlackColor.withOpacity(0.5),
+                        color: blackColor.withOpacity(0.5),
                         child: Text(
                           '+${conversationAttachments.length - 3}',
                           style: LMTheme.medium
-                              .copyWith(color: kWhiteColor, fontSize: 20.sp),
+                              .copyWith(color: whiteColor, fontSize: 20.sp),
                         ),
                       ),
                     )
@@ -329,11 +329,11 @@ Widget getFileImageTile(Media mediaFile, {double? width, double? height}) {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: kWhiteColor.withOpacity(0.7),
+                    color: whiteColor.withOpacity(0.7),
                   ),
                   child: Icon(
                     Icons.play_arrow,
-                    color: kBlackColor,
+                    color: blackColor,
                     size: 5.w,
                   ),
                 ),
@@ -362,7 +362,7 @@ Widget getImageFileMessage(BuildContext context, List<Media> mediaFiles) {
             height: 26.w,
             width: 26.w,
           ),
-          kHorizontalPaddingSmall,
+          horizontalPaddingSmall,
           getFileImageTile(
             mediaFiles[1],
             height: 26.w,
@@ -380,7 +380,7 @@ Widget getImageFileMessage(BuildContext context, List<Media> mediaFiles) {
             height: 26.w,
             width: 26.w,
           ),
-          kHorizontalPaddingSmall,
+          horizontalPaddingSmall,
           Container(
             height: 26.w,
             width: 26.w,
@@ -400,11 +400,11 @@ Widget getImageFileMessage(BuildContext context, List<Media> mediaFiles) {
                     height: 26.w,
                     width: 26.w,
                     alignment: Alignment.center,
-                    color: kBlackColor.withOpacity(0.5),
+                    color: blackColor.withOpacity(0.5),
                     child: Text(
                       '+2',
                       style: LMTheme.medium
-                          .copyWith(color: kWhiteColor, fontSize: 20.sp),
+                          .copyWith(color: whiteColor, fontSize: 20.sp),
                     ),
                   ),
                 )
@@ -425,7 +425,7 @@ Widget getImageFileMessage(BuildContext context, List<Media> mediaFiles) {
                 height: 26.w,
                 width: 26.w,
               ),
-              kHorizontalPaddingSmall,
+              horizontalPaddingSmall,
               getFileImageTile(
                 mediaFiles[1],
                 height: 26.w,
@@ -433,7 +433,7 @@ Widget getImageFileMessage(BuildContext context, List<Media> mediaFiles) {
               ),
             ],
           ),
-          kVerticalPaddingSmall,
+          verticalPaddingSmall,
           Row(
             children: <Widget>[
               getFileImageTile(
@@ -441,7 +441,7 @@ Widget getImageFileMessage(BuildContext context, List<Media> mediaFiles) {
                 height: 26.w,
                 width: 26.w,
               ),
-              kHorizontalPaddingSmall,
+              horizontalPaddingSmall,
               getFileImageTile(
                 mediaFiles[3],
                 height: 26.w,
@@ -463,7 +463,7 @@ Widget getImageFileMessage(BuildContext context, List<Media> mediaFiles) {
                 height: 26.w,
                 width: 26.w,
               ),
-              kHorizontalPaddingSmall,
+              horizontalPaddingSmall,
               getFileImageTile(
                 mediaFiles[1],
                 height: 26.w,
@@ -471,7 +471,7 @@ Widget getImageFileMessage(BuildContext context, List<Media> mediaFiles) {
               ),
             ],
           ),
-          kVerticalPaddingSmall,
+          verticalPaddingSmall,
           Row(
             children: <Widget>[
               getFileImageTile(
@@ -479,7 +479,7 @@ Widget getImageFileMessage(BuildContext context, List<Media> mediaFiles) {
                 height: 26.w,
                 width: 26.w,
               ),
-              kHorizontalPaddingSmall,
+              horizontalPaddingSmall,
               Container(
                 height: 26.w,
                 width: 26.w,
@@ -498,11 +498,11 @@ Widget getImageFileMessage(BuildContext context, List<Media> mediaFiles) {
                         height: 26.w,
                         width: 26.w,
                         alignment: Alignment.center,
-                        color: kBlackColor.withOpacity(0.5),
+                        color: blackColor.withOpacity(0.5),
                         child: Text(
                           '+${mediaFiles.length - 3}',
                           style: LMTheme.medium
-                              .copyWith(color: kWhiteColor, fontSize: 20.sp),
+                              .copyWith(color: whiteColor, fontSize: 20.sp),
                         ),
                       ),
                     )

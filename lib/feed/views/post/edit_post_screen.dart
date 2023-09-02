@@ -231,11 +231,11 @@ class _EditPostScreenState extends State<EditPostScreen> {
       child: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.dark,
         child: Scaffold(
-          backgroundColor: kWhiteColor,
+          backgroundColor: whiteColor,
           body: SafeArea(
             child: Scaffold(
               resizeToAvoidBottomInset: false,
-              backgroundColor: kWhiteColor,
+              backgroundColor: whiteColor,
               body: FutureBuilder(
                   future: postFuture,
                   builder: (context, snapshot) {
@@ -322,7 +322,7 @@ class _EditPostScreenState extends State<EditPostScreen> {
             }
           },
         ),
-        kVerticalPaddingMedium,
+        verticalPaddingMedium,
         Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 16.0,
@@ -346,13 +346,13 @@ class _EditPostScreenState extends State<EditPostScreen> {
                   size: 36,
                 ),
               ),
-              kHorizontalPaddingMedium,
+              horizontalPaddingMedium,
               Expanded(
                 child: Column(
                   children: [
                     Container(
                       decoration: const BoxDecoration(
-                        color: kWhiteColor,
+                        color: whiteColor,
                       ),
                       child: TaggingAheadTextField(
                         isDown: true,
@@ -364,7 +364,7 @@ class _EditPostScreenState extends State<EditPostScreen> {
                         onChange: _onTextChanged,
                       ),
                     ),
-                    kVerticalPaddingXLarge,
+                    verticalPaddingXLarge,
                     ValueListenableBuilder(
                         valueListenable: rebuildAttachments,
                         builder: (context, value, child) =>
@@ -395,7 +395,7 @@ class _EditPostScreenState extends State<EditPostScreen> {
                           ? getPostDocument(screenSize!.width)
                           : Container(
                               padding: const EdgeInsets.only(
-                                top: kPaddingSmall,
+                                top: paddingSmall,
                               ),
                               height: 180,
                               alignment: Alignment.center,
@@ -452,7 +452,7 @@ class _EditPostScreenState extends State<EditPostScreen> {
                                 },
                               ),
                             ),
-                    kVerticalPaddingMedium,
+                    verticalPaddingMedium,
                   ],
                 ),
               ),
