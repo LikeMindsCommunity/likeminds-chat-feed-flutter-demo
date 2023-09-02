@@ -20,8 +20,6 @@ const String kAssetPDFIcon =
     "packages/likeminds_flutter_sample/assets/icons/pdf.svg";
 const String kAssetChatIcon =
     "packages/likeminds_flutter_sample/assets/icons/chat_lines.svg";
-const String kAssetSettingsIcon =
-    "packages/likeminds_flutter_sample/assets/icons/settings.svg";
 
 const List<String> svgAssets = [
   kAssetDocPDFIcon,
@@ -34,6 +32,5 @@ const List<String> svgAssets = [
   kAssetCommentIcon,
   kAssetShareIcon,
   kAssetPDFIcon,
-  kAssetChatIcon,
-  kAssetSettingsIcon
+  kAssetChatIcon
 ];

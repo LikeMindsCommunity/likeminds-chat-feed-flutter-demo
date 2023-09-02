@@ -87,243 +87,248 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
       resizeToAvoidBottomInset: true,
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            verticalPaddingXLarge,
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.0),
-              child: LMTextView(
-                  text: "Name*",
-                  textStyle: TextStyle(color: whiteColor, fontSize: 14)),
-            ),
-            verticalPaddingMedium,
-            Container(
-              clipBehavior: Clip.hardEdge,
-              margin: const EdgeInsets.symmetric(horizontal: 16.0),
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(8.0)),
-              child: LMTextInput(
-                backgroundColor: whiteColor,
-                controller: nameController,
-                hintText: "Sachin Gakkhar",
-                hintStyle: const TextStyle(
-                    color: kBlueGreyColor,
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w400),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              verticalPaddingXLarge,
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24.0),
+                child: LMTextView(
+                    text: "Name*",
+                    textStyle: TextStyle(color: whiteColor, fontSize: 14)),
               ),
-            ),
-            verticalPaddingXLarge,
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.0),
-              child: LMTextView(
-                  text: "User ID*",
-                  textStyle: TextStyle(color: whiteColor, fontSize: 14)),
-            ),
-            verticalPaddingMedium,
-            Container(
-              clipBehavior: Clip.hardEdge,
-              margin: const EdgeInsets.symmetric(horizontal: 16.0),
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(8.0)),
-              child: LMTextInput(
-                backgroundColor: whiteColor,
-                controller: userIdController,
-                hintText: "123456",
-                hintStyle: const TextStyle(
-                    color: kBlueGreyColor,
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w400),
-              ),
-            ),
-            verticalPaddingXLarge,
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.0),
-              child: LMTextView(
-                  text: "New API Key (optional)",
-                  textStyle: TextStyle(color: whiteColor, fontSize: 14)),
-            ),
-            verticalPaddingMedium,
-            Container(
-              clipBehavior: Clip.hardEdge,
-              margin: const EdgeInsets.symmetric(horizontal: 16.0),
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(8.0)),
-              child: LMTextInput(
-                backgroundColor: whiteColor,
-                controller: apiKeyController,
-                hintText: "Enter new API key",
-                hintStyle: const TextStyle(
-                    color: kBlueGreyColor,
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w400),
-              ),
-            ),
-            verticalPaddingLarge,
-            verticalPaddingLarge,
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
-              child: LMTextView(
-                  text:
-                      "If no credentials are provided, the app will run with the default credentials of Bot user in your community",
-                  textAlign: TextAlign.center,
-                  textStyle: TextStyle(color: whiteColor, fontSize: 12)),
-            ),
-            verticalPaddingLarge,
-            verticalPaddingLarge,
-            const Align(
-              alignment: Alignment.center,
-              child: LMTextView(
-                text: "Branding",
-                textAlign: TextAlign.center,
-                textStyle: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500,
-                  color: whiteColor,
+              verticalPaddingMedium,
+              Container(
+                clipBehavior: Clip.hardEdge,
+                margin: const EdgeInsets.symmetric(horizontal: 16.0),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(8.0)),
+                child: LMTextInput(
+                  backgroundColor: whiteColor,
+                  controller: nameController,
+                  hintText: "Sachin Gakkhar",
+                  hintStyle: const TextStyle(
+                      color: kBlueGreyColor,
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w400),
                 ),
               ),
-            ),
-            verticalPaddingXLarge,
-            Align(
-              alignment: Alignment.center,
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                height: 40,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  padding: EdgeInsets.zero,
-                  itemCount: brandingColorOptions.length + 1,
-                  itemBuilder: (context, index) => GestureDetector(
-                    onTap: () {
-                      if (brandingColorOptions.length == index) {
-                        showDialog(
-                          context: context,
-                          builder: (context) => AlertDialog(
-                            title: const Text('Pick a color!'),
-                            content: SingleChildScrollView(
-                              child: ColorPicker(
-                                color: selectedColor!,
-                                onColorChanged: changeColor,
+              verticalPaddingXLarge,
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24.0),
+                child: LMTextView(
+                    text: "User ID*",
+                    textStyle: TextStyle(color: whiteColor, fontSize: 14)),
+              ),
+              verticalPaddingMedium,
+              Container(
+                clipBehavior: Clip.hardEdge,
+                margin: const EdgeInsets.symmetric(horizontal: 16.0),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(8.0)),
+                child: LMTextInput(
+                  backgroundColor: whiteColor,
+                  controller: userIdController,
+                  hintText: "123456",
+                  hintStyle: const TextStyle(
+                      color: kBlueGreyColor,
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w400),
+                ),
+              ),
+              verticalPaddingXLarge,
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24.0),
+                child: LMTextView(
+                    text: "New API Key (optional)",
+                    textStyle: TextStyle(color: whiteColor, fontSize: 14)),
+              ),
+              verticalPaddingMedium,
+              Container(
+                clipBehavior: Clip.hardEdge,
+                margin: const EdgeInsets.symmetric(horizontal: 16.0),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(8.0)),
+                child: LMTextInput(
+                  backgroundColor: whiteColor,
+                  controller: apiKeyController,
+                  hintText: "Enter new API key",
+                  hintStyle: const TextStyle(
+                      color: kBlueGreyColor,
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w400),
+                ),
+              ),
+              verticalPaddingLarge,
+              verticalPaddingLarge,
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: LMTextView(
+                    text:
+                        "If no credentials are provided, the app will run with the default credentials of Bot user in your community",
+                    textAlign: TextAlign.center,
+                    textStyle: TextStyle(color: whiteColor, fontSize: 12)),
+              ),
+              verticalPaddingLarge,
+              verticalPaddingLarge,
+              const Align(
+                alignment: Alignment.center,
+                child: LMTextView(
+                  text: "Branding",
+                  textAlign: TextAlign.center,
+                  textStyle: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: whiteColor,
+                  ),
+                ),
+              ),
+              verticalPaddingXLarge,
+              Align(
+                alignment: Alignment.center,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                  height: 40,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    padding: EdgeInsets.zero,
+                    itemCount: brandingColorOptions.length + 1,
+                    itemBuilder: (context, index) => GestureDetector(
+                      onTap: () {
+                        if (brandingColorOptions.length == index) {
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: const Text('Pick a color!'),
+                              content: SingleChildScrollView(
+                                child: ColorPicker(
+                                  color: selectedColor!,
+                                  onColorChanged: changeColor,
+                                ),
                               ),
+                              actions: <Widget>[
+                                ElevatedButton(
+                                  child: const Text('Got it'),
+                                  onPressed: () {
+                                    setState(() => selectedColor = pickerColor);
+                                    Navigator.of(context).pop();
+                                  },
+                                ),
+                              ],
                             ),
-                            actions: <Widget>[
-                              ElevatedButton(
-                                child: const Text('Got it'),
-                                onPressed: () {
-                                  setState(() => selectedColor = pickerColor);
-                                  Navigator.of(context).pop();
-                                },
-                              ),
-                            ],
-                          ),
-                        );
-                      } else {
-                        setState(() {
-                          selectedColor = brandingColorOptions[index];
-                        });
-                      }
-                    },
-                    child: Container(
-                      margin: const EdgeInsets.only(right: 20),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: whiteColor, width: 1),
-                          borderRadius: BorderRadius.circular(1),
-                          color: brandingColorOptions.length == index
-                              ? Colors.white
-                              : brandingColorOptions[index]),
-                      width: 40,
-                      height: 40,
-                      child: brandingColorOptions.length == index
-                          ? const Icon(
-                              Icons.add,
-                              color: Colors.black,
-                            )
-                          : compareColors(
-                                  selectedColor, brandingColorOptions[index])
-                              ? const Icon(
-                                  Icons.check,
-                                  color: Colors.white,
-                                )
-                              : const SizedBox(),
+                          );
+                        } else {
+                          setState(() {
+                            selectedColor = brandingColorOptions[index];
+                          });
+                        }
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.only(right: 20),
+                        decoration: BoxDecoration(
+                            border: Border.all(color: whiteColor, width: 1),
+                            borderRadius: BorderRadius.circular(1),
+                            color: brandingColorOptions.length == index
+                                ? Colors.white
+                                : brandingColorOptions[index]),
+                        width: 40,
+                        height: 40,
+                        child: brandingColorOptions.length == index
+                            ? const Icon(
+                                Icons.add,
+                                color: Colors.black,
+                              )
+                            : compareColors(
+                                    selectedColor, brandingColorOptions[index])
+                                ? const Icon(
+                                    Icons.check,
+                                    color: Colors.white,
+                                  )
+                                : const SizedBox(),
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            verticalPaddingLarge,
-            verticalPaddingLarge,
-            const Spacer(),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: LMTextButton(
-                backgroundColor: whiteColor,
-                borderRadius: 8,
-                height: 48,
-                onTap: () async {
-                  userSelectedColor = selectedColor;
-                  LMBranding.instance.initialize(
-                    headerColor: userSelectedColor,
-                    buttonColor: userSelectedColor,
-                    textLinkColor: Colors.black,
-                  );
-                  String enteredUserName = nameController.text.trim();
-                  String enteredUserId = userIdController.text.trim();
-                  String enteredApiKey = apiKeyController.text.trim();
+              verticalPaddingLarge,
+              verticalPaddingLarge,
+              verticalPaddingLarge,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: LMTextButton(
+                  backgroundColor: whiteColor,
+                  borderRadius: 8,
+                  height: 48,
+                  onTap: () async {
+                    userSelectedColor = selectedColor;
+                    LMBranding.instance.initialize(
+                      headerColor: userSelectedColor,
+                      buttonColor: userSelectedColor,
+                      textLinkColor: Colors.black,
+                    );
+                    String enteredUserName = nameController.text.trim();
+                    String enteredUserId = userIdController.text.trim();
+                    String enteredApiKey = apiKeyController.text.trim();
 
-                  await UserLocalPreference.instance.clearLocalPrefs();
-                  if (enteredApiKey.isNotEmpty) {
-                    existingApiKey = enteredApiKey;
+                    await UserLocalPreference.instance.clearLocalPrefs();
+                    if (enteredApiKey.isNotEmpty) {
+                      existingApiKey = enteredApiKey;
 
-                    await UserLocalPreference.instance.storeApiKey(
-                        enteredApiKey.isEmpty ? '' : enteredApiKey.trim());
-                  } else {
-                    await UserLocalPreference.instance
-                        .storeApiKey(existingApiKey);
-                  }
-
-                  if (enteredUserName.isEmpty && enteredUserId.isEmpty) {
-                    enteredUserName = existingUserName;
-                    enteredUserId = existingUserId;
-                  } else if (enteredUserName.isEmpty &&
-                      enteredUserId.isNotEmpty) {
-                    enteredUserName = 'Test User';
-                  } else if (enteredUserId.isEmpty &&
-                      enteredUserName.isNotEmpty) {
-                    InitiateUserResponse response =
-                        await locator<LikeMindsService>().initiateUser(
-                            (InitiateUserRequestBuilder()
-                                  ..userName(enteredUserName))
-                                .build());
-                    if (response.success) {
-                      enteredUserId = response
-                              .initiateUser!.user.sdkClientInfo?.userUniqueId ??
-                          response.initiateUser!.user.userUniqueId;
+                      await UserLocalPreference.instance.storeApiKey(
+                          enteredApiKey.isEmpty ? '' : enteredApiKey.trim());
+                    } else {
+                      await UserLocalPreference.instance
+                          .storeApiKey(existingApiKey);
                     }
-                  }
 
-                  await UserLocalPreference.instance
-                      .storeUserName(enteredUserName);
+                    if (enteredUserName.isEmpty && enteredUserId.isEmpty) {
+                      enteredUserName = existingUserName;
+                      enteredUserId = existingUserId;
+                    } else if (enteredUserName.isEmpty &&
+                        enteredUserId.isNotEmpty) {
+                      enteredUserName = 'Test User';
+                    } else if (enteredUserId.isEmpty &&
+                        enteredUserName.isNotEmpty) {
+                      InitiateUserResponse response =
+                          await locator<LikeMindsService>().initiateUser(
+                              (InitiateUserRequestBuilder()
+                                    ..userName(enteredUserName))
+                                  .build());
+                      if (response.success) {
+                        enteredUserId = response.initiateUser!.user
+                                .sdkClientInfo?.userUniqueId ??
+                            response.initiateUser!.user.userUniqueId;
+                      }
+                    }
 
-                  await UserLocalPreference.instance.storeUserId(enteredUserId);
+                    await UserLocalPreference.instance
+                        .storeUserName(enteredUserName);
 
-                  await UserLocalPreference.instance
-                      .storeAppColor(userSelectedColor!.value);
+                    await UserLocalPreference.instance
+                        .storeUserId(enteredUserId);
 
-                  Restart.restartApp();
-                },
-                text: LMTextView(
-                  text: "Submit",
-                  textStyle: TextStyle(
-                    color: userSelectedColor ?? primaryColor,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
+                    await UserLocalPreference.instance
+                        .storeAppColor(userSelectedColor!.value);
+
+                    Restart.restartApp();
+                  },
+                  text: LMTextView(
+                    text: "Submit",
+                    textStyle: TextStyle(
+                      color: userSelectedColor ?? primaryColor,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ),
-            ),
-            verticalPaddingMedium,
-          ],
+              verticalPaddingLarge,
+              verticalPaddingLarge,
+              verticalPaddingLarge,
+            ],
+          ),
         ),
       ),
     );
