@@ -44,6 +44,7 @@ class ConversationPosted extends ChatActionState {
       ];
 }
 
+// Used to update conversation with the latest data
 class UpdateConversation extends ChatActionState {
   final Conversation response;
 
@@ -57,6 +58,7 @@ class UpdateConversation extends ChatActionState {
       ];
 }
 
+// Used to update poll with the latest data
 class UpdatedPollConversation extends ChatActionState {
   final Conversation response;
 
@@ -70,6 +72,7 @@ class UpdatedPollConversation extends ChatActionState {
       ];
 }
 
+// Updates a conversation with the latest data
 class ConversationEdited extends ChatActionState {
   final EditConversationResponse editConversationResponse;
 
@@ -83,6 +86,7 @@ class ConversationEdited extends ChatActionState {
       ];
 }
 
+// Deletes a conversation from the conversation list
 class ConversationDelete extends ChatActionState {
   final DeleteConversationResponse deleteConversationResponse;
 
@@ -96,6 +100,7 @@ class ConversationDelete extends ChatActionState {
       ];
 }
 
+// Notifies the UI about error while deleting a conversation
 class ConversationDeleteError extends ChatActionState {
   final String errorMessage;
 

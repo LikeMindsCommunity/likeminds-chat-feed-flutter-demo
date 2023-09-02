@@ -1,7 +1,7 @@
 import 'package:likeminds_chat_fl/likeminds_chat_fl.dart';
 import 'package:likeminds_flutter_sample/chat/utils/branding/theme.dart';
 import 'package:likeminds_flutter_sample/chat/utils/imports.dart';
-import 'package:likeminds_flutter_sample/chat/utils/utils.dart';
+import 'package:likeminds_flutter_sample/chat/utils/time_utils.dart';
 import 'package:likeminds_flutter_sample/chat/views/chatroom/chatroom_components/Poll/constants/string_constant.dart';
 import 'package:likeminds_flutter_sample/chat/views/chatroom/chatroom_components/Poll/helper%20widgets/helper_widgets.dart';
 

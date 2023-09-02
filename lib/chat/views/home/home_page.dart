@@ -54,6 +54,7 @@ class _HomePageState extends State<HomePage> {
     _addPaginationListener();
   }
 
+// Adds a new bloc event whenever the user scrolls to the bottom of the page
   _addPaginationListener() {
     homeFeedPagingController.addPageRequestListener(
       (pageKey) {
@@ -66,6 +67,8 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  // Updates the paging controller based on the state of the home screen
+  // appends a new page at the end of the list if the response is not empty
   updatePagingControllers(HomeState state) {
     if (state is RefreshHomeState) {
       clearAndUpdateHomePage();
@@ -91,6 +94,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  // refreshes the paged list view
   void refresh() => homeFeedPagingController.refresh();
 
   // This function clears the paging controller
@@ -104,6 +108,10 @@ class _HomePageState extends State<HomePage> {
     _pageKey = 1;
   }
 
+  /* 
+  * This function clears the paging controller
+  * whenever user uses pull to refresh on feedroom screen
+  */
   void clearAndUpdateHomePage() async {
     rebuildHomePage.value = !rebuildHomePage.value;
     refresh();
@@ -236,20 +244,3 @@ class _HomePageState extends State<HomePage> {
     return chats;
   }
 }
-
-Widget getShimmer() => Shimmer.fromColors(
-      baseColor: Colors.grey.shade200,
-      highlightColor: Colors.grey.shade300,
-      period: const Duration(seconds: 2),
-      direction: ShimmerDirection.ltr,
-      child: Padding(
-        padding: const EdgeInsets.only(
-          bottom: 12,
-        ),
-        child: Container(
-          height: 16,
-          width: 32.w,
-          color: whiteColor,
-        ),
-      ),
-    );

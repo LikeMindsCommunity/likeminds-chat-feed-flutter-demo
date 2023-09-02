@@ -7,7 +7,7 @@ import 'package:likeminds_flutter_sample/chat/utils/branding/theme.dart';
 import 'package:likeminds_flutter_sample/chat/utils/constants/asset_constants.dart';
 import 'package:likeminds_flutter_sample/chat/utils/imports.dart';
 import 'package:likeminds_flutter_sample/chat/utils/local_preference/local_prefs.dart';
-import 'package:likeminds_flutter_sample/chat/utils/utils.dart';
+import 'package:likeminds_flutter_sample/chat/utils/time_utils.dart';
 import 'package:likeminds_flutter_sample/chat/views/chatroom/bloc/chat_action_bloc/chat_action_bloc.dart';
 import 'package:likeminds_flutter_sample/chat/views/chatroom/chatroom_components/Poll/bloc/poll_bloc.dart';
 import 'package:likeminds_flutter_sample/chat/views/chatroom/chatroom_components/Poll/constants/poll_mapping.dart';

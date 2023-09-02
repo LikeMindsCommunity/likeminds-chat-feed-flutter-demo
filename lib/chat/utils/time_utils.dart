@@ -1,3 +1,8 @@
+/*
+* Calculates the diff between current time and poll expiry time
+* converts the difference into a string that can be displayed in the UI
+* eg: 1 day, 2 hours, 3 minutes, 4 seconds
+*/
 String getExpiryTimeString(DateTime expiryTime) {
   DateTime now = DateTime.now();
   Duration difference = expiryTime.difference(now);
@@ -25,6 +30,10 @@ String getExpiryTimeString(DateTime expiryTime) {
   return '';
 }
 
+/* 
+* This function is used to check if the poll has ended
+* returns true if the poll has ended
+*/
 bool isPollEnded(DateTime expiryTime) {
   DateTime now = DateTime.now();
   Duration difference = expiryTime.difference(now);

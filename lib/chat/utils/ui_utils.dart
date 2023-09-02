@@ -34,6 +34,11 @@ String getInitials(String? name) {
   }
 }
 
+/* 
+* extention for string to color 
+* tries to parse string to int (hex code)
+* then converts the hex into Color Object
+*/
 extension StringColor on String {
   Color? toColor() {
     // if (primaryColor != null) {
@@ -45,6 +50,11 @@ extension StringColor on String {
   }
 }
 
+/*
+* extention for string to bool
+* tries to parse string to bool
+* then converts the bool into bool Object
+*/
 extension StringToBool on String {
   bool toBoolean() {
     return (toLowerCase() == "true" || toLowerCase() == "1")

@@ -17,6 +17,11 @@ class PollBloc extends Bloc<PollEvents, PollState> {
     on<EditPollSubmittion>((event, emit) => emit(EditingPollSubmission()));
   }
 
+  /*
+  * This function is used to update a poll
+  * It takes a UpdatePoll event and an Emitter<PollState> as parameters
+  * to raise UpdatePoll event, [GetConversationRequest] is neccessary
+  */
   void mapUpdatePoll(UpdatePoll event, Emitter<PollState> emit) async {
     LMResponse response = await locator<LikeMindsService>()
         .getConversation(event.getConversationRequest);
@@ -29,6 +34,11 @@ class PollBloc extends Bloc<PollEvents, PollState> {
     }
   }
 
+  /*
+  * This function is used to submit a poll
+  * It takes a SubmitPoll event and an Emitter<PollState> as parameters
+  * to raise SubmitPoll event, [SubmitPollRequest] is neccessary
+  */
   void mapSubmitPollEvent(SubmitPoll event, Emitter<PollState> emit) async {
     LMResponse response =
         await locator<LikeMindsService>().submitPoll(event.submitPollRequest);
@@ -46,6 +56,11 @@ class PollBloc extends Bloc<PollEvents, PollState> {
     }
   }
 
+  /*
+  * This function is used to add a new option to the poll
+  * It takes a AddPollOption event and an Emitter<PollState> as parameters
+  * to raise AddPollOption, [AddPollOptionRequest] is neccessary
+  */
   void mapAddPollOption(AddPollOption event, Emitter<PollState> emit) async {
     LMResponse response = await locator<LikeMindsService>()
         .addPollOption(event.addPollOptionRequest);
@@ -63,6 +78,11 @@ class PollBloc extends Bloc<PollEvents, PollState> {
     }
   }
 
+  /* 
+  * Fetches the list of users who have voted on a poll
+  * It takes a GetPollUsers event and an Emitter<PollState> as parameters
+  * to raise GetPollUsers, [GetPollUsersRequest] is neccessary
+  */
   void mapGetPollUsers(GetPollUsers event, Emitter<PollState> emit) async {
     emit(PollUsersLoading(getPollUsersRequest: event.getPollUsersRequest));
     LMResponse response = await locator<LikeMindsService>()

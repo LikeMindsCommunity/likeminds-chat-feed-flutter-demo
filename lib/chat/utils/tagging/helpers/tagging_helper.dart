@@ -58,6 +58,10 @@ class TaggingHelper {
     debugPrint(userId);
   }
 
+  /*
+  * This function is used to convert the route to tag
+  * Route '<<$tag|route://$mid/$id>>' is converted to tag '@$tag'
+  */
   static String? convertRouteToTag(String? text, {bool withTilde = true}) {
     if (text == null) return null;
     final Iterable<RegExpMatch> matches = routeRegExp.allMatches(text);
@@ -72,6 +76,11 @@ class TaggingHelper {
     return text;
   }
 
+  /*
+  * This function is used to convert the route to tag and user map
+  * Route '<<$tag|route://$mid/$id>>' is converted to tag '@$tag'
+  * and the user is added to the userTags list
+  */
   static Map<String, dynamic> convertRouteToTagAndUserMap(String text,
       {bool withTilde = true}) {
     final Iterable<RegExpMatch> matches = routeRegExp.allMatches(text);
@@ -87,6 +96,11 @@ class TaggingHelper {
     return {'text': text, 'userTags': userTags};
   }
 
+  /*
+  * This function is used to convert a string containing the route to List<UserTag> 
+  * Route '<<$tag|route://$mid/$id>>' is converted to tag '@$tag'
+  * and the user is added to the userTags list
+  */
   static List<UserTag> addUserTagsIfMatched(String input) {
     final Iterable<RegExpMatch> matches = routeRegExp.allMatches(input);
     List<UserTag> userTags = [];
@@ -105,6 +119,7 @@ class TaggingHelper {
     return userTags;
   }
 
+  // This function is used to extract and convert state messages
   static String extractStateMessage(String input) {
     final RegExp stateRegex = RegExp(r"(?<=\<\<).+?(?=\|)");
     final RegExp tagRegex = RegExp(r"<<(?<=\<\<).+?(?=\>\>)>>");
@@ -118,6 +133,7 @@ class TaggingHelper {
   }
 }
 
+// This function is used to extract links from a string
 List<String> extractLinkFromString(String text) {
   RegExp exp = RegExp(TaggingHelper.linkRoute);
   Iterable<RegExpMatch> matches = exp.allMatches(text);
@@ -135,6 +151,7 @@ List<String> extractLinkFromString(String text) {
   }
 }
 
+// This function is used to extract the first valid link from a string
 String getFirstValidLinkFromString(String text) {
   try {
     List<String> links = extractLinkFromString(text);

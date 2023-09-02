@@ -2,6 +2,11 @@ part of 'chat_action_bloc.dart';
 
 abstract class ChatActionEvent extends Equatable {}
 
+/* 
+* This event is used to post a conversation
+* It takes a PostConversationRequest as a parameter
+* and an optional Conversation object to reply to
+*/
 class PostConversation extends ChatActionEvent {
   final PostConversationRequest postConversationRequest;
   final Conversation? replyConversation;
@@ -14,6 +19,11 @@ class PostConversation extends ChatActionEvent {
       ];
 }
 
+/*
+* This event is used to edit a conversation
+* It takes a EditConversationRequest as a parameter
+* and an optional Conversation object to reply to
+*/
 class EditConversation extends ChatActionEvent {
   final EditConversationRequest editConversationRequest;
   final Conversation? replyConversation;
@@ -26,6 +36,10 @@ class EditConversation extends ChatActionEvent {
       ];
 }
 
+/*
+* This event is used to notifiy the bloc that the user is 
+* currently editing a conversation
+*/
 class EditingConversation extends ChatActionEvent {
   final int conversationId;
   final int chatroomId;
@@ -45,11 +59,19 @@ class EditingConversation extends ChatActionEvent {
       ];
 }
 
+/*
+* This event is used to notifiy the bloc that the user 
+* is no longer editing a conversation
+*/
 class EditRemove extends ChatActionEvent {
   @override
   List<Object> get props => [];
 }
 
+/*
+* This event is used to delete a conversation
+* It takes a DeleteConversationRequest as a parameter
+*/
 class DeleteConversation extends ChatActionEvent {
   final DeleteConversationRequest deleteConversationRequest;
 
@@ -61,6 +83,11 @@ class DeleteConversation extends ChatActionEvent {
       ];
 }
 
+/*
+* This event is used to post a multi-media conversation
+* It takes a PostConversationRequest as a parameter
+* and a list of Media objects
+*/
 class PostMultiMediaConversation extends ChatActionEvent {
   final PostConversationRequest postConversationRequest;
   final List<Media> mediaFiles;
@@ -77,6 +104,7 @@ class PostMultiMediaConversation extends ChatActionEvent {
       ];
 }
 
+// This event initiales realtime conversation in Chat Action Bloc
 class NewConversation extends ChatActionEvent {
   final int chatroomId;
   final int conversationId;
@@ -93,6 +121,7 @@ class NewConversation extends ChatActionEvent {
       ];
 }
 
+// This event notifies the bloc to update the conversation list
 class UpdateConversationList extends ChatActionEvent {
   final int conversationId;
   final int chatroomId;
@@ -109,6 +138,10 @@ class UpdateConversationList extends ChatActionEvent {
       ];
 }
 
+/* 
+* This event notifies the bloc to update the poll conversation
+* It takes a UpdatePollConversation as a parameter
+*/
 class UpdatePollConversation extends ChatActionEvent {
   final int conversationId;
   final int chatroomId;
