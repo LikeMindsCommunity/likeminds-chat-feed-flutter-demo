@@ -48,6 +48,8 @@
 	<string>We require camera access to take pictures for uploading</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We require access to your photo library to upload files</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>We require access to your media library to upload files</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
