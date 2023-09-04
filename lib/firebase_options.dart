@@ -51,20 +51,20 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCp2HimWufInSMnLc7ndFBEpeSDTj7Fxsw',
-    appId: '1:645716458793:android:662c003e8ba21750ac8b38',
-    messagingSenderId: '317419981427',
-    projectId: 'likeminds-sdk-app',
+    appId: '1:645716458793:android:b7767b6d38534a33ac8b38',
+    messagingSenderId: '645716458793',
+    projectId: 'collabmates-3d601',
     storageBucket: 'likeminds-sdk-app.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAVmbe-8jgnO2MUnFotMdp2tmDVnwTZqfE',
-    appId: '1:645716458793:ios:37ebc67107ebe05dac8b38',
-    messagingSenderId: '317419981427',
-    projectId: 'likeminds-sdk-app',
+    appId: '1:645716458793:ios:24670be79acc516dac8b38',
+    messagingSenderId: '645716458793',
+    projectId: 'collabmates-3d601',
     storageBucket: 'likeminds-sdk-app.appspot.com',
     iosClientId:
         '317419981427-e7pvjo4et7sfek380beg3dckrb067kv4.apps.googleusercontent.com',
-    iosBundleId: 'com.example.likeminds-flutter-sample',
+    iosBundleId: 'com.likeminds.flutter.sample',
   );
 }
