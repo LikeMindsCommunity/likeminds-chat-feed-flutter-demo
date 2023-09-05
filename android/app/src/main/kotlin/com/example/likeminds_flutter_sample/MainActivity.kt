@@ -1,4 +1,4 @@
-package com.example.likeminds_flutter_sample
+package com.likeminds.flutter.sample
 
 import io.flutter.embedding.android.FlutterActivity
 
