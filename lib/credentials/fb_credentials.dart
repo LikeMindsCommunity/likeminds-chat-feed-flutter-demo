@@ -18,6 +18,8 @@ abstract class FBCredsDev {
   static final String apiKey = _FBCredsDev.apiKey;
   @EnviedField(varName: 'APP_ID', obfuscate: true)
   static final String appId = _FBCredsDev.appId;
+  @EnviedField(varName: 'APP_ID_IOS', obfuscate: true)
+  static final String appIdIos = _FBCredsProd.appIdIos;
   @EnviedField(varName: 'MESSAGING_SENDER_ID', obfuscate: true)
   static final String messagingSenderId = _FBCredsDev.messagingSenderId;
   @EnviedField(varName: 'PROJECT_ID', obfuscate: true)
@@ -37,6 +39,8 @@ abstract class FBCredsProd {
   static final String apiKey = _FBCredsProd.apiKey;
   @EnviedField(varName: 'APP_ID', obfuscate: true)
   static final String appId = _FBCredsProd.appId;
+  @EnviedField(varName: 'APP_ID_IOS', obfuscate: true)
+  static final String appIdIos = _FBCredsProd.appIdIos;
   @EnviedField(varName: 'MESSAGING_SENDER_ID', obfuscate: true)
   static final String messagingSenderId = _FBCredsProd.messagingSenderId;
   @EnviedField(varName: 'PROJECT_ID', obfuscate: true)

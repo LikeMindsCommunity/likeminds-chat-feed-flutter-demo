@@ -60,7 +60,7 @@ class DefaultFirebaseOptions {
 
   static FirebaseOptions ios = FirebaseOptions(
     apiKey: FBCredsProd.apiKey,
-    appId: FBCredsProd.appId,
+    appId: FBCredsProd.appIdIos,
     messagingSenderId: FBCredsProd.messagingSenderId,
     projectId: FBCredsProd.projectId,
     storageBucket: FBCredsProd.storageBucket,
