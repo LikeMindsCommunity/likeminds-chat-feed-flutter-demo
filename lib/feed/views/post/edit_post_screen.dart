@@ -43,7 +43,7 @@ class _EditPostScreenState extends State<EditPostScreen> {
   bool isMediaPost = false;
   String previewLink = '';
   String convertedPostText = '';
-  MediaModel? linkModel;
+  AttachmentPostViewData? linkModel;
   List<UserTag> userTags = [];
   bool showLinkPreview =
       true; // if set to false link preview should not be displayed
@@ -100,7 +100,7 @@ class _EditPostScreenState extends State<EditPostScreen> {
           await locator<LikeMindsService>().decodeUrl(request);
       if (response.success == true) {
         OgTags? responseTags = response.ogTags;
-        linkModel = MediaModel(
+        linkModel = AttachmentPostViewData(
           mediaType: MediaType.link,
           link: previewLink,
           ogTags: AttachmentMetaOgTags(
@@ -181,7 +181,7 @@ class _EditPostScreenState extends State<EditPostScreen> {
           isDocumentPost = true;
           showLinkPreview = false;
         } else if (attachments![0].attachmentType == 4) {
-          linkModel = MediaModel(
+          linkModel = AttachmentPostViewData(
               mediaType: MediaType.link,
               link: attachments![0].attachmentMeta.url,
               ogTags: attachments![0].attachmentMeta.ogTags);

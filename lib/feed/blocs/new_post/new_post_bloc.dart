@@ -25,7 +25,7 @@ class NewPostBloc extends Bloc<NewPostEvents, NewPostState> {
 
   mapNewPostHandler(CreateNewPost event, Emitter<NewPostState> emit) async {
     try {
-      List<MediaModel>? postMedia = event.postMedia;
+      List<AttachmentPostViewData>? postMedia = event.postMedia;
       User user = UserLocalPreference.instance.fetchUserData();
       int imageCount = 0;
       int videoCount = 0;

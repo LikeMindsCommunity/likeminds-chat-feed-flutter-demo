@@ -11,7 +11,7 @@ class NewPostInitiate extends NewPostState {}
 
 class NewPostUploading extends NewPostState {
   final Stream<double> progress;
-  final MediaModel? thumbnailMedia;
+  final AttachmentPostViewData? thumbnailMedia;
 
   const NewPostUploading({required this.progress, this.thumbnailMedia});
 }

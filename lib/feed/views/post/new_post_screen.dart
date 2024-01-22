@@ -7,10 +7,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_picker/image_picker.dart';
 
 import 'package:likeminds_feed/likeminds_feed.dart';
-import 'package:likeminds_flutter_sample/packages/multi_image_crop/lib/multi_image_crop.dart';
 import 'package:likeminds_flutter_sample/feed/blocs/new_post/new_post_bloc.dart';
 import 'package:likeminds_flutter_sample/feed/services/likeminds_service.dart';
 import 'package:likeminds_flutter_sample/feed/services/service_locator.dart';
@@ -30,7 +28,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 class NewPostScreen extends StatefulWidget {
   final String? populatePostText;
-  final List<MediaModel>? populatePostMedia;
+  final List<AttachmentPostViewData>? populatePostMedia;
 
   const NewPostScreen({
     super.key,
@@ -50,7 +48,7 @@ class _NewPostScreenState extends State<NewPostScreen> {
   NewPostBloc? newPostBloc;
   late final User user;
 
-  List<MediaModel> postMedia = [];
+  List<AttachmentPostViewData> postMedia = [];
   List<UserTag> userTags = [];
   String? result;
 
@@ -59,7 +57,7 @@ class _NewPostScreenState extends State<NewPostScreen> {
   bool isUploading = false;
 
   String previewLink = '';
-  MediaModel? linkModel;
+  AttachmentPostViewData? linkModel;
   bool showLinkPreview =
       true; // if set to false link preview should not be displayed
   Timer? _debounce;
@@ -73,7 +71,7 @@ class _NewPostScreenState extends State<NewPostScreen> {
   @override
   void initState() {
     super.initState();
-    user = UserLocalPreference.instance.fetchUserData()!;
+    user = UserLocalPreference.instance.fetchUserData();
     newPostBloc = BlocProvider.of<NewPostBloc>(context);
     if (_focusNode.canRequestFocus) {
       _focusNode.requestFocus();
@@ -94,9 +92,9 @@ class _NewPostScreenState extends State<NewPostScreen> {
 
   // this function initiliases postMedia list
   // with photos/videos picked by the user
-  void setPickedMediaFiles(List<MediaModel> pickedMediaFiles) {
+  void setPickedMediaFiles(List<AttachmentPostViewData> pickedMediaFiles) {
     if (postMedia.isEmpty) {
-      postMedia = <MediaModel>[...pickedMediaFiles];
+      postMedia = <AttachmentPostViewData>[...pickedMediaFiles];
     } else {
       postMedia.addAll(pickedMediaFiles);
     }
@@ -192,7 +190,7 @@ class _NewPostScreenState extends State<NewPostScreen> {
           await locator<LikeMindsService>().decodeUrl(request);
       if (response.success == true) {
         OgTags? responseTags = response.ogTags;
-        linkModel = MediaModel(
+        linkModel = AttachmentPostViewData(
           mediaType: MediaType.link,
           link: previewLink,
           ogTags: AttachmentMetaOgTags(
@@ -534,7 +532,7 @@ class _NewPostScreenState extends State<NewPostScreen> {
                         //         ),
                         //         onTap: (active) async {
                         //           onUploading();
-                        //           List<MediaModel>? pickedMediaFiles =
+                        //           List<AttachmentPostViewData>? pickedMediaFiles =
                         //               await PostMediaPicker.pickVideos(
                         //                   postMedia.length);
                         //           if (pickedMediaFiles != null) {
@@ -564,7 +562,8 @@ class _NewPostScreenState extends State<NewPostScreen> {
                                     return;
                                   }
                                   onUploading();
-                                  List<MediaModel>? pickedMediaFiles =
+                                  List<AttachmentPostViewData>?
+                                      pickedMediaFiles =
                                       await PostMediaPicker.pickDocuments(
                                           postMedia.length);
                                   if (pickedMediaFiles != null) {
@@ -677,7 +676,7 @@ class _NewPostScreenState extends State<NewPostScreen> {
   void pickImages(BuildContext context) async {
     onUploading();
     try {
-      List<MediaModel> mediaFiles = [];
+      List<AttachmentPostViewData> mediaFiles = [];
       final FilePickerResult? list = await FilePicker.platform.pickFiles(
         allowMultiple: true,
         type: FileType.image,
@@ -704,20 +703,15 @@ class _NewPostScreenState extends State<NewPostScreen> {
             return;
           }
         }
-        MultiImageCrop.startCropping(
-          context: context,
-          activeColor: whiteColor,
-          aspectRatio: 1,
-          files: list.files.map((e) => File(e.path!)).toList(),
-          callBack: (List<File> images) {
-            List<MediaModel> mediaFiles = images
-                .map((e) => MediaModel(
-                    mediaFile: File(e.path), mediaType: MediaType.image))
-                .toList();
-            setPickedMediaFiles(mediaFiles);
-            onUploadedDocument(true);
-          },
-        );
+
+        List<File> pickedImages = list.files.map((e) => File(e.path!)).toList();
+
+        List<AttachmentPostViewData> mediaFiles = pickedImages
+            .map((e) => AttachmentPostViewData(
+                mediaFile: File(e.path), mediaType: MediaType.image))
+            .toList();
+        setPickedMediaFiles(mediaFiles);
+        onUploadedDocument(true);
       } else {
         onUploadedDocument(false);
       }

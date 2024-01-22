@@ -6,7 +6,7 @@ abstract class NewPostEvents extends Equatable {
 }
 
 class CreateNewPost extends NewPostEvents {
-  final List<MediaModel>? postMedia;
+  final List<AttachmentPostViewData>? postMedia;
   final String postText;
 
   CreateNewPost({

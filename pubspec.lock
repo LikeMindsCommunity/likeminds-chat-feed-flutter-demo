@@ -863,13 +863,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.17"
-  image_crop:
-    dependency: transitive
-    description:
-      path: "lib/packages/multi_image_crop/packages/image_crop_0.4.1"
-      relative: true
-    source: path
-    version: "0.4.1"
   image_picker:
     dependency: "direct main"
     description:
@@ -1009,17 +1002,17 @@ packages:
     dependency: "direct main"
     description:
       name: likeminds_feed
-      sha256: a5172948da380259a7e7648c4ba545b983deecf3e4d995faee8156833acf40c5
+      sha256: "5afc085cafe9731cded4f6fb5ba6e08beb7a4a344b0bb69267245a6f725e6018"
       url: "https://pub.dev"
     source: hosted
-    version: "1.6.6"
+    version: "1.6.7"
   likeminds_feed_ui_fl:
     dependency: "direct main"
     description:
       path: "../LikeMinds-Flutter-Feed-UI"
       relative: true
     source: path
-    version: "1.3.12"
+    version: "1.3.13"
   lints:
     dependency: transitive
     description:
@@ -1156,13 +1149,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.3.0"
-  multi_image_crop:
-    dependency: "direct main"
-    description:
-      path: "lib/packages/multi_image_crop"
-      relative: true
-    source: path
-    version: "0.0.3"
   nested:
     dependency: transitive
     description:
@@ -1411,14 +1397,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.5.1"
-  preload_page_view:
-    dependency: transitive
-    description:
-      name: preload_page_view
-      sha256: "488a10c158c5c2e9ba9d77e5dbc09b1e49e37a20df2301e5ba02992eac802b7a"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.0"
   provider:
     dependency: transitive
     description:
@@ -1563,14 +1541,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.1.3"
-  scroll_to_index:
-    dependency: transitive
-    description:
-      name: scroll_to_index
-      sha256: "5df1597b5bfa1703c02962a7478a187a8c9dedaeb871aedbf7874ee0d58a0bba"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.1"
   share_plus:
     dependency: "direct main"
     description:
@@ -2249,5 +2219,5 @@ packages:
     source: hosted
     version: "3.1.2"
 sdks:
-  dart: ">=3.1.0 <=3.10.0"
+  dart: ">=3.1.0 <4.0.0"
   flutter: ">=3.13.0"
