@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:likeminds_feed/likeminds_feed.dart';
 import 'package:likeminds_flutter_sample/feed/blocs/new_post/new_post_bloc.dart';
-import 'package:likeminds_flutter_sample/feed/models/post_view_model.dart';
 import 'package:likeminds_flutter_sample/feed/services/likeminds_service.dart';
 import 'package:likeminds_flutter_sample/feed/services/service_locator.dart';
 import 'package:likeminds_flutter_sample/feed/utils/constants/assets_constants.dart';
@@ -20,7 +19,7 @@ import 'package:overlay_support/overlay_support.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class SSPostWidget extends StatefulWidget {
-  final PostViewModel post;
+  final PostViewData post;
   final User user;
   final bool isFeed;
   final Function() onTap;
@@ -42,7 +41,7 @@ class SSPostWidget extends StatefulWidget {
 class _SSPostWidgetState extends State<SSPostWidget> {
   int postLikes = 0;
   int comments = 0;
-  PostViewModel? postDetails;
+  PostViewData? postDetails;
   bool? isLiked;
   bool? isPinned;
   ValueNotifier<bool> rebuildLikeWidget = ValueNotifier(false);
@@ -81,7 +80,7 @@ class _SSPostWidgetState extends State<SSPostWidget> {
     NewPostBloc newPostBloc = BlocProvider.of<NewPostBloc>(context);
     timeago.setLocaleMessages('en', SSCustomMessages());
     return InheritedPostProvider(
-      post: widget.post.toPost(),
+      post: widget.post,
       child: Container(
         color: whiteColor,
         child: BlocListener(

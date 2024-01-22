@@ -43,7 +43,7 @@ class DeletePost extends NewPostEvents {
 }
 
 class UpdatePost extends NewPostEvents {
-  final PostViewModel post;
+  final PostViewData post;
 
   UpdatePost({
     required this.post,

@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:likeminds_feed/likeminds_feed.dart';
 import 'package:likeminds_feed_ui_fl/likeminds_feed_ui_fl.dart';
-import 'package:likeminds_flutter_sample/feed/models/post_view_model.dart';
 import 'package:likeminds_flutter_sample/feed/services/likeminds_service.dart';
 import 'package:likeminds_flutter_sample/feed/services/service_locator.dart';
 import 'package:likeminds_flutter_sample/feed/utils/utils.dart';
@@ -27,7 +26,7 @@ class NewPostBloc extends Bloc<NewPostEvents, NewPostState> {
   mapNewPostHandler(CreateNewPost event, Emitter<NewPostState> emit) async {
     try {
       List<MediaModel>? postMedia = event.postMedia;
-      User user = UserLocalPreference.instance.fetchUserData()!;
+      User user = UserLocalPreference.instance.fetchUserData();
       int imageCount = 0;
       int videoCount = 0;
       int documentCount = 0;
@@ -147,7 +146,7 @@ class NewPostBloc extends Bloc<NewPostEvents, NewPostState> {
           },
         );
         emit(NewPostUploaded(
-            postData: PostViewModel.fromPost(post: response.post!),
+            postData: PostViewData.fromPost(post: response.post!),
             userData: response.user!));
       } else {
         emit(NewPostError(message: response.errorMessage!));
@@ -174,7 +173,7 @@ class NewPostBloc extends Bloc<NewPostEvents, NewPostState> {
       if (response.success) {
         emit(
           EditPostUploaded(
-            postData: PostViewModel.fromPost(post: response.post!),
+            postData: PostViewData.fromPost(post: response.post!),
             userData: response.user!,
           ),
         );

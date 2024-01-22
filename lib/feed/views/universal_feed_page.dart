@@ -11,7 +11,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:likeminds_flutter_sample/feed/blocs/new_post/new_post_bloc.dart';
 import 'package:likeminds_flutter_sample/feed/blocs/simple_bloc_observer.dart';
 import 'package:likeminds_flutter_sample/feed/blocs/universal_feed/universal_feed_bloc.dart';
-import 'package:likeminds_flutter_sample/feed/models/post_view_model.dart';
 import 'package:likeminds_flutter_sample/feed/services/likeminds_service.dart';
 import 'package:likeminds_flutter_sample/feed/services/service_locator.dart';
 import 'package:likeminds_flutter_sample/feed/utils/constants/assets_constants.dart';
@@ -57,7 +56,7 @@ class _UniversalFeedScreenState extends State<UniversalFeedScreen> {
   final ValueNotifier _rebuildAppBar = ValueNotifier(false);
 
   // to control paging on FeedRoom View
-  final PagingController<int, PostViewModel> _pagingController =
+  final PagingController<int, PostViewData> _pagingController =
       PagingController(firstPageKey: 1);
 
   @override
@@ -115,8 +114,8 @@ class _UniversalFeedScreenState extends State<UniversalFeedScreen> {
   void updatePagingControllers(Object? state) {
     if (state is UniversalFeedLoaded) {
       _pageFeed++;
-      List<PostViewModel> listOfPosts =
-          state.feed.posts.map((e) => PostViewModel.fromPost(post: e)).toList();
+      List<PostViewData> listOfPosts =
+          state.feed.posts.map((e) => PostViewData.fromPost(post: e)).toList();
       if (state.feed.posts.length < 10) {
         _pagingController.appendLastPage(listOfPosts);
       } else {
@@ -255,7 +254,7 @@ class FeedRoomView extends StatefulWidget {
   final bool isCm;
   final User user;
   final GetFeedResponse feedResponse;
-  final PagingController<int, PostViewModel> feedRoomPagingController;
+  final PagingController<int, PostViewData> feedRoomPagingController;
   final ScrollController scrollController;
   final VoidCallback onRefresh;
 
@@ -347,7 +346,7 @@ class _FeedRoomViewState extends State<FeedRoomView> {
             bloc: newPostBloc,
             listener: (prev, curr) {
               if (curr is PostDeleted) {
-                List<PostViewModel>? feedRoomItemList =
+                List<PostViewData>? feedRoomItemList =
                     widget.feedRoomPagingController.itemList;
                 feedRoomItemList!.removeWhere((item) => item.id == curr.postId);
                 widget.feedRoomPagingController.itemList = feedRoomItemList;
@@ -366,10 +365,10 @@ class _FeedRoomViewState extends State<FeedRoomView> {
                 postUploading.value = false;
               }
               if (curr is NewPostUploaded) {
-                PostViewModel? item = curr.postData;
+                PostViewData? item = curr.postData;
                 int length =
                     widget.feedRoomPagingController.itemList?.length ?? 0;
-                List<PostViewModel> feedRoomItemList =
+                List<PostViewData> feedRoomItemList =
                     widget.feedRoomPagingController.itemList ?? [];
                 for (int i = 0; i < feedRoomItemList.length; i++) {
                   if (!feedRoomItemList[i].isPinned) {
@@ -390,8 +389,8 @@ class _FeedRoomViewState extends State<FeedRoomView> {
                 rebuildPostWidget.value = !rebuildPostWidget.value;
               }
               if (curr is EditPostUploaded) {
-                PostViewModel? item = curr.postData;
-                List<PostViewModel>? feedRoomItemList =
+                PostViewData? item = curr.postData;
+                List<PostViewData>? feedRoomItemList =
                     widget.feedRoomPagingController.itemList;
                 int index = feedRoomItemList
                         ?.indexWhere((element) => element.id == item.id) ??
@@ -411,7 +410,7 @@ class _FeedRoomViewState extends State<FeedRoomView> {
                 );
               }
               if (curr is PostUpdateState) {
-                List<PostViewModel>? feedRoomItemList =
+                List<PostViewData>? feedRoomItemList =
                     widget.feedRoomPagingController.itemList;
                 int index = feedRoomItemList
                         ?.indexWhere((element) => element.id == curr.post.id) ??
@@ -517,12 +516,12 @@ class _FeedRoomViewState extends State<FeedRoomView> {
                   child: ValueListenableBuilder(
                     valueListenable: rebuildPostWidget,
                     builder: (context, _, __) {
-                      return PagedListView<int, PostViewModel>(
+                      return PagedListView<int, PostViewData>(
                         pagingController: widget.feedRoomPagingController,
                         scrollController: _controller,
                         padding: EdgeInsets.zero,
                         builderDelegate:
-                            PagedChildBuilderDelegate<PostViewModel>(
+                            PagedChildBuilderDelegate<PostViewData>(
                           noItemsFoundIndicatorBuilder: (context) => Center(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -613,7 +612,7 @@ class _FeedRoomViewState extends State<FeedRoomView> {
                                   isFeed: true,
                                   refresh: (bool isDeleted) async {
                                     if (isDeleted) {
-                                      List<PostViewModel>? feedRoomItemList =
+                                      List<PostViewData>? feedRoomItemList =
                                           widget.feedRoomPagingController
                                               .itemList;
                                       feedRoomItemList!.removeAt(index);

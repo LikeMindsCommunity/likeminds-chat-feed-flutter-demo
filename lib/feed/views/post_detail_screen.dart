@@ -9,7 +9,6 @@ import 'package:likeminds_flutter_sample/feed/blocs/comment/all_comments/all_com
 import 'package:likeminds_flutter_sample/feed/blocs/comment/comment_replies/comment_replies_bloc.dart';
 import 'package:likeminds_flutter_sample/feed/blocs/comment/toggle_like_comment/toggle_like_comment_bloc.dart';
 import 'package:likeminds_flutter_sample/feed/blocs/new_post/new_post_bloc.dart';
-import 'package:likeminds_flutter_sample/feed/models/post_view_model.dart';
 import 'package:likeminds_flutter_sample/feed/services/likeminds_service.dart';
 import 'package:likeminds_flutter_sample/feed/services/service_locator.dart';
 import 'package:likeminds_flutter_sample/feed/utils/constants/assets_constants.dart';
@@ -54,8 +53,8 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
   PostDetailResponse? postDetailResponse;
   final PagingController<int, Reply> _pagingController =
       PagingController(firstPageKey: 1);
-  PostViewModel? postData;
-  User currentUser = UserLocalPreference.instance.fetchUserData()!;
+  PostViewData? postData;
+  User currentUser = UserLocalPreference.instance.fetchUserData();
 
   List<UserTag> userTags = [];
   String? result = '';
@@ -185,7 +184,7 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
           .build(),
     );
     if (postDetails.success) {
-      postData = PostViewModel.fromPost(post: postDetails.post!);
+      postData = PostViewData.fromPost(post: postDetails.post!);
       rebuildPostWidget.value = !rebuildPostWidget.value;
     } else {
       toast(
