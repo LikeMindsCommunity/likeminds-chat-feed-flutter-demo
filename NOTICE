@@ -1,0 +1,18 @@
+LikeMinds Chat and Feed Flutter Demo
+Copyright 2026 LikeMinds
+
+This product includes software developed by LikeMinds (https://docs.likeminds.io/).
+
+This product bundles vendored third-party software under lib/packages/, each
+governed by its own license, which is retained unmodified alongside the source:
+
+  - multi_image_crop (lib/packages/multi_image_crop), licensed under the
+    Apache License, Version 2.0. Copyright 2022 Tejbhan Sahu
+
+  - image_crop 0.4.1 (lib/packages/multi_image_crop/packages/image_crop_0.4.1),
+    licensed under the Apache License, Version 2.0.
+    Copyright 2018 Volodymyr Lykhonis
+
+  - flutter_typeahead 4.3.7 (lib/packages/flutter_typeahead-4.3.7), licensed
+    under the BSD 2-Clause License.
+    Copyright (c) 2018, AbdulRahmanAlHamali. All rights reserved.
